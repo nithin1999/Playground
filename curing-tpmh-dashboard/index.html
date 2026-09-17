@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Curing TPMH Project Dashboard</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--text:#1f2937;--muted:#64748b;--line:#dbe3ec;--accent:#0f62fe;--good:#16a34a;--warn:#d97706;--bad:#dc2626}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+.container{max-width:1180px;margin:auto;padding:24px}.header{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}.title{font-size:30px;font-weight:700}.sub{color:var(--muted);margin-top:6px}.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(6,minmax(0,1fr));margin-top:20px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}.k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.v{font-size:28px;font-weight:700;margin-top:7px}.section{margin-top:20px}.section h2{margin:0 0 12px;font-size:20px}.two{grid-template-columns:1.15fr .85fr}.row{padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.status{font-weight:700}.complete{color:var(--good)}.progress{color:var(--warn)}.not{color:var(--bad)}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:12px;margin:3px 5px 3px 0}.strategy li{margin:10px 0;line-height:1.4}.gate{border-left:4px solid var(--accent);padding-left:12px;margin:12px 0}.small{font-size:13px;color:var(--muted)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);font-size:14px}th{background:#f1f5f9}.footer{margin:24px 0 8px;color:var(--muted);font-size:12px}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}}@media(max-width:520px){.kpis{grid-template-columns:1fr 1fr}.container{padding:14px}.title{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header"><div><div class="title">Curing TPMH Improvement</div><div class="sub">2-Operator Staffing Strategy Dashboard</div></div><div class="small">Status: design & validation phase</div></div>
+
+  <div class="grid kpis">
+    <div class="card"><div class="k">Current HC</div><div class="v">8</div></div>
+    <div class="card"><div class="k">Proposed HC</div><div class="v">7</div></div>
+    <div class="card"><div class="k">Curing Future Util.</div><div class="v">55%</div></div>
+    <div class="card"><div class="k">Planned Relief</div><div class="v">2 hr</div></div>
+    <div class="card"><div class="k">Abnormal Buffer</div><div class="v">1 hr</div></div>
+    <div class="card"><div class="k">Pilot</div><div class="v" style="font-size:20px">Not Started</div></div>
+  </div>
+
+  <div class="grid two section">
+    <div class="card"><h2>Latest Strategy</h2><ol class="strategy">
+      <li>Keep two qualified people available at the presses at all times.</li>
+      <li>Balance Operator 1 and Operator 2 by actual workload, not press count.</li>
+      <li>Standardize routine routes; keep alarm response direct and event-driven.</li>
+      <li>Mold and Bladder each reserve 1 hr planned relief + 0.5 hr abnormal buffer.</li>
+      <li>Protect Mold/Bladder due work; extended abnormalities escalate to supervision/additional manpower.</li>
+      <li>Run baseline, then shadow 2-op with the third Curing operator as safety net.</li>
+      <li>Run a sustained trial across a full crew rotation and watch backlog trend.</li>
+      <li>Move to true 2-op only after coverage, production, backlog and safety criteria pass.</li>
+    </ol></div>
+    <div class="card"><h2>Next Best Action</h2><div class="gate"><b>Build the 2-operator movement layout</b><div class="small">Use floor layout + per-press alarm data to compare top/bottom vs left/right ownership.</div></div><div class="gate"><b>Integrate relief schedule</b><div class="small">Curing, Mold, Bladder, Gantry and Team Lead breaks must be time-phased together.</div></div><div class="gate"><b>Validate abnormal support</b><div class="small">Replace the rough gantry-support assumption with observed people × minutes.</div></div></div>
+  </div>
+
+  <div class="grid two section">
+    <div class="card"><h2>Workstream Progress</h2>
+      <div class="row"><span>Normal workload model</span> — <span class="status complete">Complete</span></div>
+      <div class="row"><span>Mold / Bladder capacity</span> — <span class="status progress">In progress</span></div>
+      <div class="row"><span>2-operator layout</span> — <span class="status progress">In progress</span></div>
+      <div class="row"><span>Break / lunch coverage</span> — <span class="status progress">In progress</span></div>
+      <div class="row"><span>Abnormal-response plan</span> — <span class="status progress">In progress</span></div>
+      <div class="row"><span>Backup qualification matrix</span> — <span class="status not">Not started</span></div>
+      <div class="row"><span>Sustained pilot</span> — <span class="status not">Not started</span></div>
+      <div class="row"><span>Control plan</span> — <span class="status not">Not started</span></div>
+    </div>
+    <div class="card"><h2>Critical Missing Data</h2>
+      <span class="tag">Press IDs + physical positions</span><span class="tag">Per-press alarms</span><span class="tag">Mold backlog</span><span class="tag">Bladder backlog</span><span class="tag">Actual break pattern</span><span class="tag">Gantry support minutes</span><span class="tag">Skills matrix</span><span class="tag">Team Lead availability</span><span class="tag">Hourly plan vs actual</span><span class="tag">Attendance / call-ins</span>
+    </div>
+  </div>
+
+  <div class="card section"><h2>Capacity Snapshot</h2><table>
+    <thead><tr><th>Role</th><th>Required workload</th><th>Net capacity</th><th>Reserved for Curing</th><th>Future utilization</th><th>Remaining capacity</th></tr></thead>
+    <tbody><tr><td>Curing</td><td>12.10 hr</td><td>22.00 hr</td><td>—</td><td>55.0%</td><td>9.90 hr</td></tr><tr><td>Mold</td><td>11.15 hr</td><td>22.00 hr</td><td>1.50 hr</td><td>57.5%</td><td>9.35 hr</td></tr><tr><td>Bladder</td><td>4.37 hr</td><td>11.00 hr</td><td>1.50 hr</td><td>53.4%</td><td>5.13 hr</td></tr></tbody>
+  </table></div>
+
+  <div class="card section"><h2>2-Operator Layout — Current Design Direction</h2>
+    <div class="gate"><b>Primary concept</b><div class="small">Operator 1 covers the upper lane; Operator 2 covers the lower lane. Both use the center crossover for support where practical.</div></div>
+    <div class="gate"><b>Routine movement</b><div class="small">Standardize inspection, GIP, documentation and 2S routes. Do not force a fixed alarm route.</div></div>
+    <div class="gate"><b>Alarm response</b><div class="small">Assigned operator responds directly; second operator assists only when alarms overlap or abnormal work exceeds one operator.</div></div>
+    <div class="gate"><b>Validation still needed</b><div class="small">Compare top/bottom ownership against left/right geographic ownership using press-level workload and travel distance.</div></div>
+  </div>
+
+  <div class="card section"><h2>Pilot Gates</h2>
+    <div class="gate"><b>Gate 1 — Baseline</b><div class="small">Current staffing: collect production, backlog, breaks and support data.</div></div>
+    <div class="gate"><b>Gate 2 — Shadow 2-op</b><div class="small">Third operator remains present but only intervenes if the proposed system fails.</div></div>
+    <div class="gate"><b>Gate 3 — Sustained Trial</b><div class="small">Run consecutive shifts and watch Mold/Bladder closing backlog and support burden.</div></div>
+    <div class="gate"><b>Gate 4 — True 2-op</b><div class="small">Proceed only when coverage, production, safety and backlog are stable.</div></div>
+  </div>
+
+  <div class="footer">Curing TPMH Improvement Project Dashboard • strategy snapshot</div>
+</div>
+</body></html>
