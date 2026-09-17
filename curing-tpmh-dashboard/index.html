@@ -7,7 +7,7 @@
 <style>
 :root{--bg:#f6f8fb;--card:#fff;--text:#1f2937;--muted:#64748b;--line:#dbe3ec;--accent:#0f62fe;--good:#16a34a;--warn:#d97706;--bad:#dc2626}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-.container{max-width:1180px;margin:auto;padding:24px}.header{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}.title{font-size:30px;font-weight:700}.sub{color:var(--muted);margin-top:6px}.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(6,minmax(0,1fr));margin-top:20px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}.k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.v{font-size:28px;font-weight:700;margin-top:7px}.section{margin-top:20px}.section h2{margin:0 0 12px;font-size:20px}.two{grid-template-columns:1.15fr .85fr}.row{padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.status{font-weight:700}.complete{color:var(--good)}.progress{color:var(--warn)}.not{color:var(--bad)}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:12px;margin:3px 5px 3px 0}.strategy li{margin:10px 0;line-height:1.4}.gate{border-left:4px solid var(--accent);padding-left:12px;margin:12px 0}.small{font-size:13px;color:var(--muted)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);font-size:14px}th{background:#f1f5f9}.footer{margin:24px 0 8px;color:var(--muted);font-size:12px}
+.container{max-width:1180px;margin:auto;padding:24px}.header{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}.title{font-size:30px;font-weight:700}.sub{color:var(--muted);margin-top:6px}.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(6,minmax(0,1fr));margin-top:20px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}.k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.v{font-size:28px;font-weight:700;margin-top:7px}.section{margin-top:20px}.section h2{margin:0 0 12px;font-size:20px}.two{grid-template-columns:1.15fr .85fr}.row{padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.status{font-weight:700}.complete{color:var(--good)}.progress{color:var(--warn)}.not{color:var(--bad)}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:12px;margin:3px 5px 3px 0}.strategy li{margin:10px 0;line-height:1.4}.gate{border-left:4px solid var(--accent);padding-left:12px;margin:12px 0}.decision{border-left:4px solid var(--bad);padding:12px 14px;background:#fff7f7;border-radius:8px}.small{font-size:13px;color:var(--muted)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);font-size:14px}th{background:#f1f5f9}.footer{margin:24px 0 8px;color:var(--muted);font-size:12px}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}}@media(max-width:520px){.kpis{grid-template-columns:1fr 1fr}.container{padding:14px}.title{font-size:24px}}
 </style>
 </head>
@@ -24,18 +24,21 @@
     <div class="card"><div class="k">Pilot</div><div class="v" style="font-size:20px">Not Started</div></div>
   </div>
 
+  <div class="card section decision"><b>Safety decision:</b> Tricycle concept rejected. The future-state design will not depend on ride-on mobility. Travel reduction now shifts to zone design, central standby positions, point-of-use supplies, staging, visual/remote alarm awareness, and Safety-approved non-ride-on carts where useful.</div>
+
   <div class="grid two section">
     <div class="card"><h2>Latest Strategy</h2><ol class="strategy">
       <li>Keep two qualified people available at the presses at all times.</li>
       <li>Balance Operator 1 and Operator 2 by actual workload, not press count.</li>
       <li>Standardize routine routes; keep alarm response direct and event-driven.</li>
+      <li>Reduce motion through layout and point-of-use design instead of ride-on mobility.</li>
       <li>Mold and Bladder each reserve 1 hr planned relief + 0.5 hr abnormal buffer.</li>
       <li>Protect Mold/Bladder due work; extended abnormalities escalate to supervision/additional manpower.</li>
       <li>Run baseline, then shadow 2-op with the third Curing operator as safety net.</li>
       <li>Run a sustained trial across a full crew rotation and watch backlog trend.</li>
       <li>Move to true 2-op only after coverage, production, backlog and safety criteria pass.</li>
     </ol></div>
-    <div class="card"><h2>Next Best Action</h2><div class="gate"><b>Build the 2-operator movement layout</b><div class="small">Use floor layout + per-press alarm data to compare top/bottom vs left/right ownership.</div></div><div class="gate"><b>Integrate relief schedule</b><div class="small">Curing, Mold, Bladder, Gantry and Team Lead breaks must be time-phased together.</div></div><div class="gate"><b>Validate abnormal support</b><div class="small">Replace the rough gantry-support assumption with observed people × minutes.</div></div></div>
+    <div class="card"><h2>Next Best Action</h2><div class="gate"><b>Build the 2-operator movement layout</b><div class="small">Compare top/bottom vs left/right ownership using press workload, alarms and walking distance.</div></div><div class="gate"><b>Run a motion-reduction study</b><div class="small">Measure travel by task, then attack the biggest walking drivers with point-of-use storage, central staging and route redesign.</div></div><div class="gate"><b>Integrate relief schedule</b><div class="small">Curing, Mold, Bladder, Gantry and Team Lead breaks must be time-phased together.</div></div><div class="gate"><b>Validate abnormal support</b><div class="small">Replace the rough gantry-support assumption with observed people × minutes.</div></div></div>
   </div>
 
   <div class="grid two section">
@@ -43,6 +46,7 @@
       <div class="row"><span>Normal workload model</span> — <span class="status complete">Complete</span></div>
       <div class="row"><span>Mold / Bladder capacity</span> — <span class="status progress">In progress</span></div>
       <div class="row"><span>2-operator layout</span> — <span class="status progress">In progress</span></div>
+      <div class="row"><span>Motion reduction alternative</span> — <span class="status progress">Pivot required after tricycle rejection</span></div>
       <div class="row"><span>Break / lunch coverage</span> — <span class="status progress">In progress</span></div>
       <div class="row"><span>Abnormal-response plan</span> — <span class="status progress">In progress</span></div>
       <div class="row"><span>Backup qualification matrix</span> — <span class="status not">Not started</span></div>
@@ -50,7 +54,7 @@
       <div class="row"><span>Control plan</span> — <span class="status not">Not started</span></div>
     </div>
     <div class="card"><h2>Critical Missing Data</h2>
-      <span class="tag">Press IDs + physical positions</span><span class="tag">Per-press alarms</span><span class="tag">Mold backlog</span><span class="tag">Bladder backlog</span><span class="tag">Actual break pattern</span><span class="tag">Gantry support minutes</span><span class="tag">Skills matrix</span><span class="tag">Team Lead availability</span><span class="tag">Hourly plan vs actual</span><span class="tag">Attendance / call-ins</span>
+      <span class="tag">Press IDs + physical positions</span><span class="tag">Per-press alarms</span><span class="tag">Walking distance/time</span><span class="tag">Material/GIP locations</span><span class="tag">Mold backlog</span><span class="tag">Bladder backlog</span><span class="tag">Actual break pattern</span><span class="tag">Gantry support minutes</span><span class="tag">Skills matrix</span><span class="tag">Team Lead availability</span><span class="tag">Hourly plan vs actual</span><span class="tag">Attendance / call-ins</span>
     </div>
   </div>
 
@@ -63,14 +67,15 @@
     <div class="gate"><b>Primary concept</b><div class="small">Operator 1 covers the upper lane; Operator 2 covers the lower lane. Both use the center crossover for support where practical.</div></div>
     <div class="gate"><b>Routine movement</b><div class="small">Standardize inspection, GIP, documentation and 2S routes. Do not force a fixed alarm route.</div></div>
     <div class="gate"><b>Alarm response</b><div class="small">Assigned operator responds directly; second operator assists only when alarms overlap or abnormal work exceeds one operator.</div></div>
+    <div class="gate"><b>Travel reduction without tricycle</b><div class="small">Test central home positions, point-of-use GIP/cleaning supplies, duplicated critical consumables, rolling carts where approved, and better alarm visibility before considering any new mobility concept.</div></div>
     <div class="gate"><b>Validation still needed</b><div class="small">Compare top/bottom ownership against left/right geographic ownership using press-level workload and travel distance.</div></div>
   </div>
 
   <div class="card section"><h2>Pilot Gates</h2>
-    <div class="gate"><b>Gate 1 — Baseline</b><div class="small">Current staffing: collect production, backlog, breaks and support data.</div></div>
+    <div class="gate"><b>Gate 1 — Baseline</b><div class="small">Current staffing: collect production, backlog, breaks, walking and support data.</div></div>
     <div class="gate"><b>Gate 2 — Shadow 2-op</b><div class="small">Third operator remains present but only intervenes if the proposed system fails.</div></div>
-    <div class="gate"><b>Gate 3 — Sustained Trial</b><div class="small">Run consecutive shifts and watch Mold/Bladder closing backlog and support burden.</div></div>
-    <div class="gate"><b>Gate 4 — True 2-op</b><div class="small">Proceed only when coverage, production, safety and backlog are stable.</div></div>
+    <div class="gate"><b>Gate 3 — Sustained Trial</b><div class="small">Run consecutive shifts and watch Mold/Bladder closing backlog, travel burden and support demand.</div></div>
+    <div class="gate"><b>Gate 4 — True 2-op</b><div class="small">Proceed only when coverage, production, safety, workload and backlog are stable.</div></div>
   </div>
 
   <div class="footer">Curing TPMH Improvement Project Dashboard • strategy snapshot</div>
