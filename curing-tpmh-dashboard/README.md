@@ -10,16 +10,14 @@ Design/validation phase. No 2-operator pilot success or permanent manpower reduc
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Demonstrated Skill-Coverage Gate
-A staffing model can look feasible on minutes and still fail if the two people present cannot independently perform the critical work that arrives. Replace a simple cross-training yes/no matrix with a demonstrated qualification matrix tied to the actual two-operator pairing and relief plan.
+## Latest improvement — Exception-Based Pilot Observation + Process Confirmation
+The pilot observation method is now split into two layers so the observer does not create an impractical continuous diary or miss the events that determine whether two operators are sustainable.
 
-For each critical task/abnormality, record: task, required role/qualification, Op1 demonstrated status, Op2 demonstrated status, primary relief demonstrated status, alternate relief demonstrated status, trainer/verifier, verification date/method, and any restriction. Use plant-required qualifications where they exist.
+**Layer A — event-triggered exception log:** record every third-person intervention, simultaneous abnormality, missed/delayed protected task, relief problem, cross-zone assist, qualification constraint, material/tool/search trip, Green/Amber/Red escalation, or backlog creation/recovery. Capture timestamp, trigger, operator/zone state, response, outside-support role and people-minutes, displaced work, recovery time/source, and consequence avoided/observed. Do not infer hands-on labor from alarm duration.
 
-Recommended readiness states are descriptive, not performance thresholds: Not trained; Training/practice; Demonstrated under observation; Approved independent where plant rules require formal approval. Do not count classroom exposure or self-reported familiarity as independent coverage.
+**Layer B — periodic process confirmation:** at a fixed practical cadence selected before the exposure, take a short snapshot of Op1/Op2 location, NORMAL vs ABNORMAL mode, pending-work queue, relief state and whether the defined route/dispatch standard is usable. The purpose is not operator compliance scoring; deviations should trigger a reason code (equipment, layout/motion, skill, material, competing task, unclear standard, other) so the standard or system can be improved.
 
-Before each pilot exposure, run a Pairing Coverage Check against the actual people assigned that shift. Any task requiring a qualification that the available pair/relief structure does not possess is a staffing-design constraint, not evidence that the operator needs to work faster. Do not invent a required number of qualified people; use plant requirements and the abnormal-response/relief design to determine needed coverage.
-
-Use TWI Job Instruction for new or revised standardized tasks: prepare the worker, present the job, have the worker try it, then follow up. Build Job Breakdown Sheets around Important Steps, Key Points and Reasons Why for critical tasks.
+Do not invent a universal audit frequency or intervention limit. Freeze the cadence before the pilot, keep it feasible for the observer, and use event-triggered capture for all consequential exceptions. This creates a denominator for how often the system is observed in control while preserving detailed evidence on failure/recovery episodes.
 
 ## Best current strategy
 1. Map presses/travel and remove avoidable motion; compare candidate zone layouts on occupied work + peaks + travel.
@@ -31,25 +29,25 @@ Use TWI Job Instruction for new or revised standardized tasks: prepare the worke
 7. Reserve break-relief capacity while retaining the helper's own due work.
 8. Build 30-minute Capacity Reserve + Recovery Profiles with qualification constraints applied to available capacity.
 9. Freeze measurement definitions, Leader Standard Work, SIC cadence and Green/Amber/Red authority.
-10. Freeze the Pilot Context Card and Pilot Decision Scorecard.
+10. Freeze the Pilot Context Card, Pilot Decision Scorecard, and Exception-Based Observation protocol before seeing 2-op results.
 11. Collect a context-characterized 3-op baseline using identical definitions.
-12. Shadow 2-op; compare with context-matched 3-op periods on the full scorecard, not TPMH alone.
-13. Pareto structural-overload, skill-coverage and exception windows; revise zones, training, standard work and support rules.
+12. Shadow 2-op; use periodic process confirmation plus event-triggered exception capture, then compare with context-matched 3-op periods on the full scorecard, not TPMH alone.
+13. Pareto structural-overload, intervention, motion, skill-coverage and exception windows; revise zones, training, standard work and support rules.
 14. Expand across underrepresented contexts and A/B/C/D crews; move to true 2-op only after representative conditions pass without hidden support, recurring overload, protected-work failure, missed relief, persistent backlog or qualification-dependent intervention.
 
 ## Pilot gates
 - Gate 0 — Data/design: layout, alarm evidence, travel study and candidate zones.
 - Gate 1 — Standard work/skills: NORMAL route, ABNORMAL dispatch/recovery, routine-work matrix, response matrix, visible queue and demonstrated critical-task coverage for the actual pair/relief structure.
 - Gate 2 — Relief/capacity: relief reservation plus preliminary 30-minute Capacity Reserve + Recovery Profile with qualification constraints.
-- Gate 3 — Management/measurement: measurement dictionary, observer check, Leader Standard Work, visual controls, SIC ownership, intervention taxonomy, escalation matrix and frozen Pilot Decision Scorecard.
-- Gate 4 — Baseline/context: current 3-op state measured with identical scorecard definitions plus Pilot Context Card.
-- Gate 5 — Shadow 2-op: capture context and the full decision vector.
+- Gate 3 — Management/measurement: measurement dictionary, observer check, Leader Standard Work, visual controls, SIC ownership, intervention taxonomy, escalation matrix, Exception-Based Observation protocol and frozen Pilot Decision Scorecard.
+- Gate 4 — Baseline/context: current 3-op state measured with identical scorecard and observation definitions plus Pilot Context Card.
+- Gate 5 — Shadow 2-op: capture context, periodic process confirmations, all consequential exceptions and the full decision vector.
 - Gate 6 — Matched analysis/revise: compare context-matched exposures and Pareto exceptions.
 - Gate 7 — Coverage: test underrepresented demand, concurrency, break, downtime/recovery and crew conditions.
 - Gate 8 — True 2-op/control: demonstrated acceptance across representative conditions with controlled standard work, skills, relief, escalation, SIC and control plan.
 
 ## Immediate next action
-Build the **Task × Person Demonstrated Skill Matrix** for the exact A-shift people expected in the first exposure, including primary and alternate break relief. Start with tasks that can stop production, affect safety/quality, or require special authorization. Identify uncovered tasks before the pilot; close gaps with plant-approved training/TWI Job Instruction or change the pairing/relief plan. Then populate the existing Pilot Decision Scorecard for a representative 3-op shift.
+Create the **one-page pilot observation sheet** before the first exposure. Put the Pilot Context Card at the top, a small periodic process-confirmation grid in the middle, and the event-triggered exception/intervention log below it. Freeze the observation cadence and reason codes before seeing 2-op results. In parallel, complete the Task × Person Demonstrated Skill Matrix for the exact A-shift pair and relief structure; uncovered plant-required skills remain a pre-exposure constraint.
 
 ## Data still needed
 1. Plant-required qualifications/authorizations and existing training records for Curing, alarm response, manual load/unload, GIP/scanning, bladder/mold interfaces and other critical tasks.
@@ -67,3 +65,4 @@ Build the **Task × Person Demonstrated Skill Matrix** for the exact A-shift peo
 13. Exact press positions and representative travel paths/times.
 14. Decision/escalation authority.
 15. Enough 3-op baseline observations to create comparison bands without invented thresholds.
+16. Pilot observer availability and a practical pre-frozen process-confirmation cadence; no universal frequency is assumed.
