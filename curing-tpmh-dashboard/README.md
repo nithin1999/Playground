@@ -16,10 +16,21 @@ Project dashboard for the Curing TPMH / 2-operator staffing improvement project.
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — predefine the pilot acceptance matrix
-The project now needs an explicit **pilot acceptance / recovery matrix before the shadow trial starts**. This prevents the trial from being judged afterward by opinion or by TPMH alone. PDCA requires defining the intended change, measuring the result, then standardizing or revising it. Standardized work supplies the baseline against which deviations can be detected.
+## Latest improvement — add Leader Standard Work to the pilot
+The future-state operator standard and acceptance matrix now need a matching **Leader Standard Work (LSW)** layer. The 2-operator design should not depend on operators deciding ad hoc when to call for help, or on the Team Lead/Supervisor informally noticing trouble. During the pilot, leadership response itself should be standardized and measured.
 
-### Pilot metric families
+### Pilot leader standard work
+At minimum, define these leader actions for each trial shift:
+1. **Start-of-shift readiness check:** staffing/qualifications, planned production, known press/gantry constraints, Mold/Bladder due work, relief coverage, and whether the pilot can start under the agreed conditions.
+2. **Visual status review:** use one board/log showing plan vs actual, operator-zone status, active abnormalities, intervention count/minutes, Mold/Bladder carryover, and any safety/quality issue.
+3. **Defined escalation ownership:** specify who receives the call when the two Curing operators cannot maintain coverage, and who has authority to restore the third operator/extra support. Do not leave this as an informal expectation.
+4. **Immediate abnormality response:** respond to escalation/andon, restore safe required coverage first, then record the cause rather than allowing the pilot to drift with hidden support.
+5. **End-of-shift reflection:** review interventions and deviations, identify the dominant failure mode, assign one countermeasure/owner, and decide whether the next trial can proceed unchanged or requires revision.
+
+### Why this matters
+The operator standard defines how two people should run the area. Leader Standard Work defines how the organization supports that standard and reacts when reality differs. Without it, the pilot can appear successful because a Team Lead, Mold/Bladder operator, supervisor, or third operator quietly absorbs problems. That hidden labor transfer would invalidate the manpower conclusion.
+
+## Pilot acceptance / recovery matrix
 Use the existing 3-operator baseline to establish numeric limits where plant standards do not already exist. Do **not** invent thresholds before baseline evidence is available.
 
 | Family | Required measures | Decision purpose |
@@ -32,24 +43,21 @@ Use the existing 3-operator baseline to establish numeric limits where plant sta
 | Support-system health | Mold/Bladder required/completed/carryover, gantry support minutes, Team Lead/backup minutes | Detect hidden labor transfer or backlog creation |
 | Standard adherence | missed routine tasks, route deviations, break/relief exceptions, abnormal-response escalations | Identify whether the future-state method is executable |
 
-### Recovery rule
-Any safety-critical event uses the plant's existing stop/escalation requirements. For non-safety failures, record the condition, restore required coverage if needed, classify the failure cause, and revise the future-state standard before another trial. The third operator in the shadow pilot remains a safety net and measurement source, not hidden routine capacity.
-
 ### Intervention Pareto
-Every third-operator intervention should receive one reason code: overlapping alarms; long abnormality/troubleshooting; manual load/unload; gantry disruption; break/relief coverage; material/GIP; documentation/check; zone/travel imbalance; backup unavailable/unqualified; other. After each pilot block, Pareto intervention minutes and counts. The dominant reason determines the next countermeasure instead of changing several things at once.
+Every third-operator or outside-support intervention should receive one reason code: overlapping alarms; long abnormality/troubleshooting; manual load/unload; gantry disruption; break/relief coverage; material/GIP; documentation/check; zone/travel imbalance; backup unavailable/unqualified; other. Record **who provided support and minutes** so Team Lead/Mold/Bladder assistance is visible rather than free capacity. Pareto intervention minutes and counts after each pilot block.
 
 ## Pilot gates
 - **Gate 0 — Data/design:** mapped layout, comparable/normalized alarms, workload-balanced zones and alarm visibility.
 - **Gate 1 — Standard-work readiness:** route charts, time-phased workload, abnormal-response sheet, break/relief plan and backup qualification sheets.
-- **Gate 2 — Acceptance-plan readiness:** baseline values available and acceptance/recovery matrix agreed for safety, quality, production, TPMH, response, support-system health and standard adherence.
+- **Gate 2 — Management-system readiness:** acceptance/recovery matrix plus Leader Standard Work, visual board/log, named escalation owner and authority to restore coverage.
 - **Gate 3 — Baseline:** collect current-state performance with the same definitions/instruments that will be used during the pilot.
-- **Gate 4 — Shadow 2-op:** third operator intervenes only when the proposed system cannot cope; every intervention is logged and coded.
-- **Gate 5 — Revise standard:** Pareto intervention causes and other failures; revise one or more zone, route, support, relief or qualification rules through PDCA.
+- **Gate 4 — Shadow 2-op:** third operator intervenes only when the proposed system cannot cope; every intervention/outside-support minute is logged and coded.
+- **Gate 5 — Revise standard:** Pareto intervention causes and other failures; revise zone, route, support, relief, qualification or leader-response rules through PDCA.
 - **Gate 6 — Sustained trial:** consecutive shifts/full crew rotation; verify results without accumulating Mold/Bladder backlog or hidden support labor.
-- **Gate 7 — True 2-op / Control:** all acceptance families demonstrated; standardized-work documents and visual controls become the controlled method.
+- **Gate 7 — True 2-op / Control:** all acceptance families demonstrated; operator standard work, Leader Standard Work and visual controls become the controlled method.
 
 ## Immediate next action
-Create a **one-page Pilot Acceptance & Intervention Log** before the first shadow trial. It should contain baseline, pilot value, pass/fail/status, intervention reason code, intervention minutes, production impact, backlog impact, safety/quality observation, and countermeasure owner. Leave numeric limits TBD until current baseline or existing plant requirements support them.
+Before the first shadow trial, create a one-page **Pilot Control Board / Shift Sheet** with: planned vs actual production; Op 1/Op 2 zone status; intervention reason/provider/minutes; Mold and Bladder opening/required/completed/closing backlog; safety/quality abnormalities; leader escalation/action; and end-of-shift proceed/revise decision. This is a measurement/control instrument, not proof that the trial has passed.
 
 ## Data still needed
 1. Exact press positions / press IDs overlaid on floor layout.
@@ -63,7 +71,7 @@ Create a **one-page Pilot Acceptance & Intervention Log** before the first shado
 9. Actual break/lunch timing across Curing, Mold, Bladder, Gantry and Team Lead.
 10. Gantry manual-support people-minutes.
 11. Task-level backup qualification evidence.
-12. Team Lead availability.
+12. Team Lead availability and authority/escalation role during pilot.
 13. Hourly plan vs actual production and TPMH.
 14. Attendance/call-in history.
 15. Current safety/quality/production baseline definitions and any existing plant limits that must govern pilot acceptance.
