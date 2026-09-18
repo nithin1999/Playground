@@ -16,51 +16,56 @@ Project dashboard for the Curing TPMH / 2-operator staffing improvement project.
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — make break relief a time-phased capacity test
-The proposed 2-operator state cannot be validated using only total shift utilization or a statement that Mold/Bladder have spare hours. A relief person is useful only if they are qualified and actually available at the specific time a Curing operator leaves the area. On 12-hour shifts, break design is also a safety/control issue, not optional residual capacity. NIOSH guidance recommends frequent brief breaks during demanding work and examining workload against long-shift demands.
+## Latest improvement — add a time-phased capacity-margin test
+Aggregate utilization and a balanced Yamazumi are necessary but not sufficient for this machine-intensive, interruption-driven process. The two-operator design must also show that occupied work fits inside available operator time in short intervals, because alarm response, routine work, walking and relief can collide even when shift-average utilization is low.
 
-### Break Relief Coverage Matrix
-Before the shadow pilot, build a shift timeline (30-minute intervals initially) with rows for Curing Op 1, Curing Op 2, Mold, Bladder, Gantry and Team Lead. For each interval record:
-1. Planned break/lunch or due work.
-2. Required Curing coverage.
-3. Named qualified relief person.
-4. Relief person's own protected/due work.
-5. Expected routine workload in the Curing zone.
-6. Actual alarm/abnormal demand during baseline/pilot.
-7. Outside-support minutes if the planned relief arrangement fails.
+Build a **30-minute Capacity Margin Profile** for each proposed operator zone during baseline and shadow testing:
 
-Do not count Mold or Bladder's aggregate spare hours as relief capacity if those hours do not coincide with the Curing break window or would create their own carryover. Stagger Curing breaks where practical so only one Curing operator requires relief at a time. The two-qualified-at-presses rule remains the design assumption unless Safety/operations formally establish another standard.
+`Capacity margin = available operator minutes - (routine occupied minutes + alarm hands-on minutes + necessary walking + relief/support obligation minutes)`
 
-### New pilot failure mode to expose
-Add `relief unavailable / conflicting due work` as its own intervention code. This separates a bad 2-operator workload design from a bad relief schedule. A trial should not be rejected simply because breaks were poorly sequenced, and it should not be accepted if Mold/Bladder backlog was created to cover those breaks.
+Do not include unattended automatic press processing as occupied labor. Lean standardized-work guidance explicitly separates manual work, walk time and machine processing time; the Process Capacity Sheet and Standardized Work Combination Table are intended to expose true capacity/bottlenecks and operator-machine interaction.
+
+### How to use the profile
+1. Use 30-minute buckets initially; retain raw timestamps so the interval can later be tightened if needed.
+2. Plot Op 1 and Op 2 capacity margin through the 12-hour shift.
+3. Mark intervals where margin goes negative or the third operator/backup intervenes.
+4. Code the cause: alarm overlap, long hands-on troubleshooting, GIP/material, checks/documentation, manual handling, break relief, gantry support, excessive travel, or other.
+5. Pareto negative-margin minutes and intervention minutes after the shadow run.
+6. Do not invent a required reserve percentage yet. Establish the normal distribution from the 3-operator baseline and shadow evidence, then set the future control limit/trigger with Operations and Safety.
+
+This adds a stronger distinction between **average feasibility** and **peak feasibility**. A design can have ~55% average utilization and still be unacceptable if recurring short intervals require hidden third-person labor.
+
+## Break Relief Coverage Matrix
+Build a shift timeline with Curing Op 1, Curing Op 2, Mold, Bladder, Gantry and Team Lead. Record planned breaks, due work, qualification, named relief, actual alarm demand and outside-support minutes. Mold/Bladder aggregate spare hours count only when they coincide with the required relief window and do not create carryover. Stagger Curing breaks where practical so only one Curing operator requires relief at a time.
 
 ## Pilot acceptance / recovery matrix
 Use the existing 3-operator baseline to establish numeric limits where plant standards do not already exist. Do not invent thresholds before baseline evidence is available.
 
 | Family | Required measures | Decision purpose |
 |---|---|---|
-| Safety | incidents, near misses, unsafe rushing/reaching, blocked aisles, ergonomic/fatigue concerns | Immediate stop/recovery for safety exposure |
+| Safety | incidents, near misses, unsafe rushing/reaching, ergonomic/fatigue concerns | Immediate stop/recovery for safety exposure |
 | Quality | curing-related defects/holds/rework and missed required checks | Ensure labor reduction does not transfer cost to quality |
 | Delivery / Production | tires/shift, hourly plan vs actual, downtime attributable to staffing/response | Verify output is not sacrificed |
-| Labor / TPMH | actual man-hours, TPMH, overtime/extra support minutes | Verify the intended productivity gain is real |
-| Response / Workload | alarm arrival time, hands-on response time, overlaps, third-operator interventions, zone workload | Test whether two operators can absorb normal and peak demand |
-| Relief feasibility | planned vs actual break time, named relief, relief conflicts, missed/delayed breaks | Prove the 12-hour-shift coverage model works at the required times |
-| Support-system health | Mold/Bladder required/completed/carryover, gantry support minutes, Team Lead/backup minutes | Detect hidden labor transfer or backlog creation |
-| Standard adherence | missed routine tasks, route deviations, break/relief exceptions, abnormal-response escalations | Identify whether the future-state method is executable |
+| Labor / TPMH | actual man-hours, TPMH, overtime/extra support minutes | Verify productivity gain is real |
+| Response / Workload | alarm arrival, hands-on response, overlaps, interventions, zone workload | Test normal and peak demand |
+| Capacity margin | available minutes minus occupied work by 30-minute interval | Expose short-duration overload hidden by shift averages |
+| Relief feasibility | planned vs actual breaks, named relief, conflicts, missed/delayed breaks | Prove coverage at required times |
+| Support-system health | Mold/Bladder carryover, gantry support, Team Lead/backup minutes | Detect hidden labor transfer |
+| Standard adherence | missed routine tasks, route deviations, exceptions/escalations | Test whether future-state method is executable |
 
 ## Pilot gates
 - **Gate 0 — Data/design:** mapped layout, comparable/normalized alarms, workload-balanced zones and alarm visibility.
 - **Gate 1 — Standard-work readiness:** route charts, time-phased workload, abnormal-response sheet and task-level backup qualifications.
-- **Gate 2 — Relief-system readiness:** time-phased Break Relief Coverage Matrix demonstrates that planned Curing breaks have named qualified coverage without conflicting Mold/Bladder/Gantry due work or relying on hidden labor.
+- **Gate 2 — Relief/capacity readiness:** Break Relief Coverage Matrix plus preliminary 30-minute Capacity Margin Profile show where coverage conflicts or peak overload could occur; unresolved intervals have countermeasures or explicit recovery rules.
 - **Gate 3 — Management-system readiness:** acceptance/recovery matrix plus Leader Standard Work, visual board/log, named escalation owner and authority to restore coverage.
-- **Gate 4 — Baseline:** collect current-state performance with the same definitions/instruments used during the pilot, including actual break timing and relief/support minutes.
-- **Gate 5 — Shadow 2-op:** third operator intervenes only when the proposed system cannot cope; every intervention/outside-support minute is logged and coded.
-- **Gate 6 — Revise standard:** Pareto intervention causes; revise zone, route, support, relief, qualification or leader-response rules through PDCA.
-- **Gate 7 — Sustained trial:** consecutive shifts/full crew rotation; verify results without accumulating Mold/Bladder backlog, missed relief or hidden support labor.
-- **Gate 8 — True 2-op / Control:** all acceptance families demonstrated; operator standard work, relief matrix, Leader Standard Work and visual controls become the controlled method.
+- **Gate 4 — Baseline:** collect current-state performance with the same definitions/instruments used during pilot, including actual breaks, support minutes and capacity margin.
+- **Gate 5 — Shadow 2-op:** third operator intervenes only when proposed system cannot cope; every intervention/outside-support minute and negative-margin interval is logged/coded.
+- **Gate 6 — Revise standard:** Pareto intervention/negative-margin causes; revise zone, route, support, relief, qualification or leader-response rules through PDCA.
+- **Gate 7 — Sustained trial:** consecutive shifts/full crew rotation; verify results without accumulating backlog, missed relief, recurring negative-margin intervals or hidden support labor.
+- **Gate 8 — True 2-op / Control:** acceptance families demonstrated; operator standard work, relief matrix, capacity-margin triggers, Leader Standard Work and visual controls become controlled method.
 
 ## Immediate next action
-Build the **Break Relief Coverage Matrix** before the shadow pilot. Start with the actual current break/lunch times for Curing, Mold, Bladder, Gantry and Team Lead. Overlay each role's due work and qualification. The output should show exactly who covers each Curing operator and when; any uncovered/conflicting interval becomes a countermeasure target before the trial.
+Create the **30-minute Capacity Margin Profile** using the existing workload observations and alarm timestamps, leaving alarm hands-on time explicitly TBD until response observations are available. Overlay the Break Relief Coverage Matrix. This will identify exactly which time blocks require the next targeted observation rather than collecting more undirected time-study data.
 
 ## Data still needed
 1. Exact press positions / press IDs overlaid on floor layout.
@@ -77,4 +82,4 @@ Build the **Break Relief Coverage Matrix** before the shadow pilot. Start with t
 12. Team Lead availability and authority/escalation role during pilot.
 13. Hourly plan vs actual production and TPMH.
 14. Attendance/call-in history.
-15. Current safety/quality/production baseline definitions and existing plant limits governing pilot acceptance.
+15. Current safety/quality/production baseline definitions and plant limits governing pilot acceptance.
