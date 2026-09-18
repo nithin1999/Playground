@@ -10,14 +10,20 @@ Design/validation phase. No 2-operator pilot success or permanent manpower reduc
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Exception-Based Pilot Observation + Process Confirmation
-The pilot observation method is now split into two layers so the observer does not create an impractical continuous diary or miss the events that determine whether two operators are sustainable.
+## Latest improvement — Effective Labor / Support Burden Test
+A 2-operator exposure must be evaluated on **total labor consumed by the system**, not only the two scheduled Curing operators. Every staffing-dependent intervention by Team Lead, Mold, Bladder, Gantry or another operator is captured as people-minutes and retained in the labor denominator.
 
-**Layer A — event-triggered exception log:** record every third-person intervention, simultaneous abnormality, missed/delayed protected task, relief problem, cross-zone assist, qualification constraint, material/tool/search trip, Green/Amber/Red escalation, or backlog creation/recovery. Capture timestamp, trigger, operator/zone state, response, outside-support role and people-minutes, displaced work, recovery time/source, and consequence avoided/observed. Do not infer hands-on labor from alarm duration.
+For each matched baseline/pilot exposure calculate:
 
-**Layer B — periodic process confirmation:** at a fixed practical cadence selected before the exposure, take a short snapshot of Op1/Op2 location, NORMAL vs ABNORMAL mode, pending-work queue, relief state and whether the defined route/dispatch standard is usable. The purpose is not operator compliance scoring; deviations should trigger a reason code (equipment, layout/motion, skill, material, competing task, unclear standard, other) so the standard or system can be improved.
+**Effective labor hours = direct Curing labor hours + staffing-dependent outside-support people-minutes / 60.**
 
-Do not invent a universal audit frequency or intervention limit. Freeze the cadence before the pilot, keep it feasible for the observer, and use event-triggered capture for all consequential exceptions. This creates a denominator for how often the system is observed in control while preserving detailed evidence on failure/recovery episodes.
+**Support burden = staffing-dependent outside-support people-minutes / exposure hours.**
+
+**Adjusted TPMH = tires produced / effective labor hours.**
+
+Also report scheduled TPMH separately so the gap between apparent and effective labor productivity is visible. Do not classify all Team Lead or neighboring-department contact as hidden labor: use the same intervention taxonomy in the 3-op baseline and 2-op exposure, separating normal supervisory/process support from work that substitutes for removed Curing capacity. Count break relief and cross-support explicitly rather than hiding them in the scheduled headcount.
+
+No arbitrary acceptable support-minute threshold is set. Establish the normal-support distribution from the 3-op baseline, then compare context-matched 2-op exposures and investigate incremental support by reason. A pilot that reaches production with materially more staffing-dependent support has not yet demonstrated an autonomous 2-operator system even if scheduled-headcount TPMH looks favorable.
 
 ## Best current strategy
 1. Map presses/travel and remove avoidable motion; compare candidate zone layouts on occupied work + peaks + travel.
@@ -29,25 +35,26 @@ Do not invent a universal audit frequency or intervention limit. Freeze the cade
 7. Reserve break-relief capacity while retaining the helper's own due work.
 8. Build 30-minute Capacity Reserve + Recovery Profiles with qualification constraints applied to available capacity.
 9. Freeze measurement definitions, Leader Standard Work, SIC cadence and Green/Amber/Red authority.
-10. Freeze the Pilot Context Card, Pilot Decision Scorecard, and Exception-Based Observation protocol before seeing 2-op results.
-11. Collect a context-characterized 3-op baseline using identical definitions.
-12. Shadow 2-op; use periodic process confirmation plus event-triggered exception capture, then compare with context-matched 3-op periods on the full scorecard, not TPMH alone.
-13. Pareto structural-overload, intervention, motion, skill-coverage and exception windows; revise zones, training, standard work and support rules.
-14. Expand across underrepresented contexts and A/B/C/D crews; move to true 2-op only after representative conditions pass without hidden support, recurring overload, protected-work failure, missed relief, persistent backlog or qualification-dependent intervention.
+10. Freeze the Pilot Context Card, Pilot Decision Scorecard, Exception-Based Observation protocol and intervention taxonomy before seeing 2-op results.
+11. Collect a context-characterized 3-op baseline using identical definitions, including normal outside-support people-minutes.
+12. Shadow 2-op; use periodic process confirmation plus event-triggered exception capture, then compare context-matched 3-op periods on the full scorecard.
+13. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH; Pareto incremental support plus structural-overload, motion, skill and recovery exceptions.
+14. Revise zones, training, standard work, relief and support rules; expand across underrepresented contexts and A/B/C/D crews.
+15. Move to true 2-op only after representative conditions pass without hidden labor transfer, recurring overload, protected-work failure, missed relief, persistent backlog or qualification-dependent intervention.
 
 ## Pilot gates
 - Gate 0 — Data/design: layout, alarm evidence, travel study and candidate zones.
 - Gate 1 — Standard work/skills: NORMAL route, ABNORMAL dispatch/recovery, routine-work matrix, response matrix, visible queue and demonstrated critical-task coverage for the actual pair/relief structure.
 - Gate 2 — Relief/capacity: relief reservation plus preliminary 30-minute Capacity Reserve + Recovery Profile with qualification constraints.
 - Gate 3 — Management/measurement: measurement dictionary, observer check, Leader Standard Work, visual controls, SIC ownership, intervention taxonomy, escalation matrix, Exception-Based Observation protocol and frozen Pilot Decision Scorecard.
-- Gate 4 — Baseline/context: current 3-op state measured with identical scorecard and observation definitions plus Pilot Context Card.
-- Gate 5 — Shadow 2-op: capture context, periodic process confirmations, all consequential exceptions and the full decision vector.
-- Gate 6 — Matched analysis/revise: compare context-matched exposures and Pareto exceptions.
+- Gate 4 — Baseline/context: current 3-op state measured with identical scorecard, observation and support-labor definitions plus Pilot Context Card.
+- Gate 5 — Shadow 2-op: capture context, periodic process confirmations, all consequential exceptions, outside-support people-minutes and the full decision vector.
+- Gate 6 — Matched analysis/revise: compare context-matched exposures using both scheduled and effective labor; Pareto incremental support and exceptions.
 - Gate 7 — Coverage: test underrepresented demand, concurrency, break, downtime/recovery and crew conditions.
 - Gate 8 — True 2-op/control: demonstrated acceptance across representative conditions with controlled standard work, skills, relief, escalation, SIC and control plan.
 
 ## Immediate next action
-Create the **one-page pilot observation sheet** before the first exposure. Put the Pilot Context Card at the top, a small periodic process-confirmation grid in the middle, and the event-triggered exception/intervention log below it. Freeze the observation cadence and reason codes before seeing 2-op results. In parallel, complete the Task × Person Demonstrated Skill Matrix for the exact A-shift pair and relief structure; uncovered plant-required skills remain a pre-exposure constraint.
+Add **Support Role, Support Reason, Start, End, People-Minutes, Normal-vs-Staffing-Substitution** to the one-page pilot observation sheet. Apply the exact same taxonomy to at least one representative 3-op baseline shift before interpreting 2-op support burden. At shift end, calculate Effective Labor Hours and Adjusted TPMH alongside the normal scheduled-headcount TPMH. Continue completing the Task × Person Demonstrated Skill Matrix for the exact A-shift pair and relief structure.
 
 ## Data still needed
 1. Plant-required qualifications/authorizations and existing training records for Curing, alarm response, manual load/unload, GIP/scanning, bladder/mold interfaces and other critical tasks.
@@ -56,13 +63,13 @@ Create the **one-page pilot observation sheet** before the first exposure. Put t
 4. Running press-hours/cycles by shift and 30-minute interval.
 5. Production plan/actual and available product/mix indicator by shift.
 6. Alarm notification, arrival, hands-on start/end and equipment-clear timestamps; operator busy/free state.
-7. Actual Curing people-hours plus staffing-dependent outside-support people-minutes by role/reason.
+7. Actual Curing people-hours plus outside-support people-minutes by role/reason in both 3-op baseline and 2-op exposure; distinguish normal support from staffing substitution.
 8. Major press/gantry downtime and manual-support people-minutes.
-9. Planned/actual breaks and primary/alternate relief with helper due work.
+9. Planned/actual breaks and primary/alternate relief with helper due work and relief people-minutes.
 10. Routine work-element minutes, due timing and pending-work creation/recovery timestamps.
 11. Mold/Bladder required, completed and carryover by shift/due time.
 12. Attendance/call-ins and actual staffing by role/crew.
 13. Exact press positions and representative travel paths/times.
 14. Decision/escalation authority.
-15. Enough 3-op baseline observations to create comparison bands without invented thresholds.
+15. Enough 3-op baseline observations to create comparison bands for support burden and capacity without invented thresholds.
 16. Pilot observer availability and a practical pre-frozen process-confirmation cadence; no universal frequency is assumed.
