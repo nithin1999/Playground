@@ -10,20 +10,14 @@ Design/validation phase. No 2-operator pilot success or permanent manpower reduc
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — recovery backlog aging control
-The prior Routine Work Protection Matrix makes displaced work visible, but total displaced minutes alone can still hide a queue that grows during the shift and is recovered much later. Add a **Recovery Backlog / Aging Strip** to each SIC block.
+## Latest improvement — normalize hidden-support dependency
+The pilot must distinguish a genuinely self-sufficient 2-operator system from a shift that reaches production only because a third person repeatedly absorbs work. Add a **Third-Person Dependency / Intervention Rate** alongside the existing intervention minutes and backlog-aging controls.
 
-For every protected routine task displaced by an alarm, break-relief conflict, or other abnormality, record: task, time displaced, required timing/priority if plant-defined, recovery owner, time recovered, and whether outside support was used. At each 2-hour SIC review show:
-- open displaced-task count;
-- open displaced-work minutes;
-- oldest open item age;
-- tasks recovered since the prior review;
-- any carryover into the next SIC block or shift;
-- outside-support minutes used to recover backlog.
+For every intervention by Team Lead, Mold, Bladder, Gantry, supervisor, maintenance, or another operator, record: start/end, role, task/reason, whether the intervention was required by normal plant standard or specifically needed because both proposed Curing operators lacked capacity/qualification, and what work was displaced for the helper.
 
-Do not invent an allowable backlog or aging threshold. Use existing YTMM safety/quality/process deadlines where they exist; otherwise collect baseline and shadow evidence before setting an operational trigger. The important pilot signal is whether backlog repeatedly grows, ages, crosses SIC blocks, requires hidden support, or remains at shift end.
+Report both raw intervention minutes and exposure-normalized rates. Preferred denominators are **staffing-dependent intervention minutes per 100 running press-hours** and, for alarm-driven help, **staffing-dependent interventions per 100 alarm events**. Do not use production output alone as the denominator because low output can be caused by equipment downtime and can distort apparent staffing dependency. Do not create an acceptance threshold yet; establish the 3-operator baseline with the same definitions, then compare shadow 2-op under characterized operating context.
 
-This is not evidence that backlog currently exists. It is a control that prevents a good shift-end TPMH result from hiding unstable work recovery.
+This is not evidence that hidden support currently occurs. It is a measurement/control improvement that prevents an assisted pilot from being labeled a 2-operator success.
 
 ## Best current strategy
 1. Map presses and balance two geographic zones by occupied workload, peaks and travel—not press count.
@@ -32,8 +26,8 @@ This is not evidence that backlog currently exists. It is a control that prevent
 4. Verify two-deep critical-task qualification across crews and relief windows.
 5. Prove break relief and time-phased capacity margin.
 6. Freeze measurement definitions, Leader Standard Work, SIC cadence and escalation authority.
-7. Collect a context-characterized 3-op baseline using the same SIC, intervention and backlog-aging measures.
-8. Shadow 2-op and measure concurrent alarm demand, outside support, displaced work, backlog aging and carryover.
+7. Collect a context-characterized 3-op baseline using the same SIC, intervention, dependency-rate and backlog-aging measures.
+8. Shadow 2-op and measure concurrent alarm demand, staffing-dependent third-person support, displaced work, backlog aging and carryover.
 9. Pareto overload, interventions, qualification gaps, routing overrides and backlog causes; revise zones/standard/support rules.
 10. Run sustained A/B/C/D rotation; move to true 2-op only after representative conditions pass without hidden support, recurring negative capacity margin, protected-work failure or persistent backlog.
 
@@ -41,15 +35,15 @@ This is not evidence that backlog currently exists. It is a control that prevent
 - **Gate 0 — Data/design:** mapped layout, normalized alarm evidence, workload-balanced zones.
 - **Gate 1 — Standard work/skills:** routine-work matrix, response matrix, verified critical-task coverage.
 - **Gate 2 — Relief/capacity:** break-relief matrix and preliminary 30-minute capacity-margin profile.
-- **Gate 3 — Management/measurement:** measurement dictionary, observer check, Leader Standard Work, visual controls, SIC ownership.
-- **Gate 4 — Baseline/context:** current 3-op state measured with identical definitions, SIC and backlog-aging strip.
+- **Gate 3 — Management/measurement:** measurement dictionary, observer check, Leader Standard Work, visual controls, SIC ownership, intervention taxonomy.
+- **Gate 4 — Baseline/context:** current 3-op state measured with identical definitions, SIC, dependency-rate and backlog-aging measures.
 - **Gate 5 — Shadow 2-op:** capture busy/free state, response labor, interventions, relief exceptions, displaced work and recovery aging.
 - **Gate 6 — Revise:** Pareto causes and revise the operating system.
 - **Gate 7 — Sustained trial:** full crew rotation without hidden support, recurring overload, missed protected work or persistent carryover.
 - **Gate 8 — True 2-op/control:** demonstrated acceptance across representative conditions; controlled standard work, skills, relief, escalation, SIC and control plan.
 
 ## Immediate next action
-Add the **Recovery Backlog / Aging Strip** to the existing six 2-hour SIC blocks and use it in both baseline and shadow collection. Start with GIP/scan, checks/documentation, replenishment, planned manual work, monitoring and relief obligations. Do not assign arbitrary allowable-delay limits.
+Add an **Intervention Log** to the same baseline/shadow collection sheet: helper role, start/end, reason/task, normal-required vs staffing-dependent, helper displaced work, alarm/event ID when applicable. Calculate staffing-dependent intervention minutes per 100 running press-hours and alarm-driven interventions per 100 alarm events. Use identical definitions in the 3-op baseline and shadow 2-op; do not set an arbitrary pass/fail threshold yet.
 
 ## Data still needed
 1. Exact press positions/IDs overlaid on floor layout.
@@ -67,3 +61,4 @@ Add the **Recovery Backlog / Aging Strip** to the existing six 2-hour SIC blocks
 13. Hourly/SIC plan vs actual production and TPMH.
 14. Attendance/call-ins, product/mix context and major downtime by shift.
 15. Plant safety/quality/production limits governing protected-work timing and pilot acceptance.
+16. Third-person intervention start/end, helper role, reason, staffing-dependency classification, and helper displaced work.
