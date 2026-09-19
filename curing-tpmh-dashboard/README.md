@@ -10,16 +10,14 @@ Design/validation phase. No 2-operator pilot success or permanent manpower reduc
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Break-Relief Debt / Exported-Work Control
-The project already requires qualified break relief, but relief is not free capacity. If a Mold/Bladder operator, Team Lead, or another role covers Curing while their own required work continues to arrive, the apparent 2-operator gain can simply export workload and backlog to another role.
+## Latest improvement — Interval Capacity-Loss / Recovery Board
+The project needs a short-interval visual control that connects production loss to the labor condition that produced it. Shift-average TPMH can hide a 2-operator system that repeatedly falls behind during alarm clusters, breaks, gantry downtime, manual loading or support waits and later catches up under easier conditions.
 
-For every relief interval, record: Curing operator relieved; relief person/role; relief start/end; Curing work performed; relief person's home-role work due during coverage; home-role work deferred; alternate who covered that work; recovery start/finish; carryover at end of interval; and any additional person-minutes used to recover it.
+For each plant-approved short interval, record: planned tires; actual tires; delta; running presses/press-hours or another available exposure measure; Op1/Op2 availability; break/relief state; active abnormality/collision; protected-work or recovery-queue state; outside-support people-minutes; primary reason for loss; containment/recovery action; and whether the interval recovered without carrying debt forward.
 
-Define **Relief Debt** as home-role required work that became deferred because the relief person was covering Curing. Do not convert this to a single time value unless the underlying work-element times are observed or plant-standard. Track the actual tasks and recovery labor first.
+Do not invent an interval length or production target. Use an existing plant reporting interval where available; otherwise establish the interval during baseline so it is practical to maintain and sensitive enough to reveal workload peaks. Do not use the board to schedule production or judge individuals. Use it to identify when the staffing design becomes abnormal and to connect that condition to observed causes.
 
-A break is operationally successful only when the Curing operator receives the intended break coverage **and** the relief mechanism does not create unmeasured labor, missed protected work, or persistent backlog elsewhere. Any production assistance and recovery labor must remain visible in Effective Labor Hours / Support Burden.
-
-Use the scenario challenge to test at least: normal break coverage, abnormality during relief, relief person recalled to home role, and home-role work becoming due during coverage. Existing safety, quality, labor and break requirements override the experimental staffing design.
+The key analysis is not only `plan vs actual`; compare loss intervals with staffing state, abnormal demand, relief, support and recovery. A 2-operator design is more credible when production and protected work remain controlled across difficult intervals without hidden support or persistent recovery debt—not merely when the 12-hour shift total looks acceptable.
 
 ## Best current strategy
 1. Map travel and recurring work; remove avoidable motion and point-of-use gaps.
@@ -39,34 +37,37 @@ Use the scenario challenge to test at least: normal break coverage, abnormality 
 15. Freeze measurement definitions, leader checks and CONTAIN → STABILIZE → RECORD → RESTART logic.
 16. Apply the Pre-Exposure Readiness Gate before each baseline/shadow window and log material change points during the exposure.
 17. Collect context-characterized 3-op baseline using identical definitions.
-18. Run controlled shadow 2-op: Op1/Op2 execute the standard while a qualified third operator is rescue capacity only; log every intervention.
-19. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH including all production assistance, break-relief coverage and recovery labor attributable to the staffing design.
-20. Compare matched stable-condition segments for load, negative reserve, collisions, acknowledgement/response, qualification blocks, time-to-breach/recovery, relief debt, process adherence and intervention demand.
-21. Pareto overload, duplicate/unowned dispatch, support waits, intervention, due-time, motion, skill, relief debt, adherence and recovery exceptions; redesign.
-22. Repeat shadow exposure across demand, downtime, break, late-shift and A/B/C/D conditions before true 2-op.
-23. Move to true 2-op only after representative evidence shows operation without hidden third-person labor, recurring overload/collision failure, protected-work failure, missed relief, persistent relief debt/backlog, dispatch ambiguity, qualification-dependent intervention or an impractical standard-work method.
+18. Add an Interval Capacity-Loss / Recovery Board linking plan-vs-actual performance to running exposure, staffing state, abnormal demand, relief, support and recovery debt.
+19. Run controlled shadow 2-op: Op1/Op2 execute the standard while a qualified third operator is rescue capacity only; log every intervention.
+20. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH including all production assistance, break-relief coverage and recovery labor attributable to the staffing design.
+21. Compare matched stable-condition segments and short intervals for load, negative reserve, collisions, acknowledgement/response, qualification blocks, time-to-breach/recovery, relief debt, process adherence, intervention demand and capacity loss.
+22. Pareto overload, duplicate/unowned dispatch, support waits, intervention, due-time, motion, skill, relief debt, adherence, recovery and interval-loss exceptions; redesign.
+23. Repeat shadow exposure across demand, downtime, break, late-shift and A/B/C/D conditions before true 2-op.
+24. Move to true 2-op only after representative evidence shows operation without hidden third-person labor, recurring overload/collision failure, protected-work failure, missed relief, persistent relief debt/backlog, dispatch ambiguity, qualification-dependent intervention or an impractical standard-work method.
 
 ## Immediate next action
-Build a **Break-Relief Debt log** and use it in the next scenario challenge/baseline observation. For each planned break, capture relief person/role, coverage start/end, Curing work performed, home-role work that became due, work deferred, alternate coverage, recovery start/finish, recovery people-minutes and carryover. Test one case where an abnormality occurs during the break and one where the relief person's own protected work becomes due. Do not count the break plan as feasible merely because Curing remains covered; verify the upstream/downstream relief role recovers without hidden labor or persistent backlog.
+Prototype the **Interval Capacity-Loss / Recovery Board** during the next 3-op baseline observation before using it to judge 2-op. For each existing plant reporting interval, capture plan/actual, running exposure, staffing/break state, active abnormality or collision, queue state, support people-minutes, primary loss reason and recovery status. At shift end, Pareto the negative intervals and check whether they coincide with labor-demand peaks, breaks, support waits or equipment loss. Keep production loss and operator workload separate unless the observation actually supports the connection.
 
 ## Data still needed
 1. Actual proposed Op1/Op2/leader/shadow/relief roles and verified qualifications.
 2. Candidate press-to-Op1/Op2 zone map and normal routes.
 3. Existing plant acknowledgement/response/escalation/containment requirements; do not invent thresholds.
 4. Plant-defined required-by/completion windows and priority rules for protected/deferrable Curing tasks.
-5. Break-relief source by break and the relief person's home-role tasks, due windows, observed work times, alternate coverage and recovery/carryover.
-6. Which abnormal tasks require two people or external/shared support.
-7. Scenario Challenge results and unresolved ownership/skill/route/relief issues.
-8. Pre-exposure readiness records and timestamped material change points.
-9. Process-confirmation opportunities, adherence Y/N, deviation reason and consequence by critical behavior.
-10. Event-level NEW/OWNED/arrival/work/wait/recovery/close timestamps and primary owner.
-11. Shadow-intervention timestamps, people-minutes and reason classification.
-12. Direct-observed recurring work-element times/frequencies and representative travel times.
-13. Alarm notification, arrival, hands-on start/end and equipment-clear timestamps plus operator busy/free state.
-14. Running press-hours/cycles, production plan/actual and product/mix indicator.
-15. Actual Curing people-hours and outside-support people-minutes by role/reason.
-16. Major press/gantry downtime and manual-support people-minutes.
-17. Planned/actual breaks, relief handoffs, delay/interruption, relief home-role due work, recovery labor and carryover.
-18. Queue entry, required-by/time-to-breach, recovery start/finish, qualification and Mold/Bladder required/completed/carryover.
-19. Attendance/call-ins and actual staffing by role/crew.
-20. Enough timestamped baseline/shadow windows to establish observed workload, response, support, adherence, relief-debt and recovery distributions before setting numerical gates.
+5. Existing plant short-interval reporting cadence and planned-vs-actual production by interval, if available.
+6. Running press count/press-hours or another production-exposure measure by the same interval.
+7. Break-relief source by break and the relief person's home-role tasks, due windows, observed work times, alternate coverage and recovery/carryover.
+8. Which abnormal tasks require two people or external/shared support.
+9. Scenario Challenge results and unresolved ownership/skill/route/relief issues.
+10. Pre-exposure readiness records and timestamped material change points.
+11. Process-confirmation opportunities, adherence Y/N, deviation reason and consequence by critical behavior.
+12. Event-level NEW/OWNED/arrival/work/wait/recovery/close timestamps and primary owner.
+13. Shadow-intervention timestamps, people-minutes and reason classification.
+14. Direct-observed recurring work-element times/frequencies and representative travel times.
+15. Alarm notification, arrival, hands-on start/end and equipment-clear timestamps plus operator busy/free state.
+16. Running press-hours/cycles, production plan/actual and product/mix indicator.
+17. Actual Curing people-hours and outside-support people-minutes by role/reason.
+18. Major press/gantry downtime and manual-support people-minutes.
+19. Planned/actual breaks, relief handoffs, delay/interruption, relief home-role due work, recovery labor and carryover.
+20. Queue entry, required-by/time-to-breach, recovery start/finish, qualification and Mold/Bladder required/completed/carryover.
+21. Attendance/call-ins and actual staffing by role/crew.
+22. Enough timestamped baseline/shadow windows to establish observed workload, response, support, adherence, relief-debt, interval-loss and recovery distributions before setting numerical gates.
