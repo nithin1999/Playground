@@ -10,64 +10,67 @@ Design/validation phase. No 2-operator pilot success or permanent manpower reduc
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Interval Capacity-Loss / Recovery Board
-The project needs a short-interval visual control that connects production loss to the labor condition that produced it. Shift-average TPMH can hide a 2-operator system that repeatedly falls behind during alarm clusters, breaks, gantry downtime, manual loading or support waits and later catches up under easier conditions.
+## Latest improvement — Workload-State Escalation Ladder
+Alarm count alone is not a safe dispatch rule. One alarm can consume both operators if the intervention requires two people, while several notifications can create little labor if they are brief or non-hands-on. The 2-operator design therefore needs a visible state based on actual operator availability, protected work, qualification and recovery demand.
 
-For each plant-approved short interval, record: planned tires; actual tires; delta; running presses/press-hours or another available exposure measure; Op1/Op2 availability; break/relief state; active abnormality/collision; protected-work or recovery-queue state; outside-support people-minutes; primary reason for loss; containment/recovery action; and whether the interval recovered without carrying debt forward.
+Use four states without inventing new time limits:
+- **NORMAL:** both operators can execute their assigned routes/owned work and protected work remains controlled.
+- **CONSTRAINED:** one operator is committed to abnormal work, break/relief, or another protected task; the other continues the defined priority route and new work is explicitly owned/queued.
+- **SATURATED:** both operators are committed, or the only available operator is not qualified, while additional required work arrives or due work becomes at risk. Apply the plant-approved escalation/containment rule and log outside-support labor.
+- **RECOVERY:** the abnormal event is contained but deferred protected/routine work remains. Freeze discretionary work and recover by plant priority/required-by rules until the queue is controlled.
 
-Do not invent an interval length or production target. Use an existing plant reporting interval where available; otherwise establish the interval during baseline so it is practical to maintain and sensitive enough to reveal workload peaks. Do not use the board to schedule production or judge individuals. Use it to identify when the staffing design becomes abnormal and to connect that condition to observed causes.
+Do not set a numerical alarm-count trigger or invented response-time threshold. The state changes should be driven by observed work commitments and existing plant safety/quality/process requirements. Every transition should be timestamped during baseline/shadow work so the project can later quantify minutes in each state, entries into SATURATED, support people-minutes, recovery time and carryover.
 
-The key analysis is not only `plan vs actual`; compare loss intervals with staffing state, abnormal demand, relief, support and recovery. A 2-operator design is more credible when production and protected work remain controlled across difficult intervals without hidden support or persistent recovery debt—not merely when the 12-hour shift total looks acceptable.
+This is the missing link between the Live Abnormality Ownership Board and the Due-Time Recovery Queue: ownership tells who has the event; the workload state tells whether the two-person system still has usable reserve.
 
 ## Best current strategy
-1. Map travel and recurring work; remove avoidable motion and point-of-use gaps.
-2. Build a Demand-Weighted Operator Balance; assign provisional zones by work content + travel + abnormal exposure, not equal press count.
-3. Preserve fixed-window workload variability and build Variability-Aware Reserve distributions for Op1, Op2 and the pair.
-4. Add a Cross-Zone Collision Matrix so zone boundaries minimize observed simultaneous demand and shared-resource conflicts.
-5. Apply Qualification Redundancy / Pair-Robustness Gate; capacity counts only when the available person is qualified.
-6. Freeze NORMAL routes and ABNORMAL dispatch with one primary owner per event.
-7. Use the Live Abnormality Ownership Board: NEW → OWNED → WORKING → WAITING/ESCALATED → RECOVERY DUE → CLOSED.
-8. Create a plant-approved Protected Work Matrix defining timing, ownership, alternate and escalation.
-9. Control deferred work with the Due-Time Recovery Queue: show required-by/time-to-breach, qualification and recovery owner; prioritize plant safety/quality/process rules over simple FIFO.
-10. Close critical single-point skill gaps using demonstrated qualification.
-11. Treat breaks as staffing transitions with qualified relief handoff; quantify Break-Relief Debt and retain the relief person's home-role due work and recovery labor.
-12. Use Pilot Leader Standard Work without hidden third-operator labor.
-13. Add Process Confirmation sampling for critical standard-work behaviors; classify deviations rather than hiding them inside outcome metrics.
-14. Run the Pre-Pilot Scenario Challenge, including relief-person home-role collision/recovery scenarios, and close ambiguous ownership, skill, relief, route and escalation gaps.
-15. Freeze measurement definitions, leader checks and CONTAIN → STABILIZE → RECORD → RESTART logic.
-16. Apply the Pre-Exposure Readiness Gate before each baseline/shadow window and log material change points during the exposure.
-17. Collect context-characterized 3-op baseline using identical definitions.
-18. Add an Interval Capacity-Loss / Recovery Board linking plan-vs-actual performance to running exposure, staffing state, abnormal demand, relief, support and recovery debt.
-19. Run controlled shadow 2-op: Op1/Op2 execute the standard while a qualified third operator is rescue capacity only; log every intervention.
-20. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH including all production assistance, break-relief coverage and recovery labor attributable to the staffing design.
-21. Compare matched stable-condition segments and short intervals for load, negative reserve, collisions, acknowledgement/response, qualification blocks, time-to-breach/recovery, relief debt, process adherence, intervention demand and capacity loss.
-22. Pareto overload, duplicate/unowned dispatch, support waits, intervention, due-time, motion, skill, relief debt, adherence, recovery and interval-loss exceptions; redesign.
-23. Repeat shadow exposure across demand, downtime, break, late-shift and A/B/C/D conditions before true 2-op.
-24. Move to true 2-op only after representative evidence shows operation without hidden third-person labor, recurring overload/collision failure, protected-work failure, missed relief, persistent relief debt/backlog, dispatch ambiguity, qualification-dependent intervention or an impractical standard-work method.
+1. Map recurring work and travel; remove avoidable motion and point-of-use gaps.
+2. Demand-weight Op1/Op2 zones by work content + travel + abnormal exposure, not equal press count.
+3. Preserve fixed-window variability and build Variability-Aware Reserve distributions.
+4. Test Cross-Zone Collision exposure and shared-resource conflicts.
+5. Apply Qualification Redundancy / Pair-Robustness Gate.
+6. Freeze NORMAL routes and single-owner ABNORMAL dispatch.
+7. Use Live Abnormality Ownership Board with explicit event states.
+8. Add the Workload-State Escalation Ladder: NORMAL → CONSTRAINED → SATURATED → RECOVERY.
+9. Protect due work with a plant-approved Protected Work Matrix.
+10. Control deferred work with the Due-Time Recovery Queue using required-by/time-to-breach, qualification and recovery ownership.
+11. Close critical single-point skill gaps using demonstrated qualification.
+12. Treat breaks as staffing transitions with qualified relief; quantify Break-Relief Debt and relief home-role recovery labor.
+13. Use Pilot Leader Standard Work without hidden third-operator labor.
+14. Sample Process Confirmation on critical standard-work behaviors.
+15. Run the Pre-Pilot Scenario Challenge including relief-home-role collisions and SATURATED-state scenarios.
+16. Freeze measurement, escalation and CONTAIN → STABILIZE → RECORD → RESTART definitions.
+17. Apply the Pre-Exposure Readiness Gate and log material change points.
+18. Collect matched, context-characterized 3-op baseline.
+19. Use the Interval Capacity-Loss / Recovery Board to connect short-interval output to equipment exposure, staffing state, abnormal demand, relief, support and recovery.
+20. Run controlled shadow 2-op with a qualified third operator as rescue capacity only; log every intervention.
+21. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH including production assistance, relief and recovery labor.
+22. Compare stable-condition segments and short intervals for reserve, workload-state transitions, collisions, response, qualification blocks, work-at-risk, relief debt, adherence, intervention demand and capacity loss.
+23. Pareto SATURATED entries, overload, duplicate/unowned dispatch, support waits, due-time misses, motion, skill, relief debt, adherence, recovery and interval-loss exceptions; redesign.
+24. Repeat shadow exposure across demand, downtime, break, late-shift and A/B/C/D conditions before true 2-op.
+25. Move to true 2-op only after representative evidence shows operation without hidden third-person labor, recurring saturation/collision failure, protected-work failure, missed relief, persistent relief debt/backlog, dispatch ambiguity, qualification dependency or an impractical standard-work method.
 
 ## Immediate next action
-Prototype the **Interval Capacity-Loss / Recovery Board** during the next 3-op baseline observation before using it to judge 2-op. For each existing plant reporting interval, capture plan/actual, running exposure, staffing/break state, active abnormality or collision, queue state, support people-minutes, primary loss reason and recovery status. At shift end, Pareto the negative intervals and check whether they coincide with labor-demand peaks, breaks, support waits or equipment loss. Keep production loss and operator workload separate unless the observation actually supports the connection.
+Add **Workload State** to the next 3-op baseline/scenario-challenge observation sheet. At each event/change point record timestamp, Op1 state/task, Op2 state/task, qualifications needed, protected work at risk, workload state, new owner/queue action, escalation/support, recovery start/finish and carryover. Test at least the already-planned collision scenarios: abnormality while routine work is underway, simultaneous zone demand, abnormality during a break, a two-person task, and relief-home-role conflict. Use existing plant escalation rules; do not invent thresholds.
 
 ## Data still needed
 1. Actual proposed Op1/Op2/leader/shadow/relief roles and verified qualifications.
 2. Candidate press-to-Op1/Op2 zone map and normal routes.
-3. Existing plant acknowledgement/response/escalation/containment requirements; do not invent thresholds.
-4. Plant-defined required-by/completion windows and priority rules for protected/deferrable Curing tasks.
-5. Existing plant short-interval reporting cadence and planned-vs-actual production by interval, if available.
-6. Running press count/press-hours or another production-exposure measure by the same interval.
-7. Break-relief source by break and the relief person's home-role tasks, due windows, observed work times, alternate coverage and recovery/carryover.
+3. Existing plant acknowledgement/response/escalation/containment requirements.
+4. Plant-defined required-by/completion windows and priority rules for protected/deferrable tasks.
+5. Timestamped Op1/Op2 work state during events so NORMAL/CONSTRAINED/SATURATED/RECOVERY can be reconstructed.
+6. Existing plant short-interval reporting cadence, plan/actual production and running press exposure.
+7. Break-relief source and relief person's home-role work, due windows, recovery and carryover.
 8. Which abnormal tasks require two people or external/shared support.
 9. Scenario Challenge results and unresolved ownership/skill/route/relief issues.
 10. Pre-exposure readiness records and timestamped material change points.
-11. Process-confirmation opportunities, adherence Y/N, deviation reason and consequence by critical behavior.
-12. Event-level NEW/OWNED/arrival/work/wait/recovery/close timestamps and primary owner.
-13. Shadow-intervention timestamps, people-minutes and reason classification.
+11. Process-confirmation observations and deviation reasons.
+12. Event-level notification/ownership/arrival/hands-on/wait/recovery/close timestamps.
+13. Shadow-intervention people-minutes and reason classification.
 14. Direct-observed recurring work-element times/frequencies and representative travel times.
-15. Alarm notification, arrival, hands-on start/end and equipment-clear timestamps plus operator busy/free state.
-16. Running press-hours/cycles, production plan/actual and product/mix indicator.
-17. Actual Curing people-hours and outside-support people-minutes by role/reason.
-18. Major press/gantry downtime and manual-support people-minutes.
-19. Planned/actual breaks, relief handoffs, delay/interruption, relief home-role due work, recovery labor and carryover.
-20. Queue entry, required-by/time-to-breach, recovery start/finish, qualification and Mold/Bladder required/completed/carryover.
-21. Attendance/call-ins and actual staffing by role/crew.
-22. Enough timestamped baseline/shadow windows to establish observed workload, response, support, adherence, relief-debt, interval-loss and recovery distributions before setting numerical gates.
+15. Running press-hours/cycles, product/mix, major press/gantry downtime and manual-support labor.
+16. Actual Curing people-hours and outside-support people-minutes by role/reason.
+17. Planned/actual breaks, relief handoffs, interruptions and recovery labor.
+18. Queue entry, required-by/time-to-breach, recovery start/finish and carryover.
+19. Attendance/call-ins and actual staffing by role/crew.
+20. Enough baseline/shadow windows to establish workload-state, response, support, relief-debt, interval-loss and recovery distributions before setting numerical gates.
