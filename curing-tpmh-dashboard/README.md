@@ -10,61 +10,44 @@ Design/validation phase. No 2-operator pilot success or permanent manpower reduc
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Due-Time Protected-Work Control
-The recovery queue now needs **task criticality and due-time protection**, not just NEW/OWNED/WAITING/RECOVERED status. In a two-operator machine-intensive system, an abnormal event can legitimately interrupt routine work, but the pilot must distinguish work that cannot be delayed from work that can be recovered later. Otherwise a shift can look successful while mandatory checks, GIP/scanning, quality/safety work or other time-sensitive tasks silently age in the queue.
+## Latest improvement — Demand-Weighted Operator Balance
+Do not lock the 2-op design as an equal press-count split. Build a **Demand-Weighted Operator Balance (DWOB)** for the candidate Op1/Op2 zones using observed work elements. Each zone's load should include recurring protected work + expected abnormal hands-on work + required travel + break/relief exposure + recovery work. Keep uncertain/unmeasured elements visibly separate rather than estimating them into false precision.
 
-Before the pilot, build a plant-approved **Protected Work Matrix** for recurring Curing tasks: Task/element, safety-quality-production significance, required timing/frequency, maximum permitted deferral if an existing plant rule defines one, primary owner, alternate qualified owner, escalation point/authority, and evidence of completion. Do not invent due-time limits; use existing work standards, quality/safety requirements and supervisor/process-owner decisions.
+Use a Yamazumi/operator-balance view by zone and time window, with separate stacks for recurring manual work, travel, abnormal response, relief and recovery. Compare the two operators against **available operator minutes in the window**, not machine cycle time: Curing is machine-intensive and much of the operator demand is asynchronous. A balanced average is not sufficient; also inspect peak windows and simultaneous abnormal demand.
 
-During baseline and pilot, every displaced task receives **Due Time, Owner, Age, Priority Class (using plant-defined categories), and Recovery Time**. A staffing exposure is not considered stable merely because the queue eventually clears; record any due-time miss separately and trace it to abnormal demand, relief, skill, travel, unclear priority or insufficient two-person capacity.
-
-This strengthens Capacity Reserve + Recovery: reserve is only usable if protected work can still be completed within its required timing. It also makes the abnormal-response rule operational: the zone owner responds, the second operator protects the highest-priority due work, and lower-priority work enters the visible recovery queue.
+The August alarm-start distribution supports testing concurrency but does not supply hands-on minutes. Until response labor is measured, alarm load stays an explicit unknown/sensitivity term. Zone boundaries remain provisional and should move if observed workload/travel shows one operator persistently carries more demand.
 
 ## Best current strategy
-1. Map travel; remove avoidable motion; balance zones on workload + peaks + travel.
-2. Freeze NORMAL routes and ABNORMAL dispatch with one owner per event.
-3. Create a plant-approved **Protected Work Matrix** defining task significance, required timing, ownership, alternate and escalation; do not invent limits.
-4. Use the visible NEW → OWNED → WAITING/ESCALATED → RECOVERED queue with Due Time, Age and Recovery Time; displaced work remains demand until recovered.
-5. Verify demonstrated skill coverage for the actual Op1/Op2/relief pairing; close critical gaps with TWI-style instruction/verification.
-6. Treat breaks as a planned staffing transition using the Break-Relief Handoff Standard; relief must accept zone + queue ownership before release.
-7. Retain the relief person's own due work and measure incremental carryover/support burden rather than hiding transferred labor.
-8. Build qualification- and due-time-constrained 30-minute Capacity Reserve + Recovery Profiles, including break windows.
-9. Freeze measurement definitions, SIC/leader checks, Green/Amber/Red authority and CONTAIN → STABILIZE → RECORD → RESTART logic.
-10. Collect a context-characterized 3-op baseline using identical definitions, including normal outside-support people-minutes, relief handoffs, protected-work due-time performance and time-on-shift behavior.
-11. Shadow 2-op; capture periodic confirmations plus consequential exceptions, queue aging/recovery, due-time misses, support people-minutes, containment and actual breaks.
+1. Map travel and recurring work; remove avoidable motion and point-of-use gaps.
+2. Build a Demand-Weighted Operator Balance; assign provisional zones by work content + travel + abnormal exposure, not equal press count.
+3. Freeze NORMAL routes and ABNORMAL dispatch with one owner per event.
+4. Create a plant-approved Protected Work Matrix defining timing, ownership, alternate and escalation.
+5. Use a visible NEW → OWNED → WAITING/ESCALATED → RECOVERED queue with Due Time, Age and Recovery Time.
+6. Verify demonstrated skill coverage for actual Op1/Op2/relief pairing.
+7. Treat breaks as staffing transitions with qualified relief handoff; retain relief person's own due work.
+8. Build qualification- and due-time-constrained 30-minute Capacity Reserve + Recovery Profiles for each operator/zone.
+9. Freeze measurement definitions, leader checks, escalation and CONTAIN → STABILIZE → RECORD → RESTART logic.
+10. Collect context-characterized 3-op baseline using identical definitions and populate the DWOB from observed work.
+11. Shadow 2-op; capture periodic confirmations plus exceptions, queue aging/recovery, support people-minutes, containment and actual breaks.
 12. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH.
-13. Compare context-matched 3-op/2-op periods; Pareto incremental support, structural overload, due-time misses, duplicate response, backlog, motion, skill, containment, relief and recovery exceptions.
-14. Redesign, then expand across underrepresented demand, downtime, break, late-shift and A/B/C/D crew conditions.
+13. Compare matched 3-op/2-op periods and Op1-vs-Op2 load; Pareto overload, support, due-time, motion, skill, relief and recovery exceptions.
+14. Rebalance zone boundaries/work elements, then expand across demand, downtime, break, late-shift and A/B/C/D conditions.
 15. Move to true 2-op only after representative conditions pass without hidden labor transfer, recurring overload, protected-work failure, missed relief, persistent backlog, duplicate dispatch or qualification-dependent intervention.
 
-## Pilot gates
-- Gate 0 — Data/design: layout, alarm evidence, travel study and candidate zones.
-- Gate 1 — Standard work/skills: NORMAL route, ABNORMAL ownership/dispatch/recovery, Protected Work Matrix, response matrix, visible queue and demonstrated critical-task coverage.
-- Gate 2 — Relief/capacity: qualified relief reservation, Break-Relief Handoff Standard, relief-home-work accounting, plus preliminary due-time-constrained 30-minute Capacity Reserve + Recovery Profile.
-- Gate 3 — Management/measurement: measurement dictionary, observer check, leader standard work, visual controls, intervention taxonomy, escalation and containment/restart authority.
-- Gate 4 — Baseline/context: 3-op state measured with identical definitions, including protected-work due-time performance, time-on-shift and actual break/relief handoffs.
-- Gate 5 — Shadow 2-op: capture context, time on shift, exceptions, queue aging/recovery, due-time misses, support labor, breaks and containment/restart episodes.
-- Gate 6 — Matched analysis/revise: compare context-matched exposures using scheduled/effective labor, due-time performance and time-on-shift stratification.
-- Gate 7 — Coverage: deliberately cover underrepresented demand, concurrency, break, late-shift, downtime/recovery and crew conditions.
-- Gate 8 — True 2-op/control: demonstrated acceptance across representative conditions with controlled standard work, skills, relief, dispatch, escalation, SIC and control plan.
-
 ## Immediate next action
-Before the first pilot, build the **Protected Work Matrix** from existing plant standards and process-owner requirements. For each recurring task capture: Task, significance, required timing/frequency, permitted deferral if already defined, primary owner, alternate qualified owner, escalation rule/authority and completion evidence. Then add Due Time, Queue Entry, Age, Owner and Recovery Time to the observation sheet and use the same fields in the representative 3-op baseline.
+Create the first **Demand-Weighted Operator Balance sheet** from a representative 3-op baseline. For each observed work element capture: zone/press, task, recurring vs abnormal, manual minutes, travel minutes, frequency, protected due-time class, qualification requirement and time window. Stack observed minutes by candidate Op1/Op2 zone. Do not impute alarm hands-on minutes that have not been measured. Use the imbalance to revise provisional zone boundaries before the shadow 2-op pilot.
 
 ## Data still needed
-1. Existing work instructions/quality/safety requirements that define required timing or frequency for recurring Curing tasks; process-owner decisions where timing is not documented.
-2. Plant-required qualifications/authorizations and training records for critical Curing tasks.
-3. Actual Op1/Op2 candidates plus primary/alternate relief by A/B/C/D crew.
-4. Existing plant safety/quality/process acceptance requirements, stop/restart authority and task priority/due requirements.
-5. Running press-hours/cycles by shift and interval; production plan/actual and product/mix indicator.
-6. Alarm notification, arrival, hands-on start/end and equipment-clear timestamps plus operator busy/free state.
-7. Actual Curing people-hours and outside-support people-minutes by role/reason in 3-op baseline and 2-op exposure.
+1. Direct-observed recurring work-element times and frequencies by press/zone.
+2. Representative travel paths/times and exact press positions.
+3. Alarm notification, arrival, hands-on start/end and equipment-clear timestamps plus operator busy/free state.
+4. Existing work instructions/quality/safety requirements defining recurring task timing/frequency.
+5. Plant-required qualifications and actual Op1/Op2/relief training status by crew.
+6. Running press-hours/cycles by shift/interval, production plan/actual and product/mix indicator.
+7. Actual Curing people-hours and outside-support people-minutes by role/reason.
 8. Major press/gantry downtime and manual-support people-minutes.
-9. Planned/actual breaks, relief handoff timestamps, relief qualification, delay/interruption and the relief person's displaced home-role work/carryover.
-10. Shift start/end timestamps so observations can be stratified by hours since shift start.
-11. Routine work-element minutes, required timing, due time, queue entry, ownership and recovery timestamps.
-12. Mold/Bladder required, completed and carryover by shift/due time.
-13. Attendance/call-ins and actual staffing by role/crew.
-14. Exact press positions and representative travel paths/times.
-15. Enough 3-op baseline observations to create comparison bands without invented thresholds.
-16. Pilot observer availability and a practical pre-frozen confirmation cadence.
-17. For every containment/restart episode: trigger, recovery duration, support people-minutes, classification, authorization and recurrence.
+9. Planned/actual breaks, relief handoffs, delay/interruption and relief home-role carryover.
+10. Queue entry/due/recovery timestamps and Mold/Bladder required/completed/carryover.
+11. Attendance/call-ins and actual staffing by role/crew.
+12. Existing plant acceptance, containment/restart and task-priority requirements.
+13. Enough 3-op baseline windows to characterize Op1/Op2 candidate load distributions without invented thresholds.
