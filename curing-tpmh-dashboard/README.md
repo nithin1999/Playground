@@ -10,18 +10,22 @@ Design/validation phase. No 2-operator pilot success or permanent manpower reduc
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Time-of-Shift Robustness Gate
-A 2-operator design should not be validated only from an early/easy portion of a 12-hour shift. Long shifts can change fatigue and recovery risk, and workload peaks may occur at different times. Keep the existing workload-state method, but stratify baseline and shadow evidence by time-of-shift so a good shift average cannot hide late-shift deterioration.
+## Latest improvement — Operator-Minute Capacity Envelope
+The project now separates **scheduled headcount** from **usable operator capacity**. A nominal 2-operator, 12-hour shift contains 1,440 scheduled operator-minutes, but that is not 1,440 minutes of discretionary abnormal-response capacity. Required recurring work, walking, planned break coverage, protected work, training/meetings and observed unavoidable support commitments consume part of that capacity. Actual abnormal-response hands-on labor and recovery demand consume more.
 
-For every baseline/shadow exposure, preserve the existing plant reporting interval and tag each interval with **hours since shift start**. Compare early/middle/late portions descriptively for: NORMAL/CONSTRAINED/SATURATED/RECOVERY minutes, protected-work backlog/carryover, break completion/interruptions, outside-support people-minutes, response/recovery time, short-interval production loss, and observed walking/manual-work burden.
+For each existing reporting interval, build an evidence-based capacity ledger:
 
-Do not invent a fatigue threshold or assume late-shift degradation. The purpose is to test whether performance is stable across the actual 12-hour operating window. Existing plant safety and break requirements remain controlling. If a recurring late-shift pattern appears, investigate workload, break timing/quality, walking, heat/ergonomic demand, staffing/relief, equipment mix and accumulated recovery debt before accepting 2-op.
+**Scheduled operator-minutes → minus observed/standard recurring manual work → minus required travel → minus protected/fixed work → minus planned unavailable time → equals pre-abnormal reserve.**
+
+Then charge observed abnormal hands-on work, collision/two-person work and recovery work against that reserve. Keep outside-support people-minutes separate and add them to Effective Labor so a 2-op result cannot look successful by exporting labor.
+
+Do not infer hands-on labor from alarm duration. Do not invent a target utilization or reserve percentage. Use direct observation, plant standard times where valid, and baseline/shadow distributions. A negative or repeatedly near-zero interval reserve is a capacity-design signal; investigate the work elements and condition rather than treating it automatically as proof of failure.
 
 ## Best current strategy
 1. Map recurring work and travel; remove avoidable motion and point-of-use gaps.
 2. Demand-weight Op1/Op2 zones by work content + travel + abnormal exposure, not equal press count.
-3. Preserve fixed-window variability and build Variability-Aware Reserve distributions.
-4. Test Cross-Zone Collision exposure and shared-resource conflicts.
+3. Build the Operator-Minute Capacity Envelope by interval so nominal headcount is separated from usable reserve.
+4. Preserve fixed-window variability and test Cross-Zone Collision/shared-resource exposure.
 5. Apply Qualification Redundancy / Pair-Robustness Gate.
 6. Freeze NORMAL routes and single-owner ABNORMAL dispatch.
 7. Use Live Abnormality Ownership Board with explicit event states.
@@ -33,17 +37,17 @@ Do not invent a fatigue threshold or assume late-shift degradation. The purpose 
 13. Run the Pre-Pilot Scenario Challenge including relief-home-role and SATURATED-state scenarios.
 14. Freeze measurement, escalation and CONTAIN → STABILIZE → RECORD → RESTART definitions.
 15. Apply the Pre-Exposure Readiness Gate and log material change points.
-16. Collect matched, context-characterized 3-op baseline using the Interval Capacity-Loss / Recovery Board.
+16. Collect matched, context-characterized 3-op baseline using the Interval Capacity-Loss / Recovery Board and capacity ledger.
 17. Run controlled shadow 2-op with a qualified third operator as rescue capacity only; log every intervention.
 18. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH including production assistance, relief and recovery labor.
-19. Compare stable-condition segments for reserve, workload-state transitions, collisions, response, qualification blocks, work-at-risk, relief debt, adherence, intervention demand and capacity loss.
+19. Compare stable-condition segments for operator-minute reserve, workload-state transitions, collisions, response, qualification blocks, work-at-risk, relief debt, adherence, intervention demand and capacity loss.
 20. Apply the Time-of-Shift Robustness Gate: stratify the same evidence by hours since shift start and look for recurring late-shift deterioration without inventing thresholds.
 21. Pareto exceptions and redesign.
 22. Repeat shadow exposure across demand, downtime, break, late-shift and A/B/C/D conditions before true 2-op.
-23. Move to true 2-op only after representative evidence shows operation without hidden third-person labor, recurring saturation/collision failure, protected-work failure, missed relief, persistent relief debt/backlog, dispatch ambiguity, qualification dependency, late-shift deterioration, or an impractical standard-work method.
+23. Move to true 2-op only after representative evidence shows operation without hidden third-person labor, recurring reserve depletion/saturation/collision failure, protected-work failure, missed relief, persistent relief debt/backlog, dispatch ambiguity, qualification dependency, late-shift deterioration, or an impractical standard-work method.
 
 ## Immediate next action
-Add **Hours Since Shift Start** to the next 3-op baseline/scenario observation and preserve the existing reporting interval. At shift end, compare early/middle/late portions for workload-state minutes, backlog/carryover, break performance, support people-minutes, response/recovery, production loss and observed walking/manual work. This establishes the comparison method before the shadow 2-op exposure and avoids defining arbitrary fatigue limits.
+Build the **3-operator baseline capacity ledger before the shadow pilot**. For each existing reporting interval record: scheduled operator-minutes; recurring manual work minutes; travel minutes; protected/fixed work minutes; planned unavailable minutes; abnormal hands-on minutes; recovery minutes; outside-support people-minutes; and resulting reserve. Tag the same interval with Hours Since Shift Start and workload state. This establishes how much real reserve exists today and creates a clean comparison for the 2-op shadow.
 
 ## Data still needed
 1. Actual proposed Op1/Op2/leader/shadow/relief roles and verified qualifications.
@@ -63,4 +67,5 @@ Add **Hours Since Shift Start** to the next 3-op baseline/scenario observation a
 15. Queue entry, required-by/time-to-breach, recovery start/finish and carryover.
 16. Attendance/call-ins and actual staffing by role/crew.
 17. Shift-start timestamps on baseline/shadow observations so time-of-shift can be reconstructed.
-18. Enough baseline/shadow windows to determine whether any time-of-shift pattern is repeatable rather than a special cause.
+18. Interval-level operator-minute ledger inputs so pre-abnormal reserve and actual reserve consumption can be calculated without assumptions.
+19. Enough baseline/shadow windows to determine whether reserve depletion or time-of-shift patterns are repeatable rather than special causes.
