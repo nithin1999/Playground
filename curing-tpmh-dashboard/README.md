@@ -10,70 +10,59 @@ Design/validation phase. No 2-operator pilot success or permanent manpower reduc
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Predeclared Pilot Decision Gate
-A technically clean pilot can still produce a bad decision if success/failure is defined after results are seen. Before shadow 2-op exposure, freeze a one-page decision matrix with three outcomes: **GO / HOLD-REDESIGN / STOP-CONTAIN**. The matrix must use existing plant safety/quality requirements plus baseline-derived operational limits; do not invent new numeric thresholds simply to make the pilot pass.
+## Latest improvement — Shadow Rescue Intervention Protocol
+A shadow 2-operator pilot can give a false positive if the third operator, leader, or observer quietly supplies labor, decisions, reminders, or coaching. Before the first shadow window, freeze a rescue protocol that distinguishes observation from intervention and makes every intervention visible.
 
-### Decision families
-1. **Safety / quality / compliance — hard gate.** Any plant-defined stop condition, unsafe work method, quality containment, prohibited bypass, or missed required check follows the existing escalation/containment rule. Production gain cannot compensate for a hard-gate failure.
-2. **Coverage / standardized work — feasibility gate.** Protected work, required checks, break relief, task ownership, demonstrated skill coverage and two-person work must remain controlled. Repeated hidden third-person coaching/rescue, unresolved relief debt, or unowned required work sends the design to HOLD-REDESIGN.
-3. **Capacity / abnormal response — robustness gate.** Evaluate operator-minute reserve, NORMAL/CONSTRAINED/SATURATED/RECOVERY states, collision/recovery behavior, work-at-risk/backlog and outside-support people-minutes under the Exposure Signature. A favorable average TPMH does not override recurring saturation or unrecovered work.
-4. **Performance — outcome gate.** Compare scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH only after exposure context and hard/feasibility gates are reviewed.
+### Intervention states
+1. **OBSERVE** — third person does not direct, remind, coach, fetch, perform production work, or pre-position resources beyond the approved method.
+2. **CALL** — Op1/Op2 signal an abnormality using the agreed ownership/escalation rule. The call itself is evidence of the operating system, not failure.
+3. **RESPOND** — leader/support responds according to the existing plant reaction plan. Record arrival, role, reason and people-minutes.
+4. **RESCUE** — shadow person intervenes when an existing safety/quality stop rule or a predeclared pilot rescue condition is reached. Record trigger, exact action, start/finish and work displaced.
+5. **RECOVER** — after containment, track backlog/protected work, relief debt and return to normal ownership.
 
-### Pilot rule
-Freeze the decision matrix, measurement definitions and escalation rules before the first shadow window. After each window, classify evidence as GO / HOLD-REDESIGN / STOP-CONTAIN and record the exact reason. A single good window is learning evidence, not permanent staffing proof. Use repeated representative exposure across A/B/C/D crews and stress conditions before true 2-op.
+### Evidence rule
+Any coaching, reminder, decision-making, fetching, hands-on assistance, task takeover, break coverage, or recovery labor from the shadow/leader/support role is logged. A rescued window may remain valuable stress-test evidence, but it cannot be counted as independent 2-operator proof. Do not delay an intervention required by existing safety, quality, or plant escalation rules merely to collect pilot data.
 
 ## Best current strategy
-1. Map recurring work and travel; remove avoidable motion and point-of-use gaps.
+1. Map recurring work/travel and remove avoidable motion and point-of-use gaps.
 2. Demand-weight Op1/Op2 zones by work content + travel + abnormal exposure, not equal press count.
-3. Build the Operator-Minute Capacity Envelope by interval so nominal headcount is separated from usable reserve.
-4. Preserve fixed-window variability and test Cross-Zone Collision/shared-resource exposure.
-5. Build the task-by-person skill matrix and apply the Demonstrated Skill-Readiness Gate; count independent capacity only where demonstrated.
-6. Build the time-phased Relief Coverage Feasibility Matrix across Op1, Op2, relief, leader/shadow and shared support.
-7. Freeze NORMAL routes and single-owner ABNORMAL dispatch.
-8. Use Live Abnormality Ownership Board with explicit event states.
-9. Use NORMAL → CONSTRAINED → SATURATED → RECOVERY workload states.
-10. Protect due work with a plant-approved Protected Work Matrix and Due-Time Recovery Queue.
-11. Close critical single-point skill gaps using TWI-style job breakdown, coached practice and independent demonstration.
-12. Treat breaks as staffing transitions with demonstrated independent relief capability; quantify Break-Relief Debt and relief home-role recovery labor.
-13. Use Pilot Leader Standard Work and sample Process Confirmation on critical behaviors.
-14. Run the Pre-Pilot Scenario Challenge including skill-gap, relief-home-role, coverage-gap and SATURATED-state scenarios.
-15. Freeze measurement, escalation and CONTAIN → STABILIZE → RECORD → RESTART definitions.
-16. Apply the Pre-Exposure Readiness Gate and log material change points.
-17. Collect context-characterized 3-op baseline using the Interval Capacity-Loss / Recovery Board and capacity ledger.
-18. Build an Exposure Signature for each baseline/shadow window and predefine matching/stratification fields before reviewing staffing results.
-19. **Freeze the Predeclared Pilot Decision Gate (GO / HOLD-REDESIGN / STOP-CONTAIN) before seeing shadow 2-op results.**
-20. Run controlled shadow 2-op with a qualified third operator as rescue capacity only; log every coaching/rescue intervention.
-21. Classify each shadow window against the predeclared decision gate; never trade a hard safety/quality failure for productivity.
-22. Compare exposure-matched or exposure-stratified 3-op vs shadow 2-op windows; retain unmatched stress windows separately rather than hiding them.
-23. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH including production assistance, coaching, relief and recovery labor.
-24. Compare stable-condition segments for operator-minute reserve, workload-state transitions, collisions, skill/coverage gaps, response, work-at-risk, relief debt, adherence, intervention demand and capacity loss.
-25. Apply the Time-of-Shift Robustness Gate: stratify the same evidence by hours since shift start and look for recurring late-shift deterioration without inventing thresholds.
-26. Pareto exceptions and redesign.
-27. Repeat shadow exposure across demand, downtime, break, late-shift and A/B/C/D conditions before true 2-op.
-28. Move to true 2-op only after representative evidence shows operation without hidden third-person labor/coaching, recurring reserve depletion/saturation/collision failure, skill/coverage gaps, protected-work failure, missed relief, persistent relief debt/backlog, dispatch ambiguity, late-shift deterioration, or an impractical standard-work method.
+3. Build individual Operator-Minute Capacity Envelopes and preserve variability/collision reserve.
+4. Build demonstrated skill-readiness and time-phased qualified relief coverage.
+5. Freeze NORMAL routes, single-owner ABNORMAL dispatch, protected-work priorities and NORMAL → CONSTRAINED → SATURATED → RECOVERY states.
+6. Account for break-relief debt and relief home-role recovery labor.
+7. Use leader standard work, process confirmation and pre-pilot scenario challenge.
+8. Collect context-characterized 3-op baseline with running-press exposure, operator states and hands-on abnormal work.
+9. Build an Exposure Signature for each baseline/shadow window.
+10. Freeze GO / HOLD-REDESIGN / STOP-CONTAIN decision criteria before seeing shadow results.
+11. **Freeze the Shadow Rescue Intervention Protocol and intervention taxonomy before the first shadow window.**
+12. Run controlled shadow 2-op; the qualified third operator is rescue capacity, not invisible production capacity.
+13. Log every call, response, coaching/rescue intervention and outside-support people-minute.
+14. Classify each window against the predeclared decision gate; rescued windows are stress-test evidence, not independent 2-op proof.
+15. Compare exposure-matched/stratified 3-op vs shadow 2-op windows; retain unmatched stress windows.
+16. Calculate scheduled TPMH, Effective Labor Hours, Support Burden and Adjusted TPMH.
+17. Compare reserve, saturation, collisions, skill/coverage gaps, protected work, relief debt, recovery and time-of-shift behavior.
+18. Pareto exceptions, redesign, and repeat across representative A/B/C/D conditions before true 2-op.
+19. Move to true 2-op only after representative evidence shows operation without hidden third-person labor/coaching, recurring saturation/collision failure, skill/coverage gaps, protected-work failure, missed relief, persistent backlog, dispatch ambiguity, or an impractical work method.
 
 ## Immediate next action
-Before the next shadow 2-op window, create and approve a one-page **Pilot Decision Matrix**. Rows: safety, quality, required checks/protected work, break completion/relief, qualification/coverage, abnormal-response ownership, SATURATED-state/recovery, outside support/coaching, backlog/carryover, scheduled TPMH, Effective Labor, Support Burden and Adjusted TPMH. Columns: metric/evidence, existing plant requirement or baseline reference, GO condition, HOLD-REDESIGN condition, STOP-CONTAIN condition, owner, reaction plan. Leave numeric cells blank until an existing requirement or defensible baseline-derived limit is available; do not invent thresholds.
+Before shadow 2-op, add a **Shadow Intervention Log** to the pilot sheet with: timestamp, workload state, Op1 task, Op2 task, abnormality/call, person responding, intervention class (information/coaching/decision/fetching/hands-on/coverage/recovery), trigger, start, finish, people-minutes, work displaced, recovery complete Y/N, and pilot classification impact. Link rescue triggers to existing plant stop/containment rules or the predeclared pilot decision matrix; do not invent numeric thresholds.
+
+## Risks / gaps
+- Shadow presence can create a Hawthorne/support effect and make a weak design look self-sustaining.
+- If rescue triggers are vague, observers may intervene inconsistently or too late.
+- Team-leader response is legitimate operating-system demand, but must be separated from hidden production labor.
+- Alarm counts/duration still cannot establish operator workload without hands-on and operator-state timestamps.
+- Total two-person capacity can hide an individually saturated zone or a qualification-constrained task.
 
 ## Data still needed
-1. Existing plant safety/quality/response requirements that are mandatory stop or containment conditions.
-2. Baseline distributions needed to set defensible operational decision limits where plant limits do not exist.
-3. Actual proposed Op1/Op2/leader/shadow/relief people or roles and plant-authorized qualifications by critical task.
-4. Demonstration evidence by task/person: date, observer, independent vs coached result, restrictions and refresher/retest need.
-5. Candidate press-to-Op1/Op2 zone map and normal routes.
-6. Plant-defined required-by/completion windows and priority rules for protected/deferrable tasks.
-7. Timestamped Op1/Op2 work state during events.
-8. Existing plant short-interval reporting cadence, plan/actual production and running press exposure.
-9. Break-relief source, planned break windows, and relief person's home-role work, due windows, recovery and carryover.
-10. Which abnormal tasks require two people or external/shared support.
-11. Event-level notification/ownership/arrival/hands-on/wait/recovery/close timestamps.
-12. Shadow coaching/rescue intervention people-minutes and reason classification.
-13. Direct-observed recurring work-element times/frequencies and representative travel times.
-14. Running press-hours/cycles, product/mix, major press/gantry downtime and manual-support labor on every baseline/shadow window.
-15. Actual Curing people-hours and outside-support people-minutes by role/reason.
-16. Planned/actual breaks, relief handoffs, interruptions and recovery labor.
-17. Queue entry, required-by/time-to-breach, recovery start/finish and carryover.
-18. Attendance/call-ins and actual staffing by role/crew.
-19. Shift-start timestamps on baseline/shadow observations so time-of-shift can be reconstructed.
-20. Interval-level operator-minute ledger inputs so pre-abnormal reserve and actual reserve consumption can be calculated without assumptions.
-21. Enough baseline/shadow windows across comparable and stress conditions to distinguish staffing effects from exposure/mix/downtime effects and special causes.
+1. Existing plant safety/quality/response stop and containment rules.
+2. Baseline distributions for defensible operational limits where plant limits do not exist.
+3. Proposed Op1/Op2/leader/shadow/relief roles and demonstrated task qualifications.
+4. Candidate press-to-zone map, routes, recurring work-element times/frequencies and travel times.
+5. Protected-work due windows, priorities and two-person/external-support tasks.
+6. Timestamped Op1/Op2 work state and event-level notification/arrival/hands-on/wait/recovery/close times.
+7. Actual break windows, relief source, relief home-role demand, recovery and carryover.
+8. Running press-hours/cycles, product/mix, major press/gantry downtime and short-interval plan/actual production.
+9. All shadow coaching/rescue/outside-support people-minutes by intervention class and reason.
+10. Actual Curing people-hours, attendance/call-ins and staffing by role/crew.
+11. Enough baseline/shadow windows across comparable and stress conditions to separate staffing effects from exposure, mix, downtime and special causes.
