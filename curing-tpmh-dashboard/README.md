@@ -8,22 +8,20 @@
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Break-Relief Capacity Protection
-A nominal two-operator system is not a true full-shift design unless breaks can occur without silently exporting Curing work to another role or creating unrecovered backlog. Thursday therefore treats each break/meal as a deliberate capacity transition, not merely an attendance event.
+## Latest improvement — Hourly Pilot Production Control Board
+Thursday needs a simple visual control that detects deterioration while it is happening without changing the experimental method. Use one row per clock hour and display **plan, actual, cumulative gap, major downtime, abnormality/queue condition, staffing exposure state, incremental help, break/relief state, protected-work status, and action/owner**.
 
+Do not create arbitrary red/yellow numerical limits before the pilot. Use existing plant safety/quality/escalation limits where they exist. Otherwise treat the board as a factual visual control: any safety/quality stop-rule condition, unresolved abnormality, unlogged staffing substitution, unclear ownership, or required work that cannot be recovered invokes the existing containment/escalation process. Production gap alone is a signal to investigate, not permission to bypass standard work.
+
+### Hourly row
+`hour | production plan | actual | cumulative gap | running presses / major downtime | queue/abnormality | exposure state | incremental help people-min | break/relief state | protected work due/completed | action | owner`
+
+At each hour boundary, the observer/leader records the condition. Do not wait until shift end to reconstruct it. This creates a time-linked record connecting output to abnormalities, staffing support, relief and downtime.
+
+## Break-Relief Capacity Protection
 For every break/meal record: `break start | operator relieved | qualified relief person | relief home role | home-role work deferred? | abnormality during relief? | extra help? | break end | backlog at handback | backlog cleared time`.
 
-Use three relief states:
-- **COVERED:** qualified relief assumes the frozen Curing responsibility and required work remains controlled.
-- **DEGRADED:** relief occurs but work is deferred, another role accumulates backlog, or responsibilities become unclear.
-- **UNRELIEVED / CONTAINED:** planned relief cannot be provided or plant rules require containment/escalation.
-
-Do not invent a pass/fail percentage. The purpose of the pilot is to expose whether relief is operationally sustainable and whether the relief source's own work is displaced. Relief home-role debt must remain visible until recovered.
-
-### Relief-debt measure
-`Relief debt = required home-role or Curing work displaced during relief that remains incomplete at handback.`
-
-Record recovery time and any extra people-minutes used to clear it. A break is not evidence of successful coverage merely because production continued.
+Use three relief states: **COVERED**, **DEGRADED**, or **UNRELIEVED / CONTAINED**. Relief debt is required Curing or relief-home-role work displaced during relief that remains incomplete at handback. Track recovery time and extra people-minutes.
 
 ## Dual-Mode Pilot Observation
 ### Mode A — continuous exception/event log
@@ -57,27 +55,30 @@ Classify non-Op1/Op2 intervention as **BASELINE-NORMAL**, **INCREMENTAL-2OP**, *
 Name Op1, Op2, floor leader and rescue/shadow; freeze zones/routes, protected work, qualifications, break relief, NORMAL/ABNORMAL ownership, flex-assist, rescue rules, Support Neutrality definitions and observation windows. For each planned relief person, verify critical-task qualification and identify what happens to that person's home-role work.
 
 ## Best current strategy
-1. Freeze roles, zones, qualifications and relief by Wednesday.
+1. Freeze roles, zones, qualifications, relief and reaction rules by Wednesday.
 2. Scenario-walk simultaneous demand, abnormality during break, relief handback, flex assist and a known two-person task.
 3. Thursday: continuous exception logging + fixed 15 min/hour structured observations.
-4. Treat every break as a capacity transition; classify COVERED / DEGRADED / UNRELIEVED and track relief debt to recovery.
-5. Timestamp flex assists, third-person interventions, exposure-state transitions and recovery.
-6. Calculate Scheduled TPMH, Effective Labor/Adjusted TPMH, Independent Exposure %, incremental support people-minutes, flex-assist minutes and relief-debt recovery.
-7. Separate design failure from execution failure before drawing conclusions.
-8. Pareto design/training/special-cause/non-adherence and assistance/relief causes.
-9. Redesign and repeat representative conditions before permanent 2-op.
+4. Update the Hourly Pilot Production Control Board at every hour boundary; connect plan-vs-actual to downtime, abnormalities, exposure state, help and relief rather than viewing TPMH alone.
+5. Treat every break as a capacity transition; classify COVERED / DEGRADED / UNRELIEVED and track relief debt to recovery.
+6. Timestamp flex assists, third-person interventions, exposure-state transitions and recovery.
+7. Calculate Scheduled TPMH, Effective Labor/Adjusted TPMH, Independent Exposure %, incremental support people-minutes, flex-assist minutes and relief-debt recovery.
+8. Separate design failure from execution failure before drawing conclusions.
+9. Pareto design/training/special-cause/non-adherence and assistance/relief causes.
+10. Redesign and repeat representative conditions before permanent 2-op.
 
 ## Immediate next action
-**Before Thursday, run one break-relief tabletop scenario.** Pick one planned Op1/Op2 break and walk: who takes the zone, whether that person is qualified for critical work, what happens to the relief person's home work, who owns an alarm during the handoff, and how any displaced work is recovered. Add the relief-state fields to the observer sheet.
+**Build and rehearse the one-page hourly control board before Thursday.** During one tabletop scenario, populate a sample hour containing an alarm, a break and a production gap. Confirm who updates the board, who owns the reaction, and which existing plant conditions require containment/escalation. Keep it factual; do not invent pilot thresholds.
 
 ## Risks / gaps
 - No verified Thursday performance exists yet.
+- Shift-end TPMH can hide a bad hour, accumulated backlog, or temporary staffing substitution.
 - A nominal 2-op pilot can look successful if break coverage exports workload to another role.
 - Relief may be available but not qualified for every critical/cross-zone task.
 - Relief home-role backlog can hide the true labor cost.
 - Observer overload/coaching can contaminate the experiment.
 - Fixed snapshots can miss rare events; continuous exception logging remains mandatory.
 - Thursday may be unusually easy or difficult; retain exposure context.
+- Arbitrary pilot thresholds could bias decisions; use existing plant limits or collect evidence first.
 
 ## Data still needed
 1. Actual Thursday Op1, Op2, floor leader, shadow/rescue and relief assignments.
@@ -87,7 +88,7 @@ Name Op1, Op2, floor leader and rescue/shadow; freeze zones/routes, protected wo
 5. Known one-person vs two-person tasks and scarce-support requirements.
 6. Recent 3-op normal support examples by reason/people-minutes.
 7. Exact break/meal plan, relief source, and relief source's home-role responsibilities.
-8. Thursday running-press exposure, product/mix, downtime and plan/actual production.
+8. Thursday hourly production plan plus running-press exposure, product/mix, downtime and actual production.
 9. Event-level abnormal-response timestamps and hands-on/recovery labor.
 10. Break relief state, displaced work, relief debt and recovery time.
 11. Flex assists and third-person interventions with people-minutes/recovery.
