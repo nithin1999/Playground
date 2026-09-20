@@ -10,80 +10,92 @@ Project dashboard for the Curing TPMH / 2-operator staffing improvement project.
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Support Neutrality Rule
-The Thursday pilot must distinguish **normal baseline support** from **incremental staffing-substitution support**. Otherwise normal Team Lead/Mold/Bladder interaction could unfairly make 2-op look worse, while extra help caused by removing the third Curing operator could make 2-op look better than it really is.
+## Latest improvement — Controlled Flex-Assist Rule
+Fixed Op1/Op2 zones create clear ownership, but a rigid boundary can leave one operator overloaded while the other has recoverable capacity. Thursday should therefore keep **primary zones** but use a controlled, visible handoff when cross-zone assistance is actually needed.
 
-For every non-Op1/Op2 intervention classify support as:
-- **BASELINE-NORMAL:** support that would ordinarily occur under the existing 3-operator method for the same type of condition.
-- **INCREMENTAL-2OP:** support required because the proposed 2-operator system could not independently absorb the work. Charge the people-minutes to Effective Labor and classify the exposure as ASSISTED 2-OP.
-- **AMBIGUOUS:** causality cannot be established from the observation. Preserve it separately; do not force it into either category.
-- **CONTAINMENT/RESCUE:** plant safety, quality or process authority requires intervention. Preserve the event and classify the affected exposure as CONTAINED / NOT TESTABLE.
+### Default
+Each operator owns the frozen route, routine/protected work and abnormalities in the assigned primary zone. Do not continuously rebalance or chase alarms across both zones.
 
-Do not infer causality from role alone. A Team Lead interaction is not automatically hidden labor, and Mold/Bladder help is not automatically baseline support. Classify from the reason and work actually performed.
+### Flex-assist sequence
+1. **CALL:** home-zone owner identifies a condition that cannot be absorbed without jeopardizing due/protected work, recovery, or an approved abnormal-response requirement.
+2. **CHECK:** potential assisting operator must be qualified and must not abandon higher-priority/protected work in the home zone.
+3. **TRANSFER:** one specific task/event is explicitly accepted by the assisting operator. Ownership must be clear; assistance must not create two uncoordinated responders.
+4. **WORK:** record assist start/end, task/event, reason and any displaced work/travel.
+5. **RETURN:** assisting operator returns to the primary zone when the transferred work is complete or approved containment/recovery changes the condition.
+6. **RECOVER:** displaced work is made visible and recovered; unresolved backlog remains evidence.
 
-### Support record
-`time | helper role | reason called/arrived | work performed | start | end | people-min | support class | evidence for class | displaced home-role work | recovery`
+Do **not** invent a numerical flex trigger before the pilot. Use existing plant safety/quality/process priority and escalation rules. Flex assist is a pilot observation mechanism, not permission to bypass qualification or plant authority.
 
-Use the existing 3-op process as the reference condition where possible. If no defensible baseline exists before Thursday, mark the event AMBIGUOUS rather than inventing a classification.
+### Why this matters
+Machine-intensive work is often event-driven rather than perfectly cyclic. Primary zones preserve clear ownership and reduce random walking; controlled flex provides a testable way to share capacity during uneven abnormal demand. Every assist also becomes evidence for whether the proposed zone balance is correct.
+
+### Flex-assist record
+`time | from zone | to zone | task/event | reason | requested by | accepted by | qualified? | assist start/end | travel | displaced home-zone work | recovered? | outside support?`
+
+Post-pilot, Pareto flex assists by zone, task and reason. Repeated one-way borrowing is evidence that zone/work allocation may need redesign; do not normalize chronic imbalance by making flex assistance routine.
+
+## Support Neutrality Rule
+For every non-Op1/Op2 intervention classify support as **BASELINE-NORMAL**, **INCREMENTAL-2OP**, **AMBIGUOUS**, or **CONTAINMENT/RESCUE** based on the reason and work performed, not the helper's title. Incremental staffing-substitution people-minutes are charged to Effective Labor. If causality is unclear, preserve it as AMBIGUOUS rather than forcing a conclusion.
 
 ## Pilot Integrity Exposure States
-- **INDEPENDENT 2-OP:** Op1 + Op2 perform the frozen method with normal baseline support only; no staffing-substitution help.
-- **ASSISTED 2-OP:** incremental third-person coaching, fetching, coverage, prioritization or hands-on help occurs.
-- **CONTAINED / NOT TESTABLE:** safety/quality/process authority, major special cause or rescue temporarily means the frozen staffing concept is no longer being tested.
+- **INDEPENDENT 2-OP:** frozen method + normal baseline support only.
+- **ASSISTED 2-OP:** incremental third-person staffing substitution occurs.
+- **CONTAINED / NOT TESTABLE:** rescue/special cause means the frozen staffing concept is temporarily not being tested.
 
 `Independent Exposure % = Independent 2-op minutes / observable pilot minutes × 100`
 
-Do not invent a required percentage before Thursday. Assisted and contained periods remain evidence and must not be discarded.
+A flex assist between Op1 and Op2 does **not** by itself make the exposure ASSISTED 2-OP because total Curing staffing remains two; it must be logged to test zone balance and displaced-work risk.
 
 ## Freeze before Thursday
 1. Name Op1, Op2, floor leader and qualified rescue/shadow roles.
-2. Freeze Op1/Op2 zones/routes and critical protected work.
-3. Verify demonstrated qualifications for critical tasks; unresolved gaps remain visible.
+2. Freeze primary Op1/Op2 zones/routes and critical protected work.
+3. Verify demonstrated qualifications for critical tasks.
 4. Freeze break/meal relief ownership and handoff.
-5. Freeze NORMAL/ABNORMAL rule: one named abnormality owner; other operator protects due work unless approved cross-support is required.
-6. Freeze rescue/containment triggers using existing plant safety, quality and escalation rules.
-7. Brief the crew, leader and observer from one common instruction sheet.
-8. Freeze the Support Neutrality definitions and examples before results are seen.
+5. Freeze NORMAL/ABNORMAL ownership and the Controlled Flex-Assist Rule.
+6. Freeze rescue/containment triggers using existing plant rules.
+7. Brief crew, leader and observer from one common instruction sheet.
+8. Freeze Support Neutrality definitions before results are seen.
 
 ## Minimum viable pilot record
-For each meaningful exception capture: `time | exposure state | Op1 activity | Op2 activity | abnormality | owner | response start | extra helper? | helper role/reason | helper start/end | support class | displaced/delayed work | recovery complete | note`.
+For each meaningful exception capture: `time | exposure state | Op1 activity | Op2 activity | abnormality | owner | flex assist? | assist from/to | response start | extra helper? | helper role/reason | helper start/end | support class | displaced/delayed work | recovery complete | note`.
 
 Also record actual staffing, running presses/major downtime, production plan/actual, breaks/relief, unusual maintenance and special conditions.
 
 ## Primary pilot question
-**How much of the exposure was truly independent 2-op operation, and when assistance occurred, was it normal baseline support or incremental support caused by the staffing design?**
+**Can two operators sustain the frozen method while absorbing uneven abnormal demand through controlled internal flex, without hidden third-person labor, unacceptable delayed work, failed relief, or unrecovered backlog?**
 
 ## Best current strategy
-1. **Now through Wednesday:** freeze roles, zones, qualifications, relief, abnormal-response ownership, rescue rules, observation definitions, exposure states and Support Neutrality definitions.
-2. Conduct one short scenario walkthrough: alarm during routine work, simultaneous demand, protected work due during alarm, abnormality during break, and required third-person rescue.
-3. **Thursday:** execute the frozen method. Prioritize exceptions and timestamps rather than trying to stopwatch every movement.
-4. Leader maintains authority, protects safety/quality and logs intervention without silently substituting labor.
-5. Calculate Scheduled TPMH, Effective Labor / Adjusted TPMH, Independent Exposure %, incremental support people-minutes, and preserve ambiguous support separately.
-6. Review production, breaks, protected-work completion, abnormalities, support, delayed work and recovery together.
-7. Pareto ASSISTED/CONTAINED causes after the pilot and redesign only after observation is complete.
-8. Treat Thursday as one controlled exposure, not final proof. Repeat across representative crews/conditions before true 2-op implementation.
+1. **Now through Wednesday:** freeze roles, primary zones, qualifications, relief, abnormal ownership, flex-assist rule, rescue rules and observation definitions.
+2. Scenario-walk the flex rule: alarm in one zone while the other operator is free; simultaneous demand; protected work due; abnormality during break; known two-person task.
+3. **Thursday:** execute the frozen method. Keep primary ownership; use explicit flex transfer only when needed.
+4. Timestamp flex assists, third-person interventions and exposure-state transitions; do not silently redistribute work.
+5. Calculate Scheduled TPMH, Effective Labor/Adjusted TPMH, Independent Exposure %, incremental support people-minutes, flex-assist minutes and displaced/recovery work.
+6. Pareto flex assists and ASSISTED/CONTAINED causes after the pilot.
+7. Redesign zone boundaries/work allocation if borrowing is repeatedly one-way or causes protected-work risk.
+8. Treat Thursday as one controlled exposure, not final proof; repeat across representative crews/conditions before permanent 2-op.
 
 ## Immediate next action
-Before Thursday, make a **one-page Support Reference Card** using recent 3-op experience: list common Team Lead, Mold/Bladder, maintenance and other support interactions and mark only clearly established normal support. Leave uncertain cases AMBIGUOUS. Use that card during Thursday's pilot so the support classification is not changed after seeing the outcome.
+Before Thursday, add the **Controlled Flex-Assist Rule** to the scenario walkthrough and pilot instruction sheet. Walk at least one case where Op1 is busy and Op2 appears available. Require the team to state: who owns the event, whether Op2 is qualified/free to assist, what home-zone work could be displaced, how the transfer is communicated, and when Op2 returns.
 
 ## Risks / gaps
 - No verified Thursday performance exists yet.
+- Uncontrolled cross-zone helping can create random walking, duplicate response and abandoned home-zone work.
+- Rigid zones can create local overload even when total two-person capacity appears adequate.
+- Repeated one-way flex can hide a bad zone balance.
 - Hidden third-person help can make a weak 2-op design appear successful.
-- Counting all existing support against 2-op can make a viable design appear worse than baseline.
-- Post-hoc classification creates confirmation bias; freeze definitions before Thursday.
-- Break coverage can export work to Mold/Bladder/Team Lead; capture their displaced work and recovery.
+- Break coverage can export work to Mold/Bladder/Team Lead; capture displaced work and recovery.
 - Thursday may be unusually easy or difficult; retain production/mix/downtime context.
-- Fixed zones can create local overload; do not improvise frequent switching unless the frozen abnormal rule requires it.
 
 ## Data still needed
 1. Actual Thursday Op1, Op2, floor leader, shadow/rescue and relief assignments.
-2. Demonstrated qualification matrix for critical tasks.
-3. Frozen Op1/Op2 zone/route map.
+2. Demonstrated qualification matrix for critical tasks, including cross-zone tasks.
+3. Frozen primary Op1/Op2 zone/route map.
 4. Existing plant safety/quality priority, escalation, containment and stop rules.
-5. Recent 3-op examples or observations of normal Team Lead/Mold/Bladder/maintenance support by reason and people-minutes.
-6. Break/meal plan and qualified relief source, including relief person's home-role work.
-7. Thursday running-press exposure, product/mix, major press/gantry downtime and production plan/actual.
-8. Event-level abnormal-response timestamps and actual hands-on/recovery labor.
-9. Every coaching/rescue/outside-support intervention with people-minutes, reason and support classification.
-10. Protected-work due/completed/delayed/recovered observations.
-11. Actual Curing people-hours and staffing/attendance for the pilot shift.
+5. Known one-person vs two-person tasks and scarce-support requirements.
+6. Recent 3-op normal support examples by reason and people-minutes.
+7. Break/meal plan and qualified relief source, including relief person's home-role work.
+8. Thursday running-press exposure, product/mix, major press/gantry downtime and production plan/actual.
+9. Event-level abnormal-response timestamps and actual hands-on/recovery labor.
+10. Every flex assist and third-person intervention with people-minutes, reason, displaced work and recovery.
+11. Protected-work due/completed/delayed/recovered observations.
+12. Actual Curing people-hours and staffing/attendance for the pilot shift.
