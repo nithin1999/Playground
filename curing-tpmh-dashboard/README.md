@@ -8,22 +8,30 @@
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Leader Reserve-Capacity Test
-The pilot must distinguish **operator capacity** from **leader/flex reserve capacity**. In a lean system, team-leader assistance during abnormalities can be part of the designed operating system, but a 2-operator model is not truly understood unless the amount, timing and consequences of that reserve demand are measured.
+## Latest improvement — Pre-Defined Pilot Hold / Containment Gate
+Before Thursday starts, separate **plant-authorized hard-stop conditions** from **analytical hold conditions** so the team does not improvise acceptance rules after seeing the result.
 
-For every call/assist from the floor leader or planned flex resource record:
-`call time | trigger | leader/flex arrival | assist start/end | people-min | operator(s) already committed? | task assumed | backlog prevented/cleared | leader's own work displaced? | restored time | classification`
+### Hard stop / containment
+Safety, quality, equipment-protection, or other existing plant-authorized stop/containment requirements always override the experiment. The pilot does not create new safety or quality thresholds.
 
-Classify each event as:
-- **PLANNED LEAN SUPPORT** — within the defined leader/flex role and no harmful displacement of leader responsibilities.
-- **SURGE CAPACITY** — temporary reserve needed because simultaneous demand exceeded Op1/Op2 instantaneous capacity.
-- **STAFFING SUBSTITUTION** — leader/flex repeatedly performs normal operator work to keep the 2-op model functioning.
-- **CONTAINMENT** — safety/quality/equipment abnormality requiring authorized intervention; not a staffing pass/fail by itself.
+### Analytical HOLD — staffing configuration is no longer being independently tested
+Mark the exposure HOLD and timestamp it when any of these occur:
+- an incremental third person begins performing normal Curing operator work to sustain the 2-op configuration;
+- required/protected work becomes overdue and cannot be recovered by the defined Op1/Op2 + authorized flex system;
+- unresolved work queues continue growing while both operators are committed;
+- break coverage cannot be executed as designed without unplanned staffing substitution;
+- the frozen route/ownership method becomes impractical enough that the pilot is no longer testing the intended standard work.
 
-After the pilot, plot leader/flex people-minutes by hour and reason, plus simultaneous calls and any displaced leader work. Do not invent an allowable support threshold before observing the system. The purpose is to learn whether two operators are self-sustaining in normal conditions with a reasonable abnormal-response reserve, or whether the proposed reduction simply converts the third operator into an unofficial floating role.
+A HOLD is **not automatically a failed project**. Contain as required, preserve the timestamps, classify the cause, and determine whether the exposure can restart under the frozen method. Do not erase the event by simply adding labor and continuing to report the period as independent 2-op operation.
+
+This follows jidoka logic: abnormalities should be made visible and acted on rather than hidden by continuing degraded operation. It also prevents post-hoc pass/fail criteria from contaminating the pilot interpretation.
+
+## Leader Reserve-Capacity Test
+For every leader/flex assist record `call time | trigger | arrival | assist start/end | people-min | operators committed? | task assumed | backlog prevented/cleared | leader work displaced? | restored time | classification`.
+Classify PLANNED LEAN SUPPORT / SURGE CAPACITY / STAFFING SUBSTITUTION / CONTAINMENT.
 
 ## Support Displacement Ledger
-Every incremental support event must track both help received and donor-role displacement. Support that repeatedly delays the helper's normal work is labor displacement, not independent 2-operator success. Use `Adjusted TPMH = Cured Tires / (scheduled Curing labor-hours + incremental staffing-dependent support hours)` as a secondary diagnostic; do not count normal leadership presence or already-planned shared services unless the pilot causes additional work/displacement.
+Every incremental support event must track both help received and donor-role displacement. Use `Adjusted TPMH = Cured Tires / (scheduled Curing labor-hours + incremental staffing-dependent support hours)` as a secondary diagnostic; do not count normal leadership presence or already-planned shared services unless the pilot causes additional work/displacement.
 
 ## Work-Interference / Collision Matrix
 Record each instance where a new demand arrives while one or both operators are committed. Rank current-work × incoming-demand cells by backlog/delay, incremental support and failure to restore normal route, not frequency alone.
@@ -54,42 +62,41 @@ Use existing plant-authorized rules; do not invent response-time thresholds.
 
 ## Best current strategy
 1. Complete readiness gates and freeze people, zones, routes, qualifications, relief and plant-authorized reaction rules.
-2. Explicitly define the floor leader/flex role: what support is normal, what constitutes surge help, and what work must remain protected when the leader assists.
-3. Freeze break/meal coverage, protected-work ownership and matched historical comparison method before seeing Thursday's result.
-4. Scenario-walk break + abnormality, simultaneous demand, flex assist and two-person tasks.
-5. Run Thursday with exception logging, exposure tracking, reaction timestamps, break records, hourly plan-vs-actual and 15-minute workload windows.
-6. Record standard-work deviations and work-interference collisions whenever a new demand arrives while operators are committed.
-7. For every leader/flex or other incremental support event, record support people-minutes, reason, backlog effect and donor-role displacement/restoration.
-8. Reconstruct occupancy, queues, backlog aging, relief debt, support chains and route restoration.
-9. Build collision, leader-reserve-demand and support-displacement Paretos; rank by backlog/delay and incremental labor, not frequency alone.
+2. Before the pilot, write the hard-stop/containment rules already authorized by the plant and the analytical HOLD triggers above; do not invent thresholds during the run.
+3. Define the floor leader/flex role, protected leader responsibilities, break/meal coverage and protected-work ownership.
+4. Freeze the matched historical comparison method before seeing Thursday's result.
+5. Scenario-walk break + abnormality, simultaneous demand, flex assist, two-person tasks and one HOLD/restart scenario.
+6. Run Thursday with exception logging, exposure tracking, reaction timestamps, break records, hourly plan-vs-actual and 15-minute workload windows.
+7. When a HOLD trigger occurs, timestamp it, contain/escalate under plant rules, preserve the evidence and classify the cause; do not mask it with hidden labor.
+8. Record standard-work deviations, work-interference collisions and every leader/flex/support event with donor-role displacement.
+9. Reconstruct occupancy, queues, backlog aging, relief debt, support chains and route restoration.
 10. Normalize against running press-hours, event demand, mix and downtime; compare closest-condition historical shifts.
-11. Diagnose persistent capacity vs surge reserve demand vs standard-work practicality vs skill vs motion/routing vs relief vs equipment/process loss vs staffing substitution.
+11. Diagnose persistent capacity vs surge reserve vs standard-work practicality vs skill vs motion/routing vs relief vs equipment/process loss vs staffing substitution.
 12. Change only the demonstrated constraint and repeat representative/missing exposure before recommending permanent staffing change.
 
 ## Immediate next action
-Before Thursday, define Dallten/floor-leader support on the observer sheet and add a **Leader/Flex Reserve** log. During the pilot, timestamp every leader/flex call and assist, why it was needed, how many people-minutes it consumed, whether it prevented/cleared backlog, and whether the leader's own responsibilities were displaced. This determines whether the 2-operator design has a sustainable abnormal-response reserve or is silently recreating the removed position.
+Before Thursday, add a small **Pilot HOLD / Containment** box to the observer sheet. Copy the plant's existing safety/quality/equipment stop rules, then list the analytical HOLD triggers. Define who has authority to contain/restart. During the pilot, timestamp every HOLD, reason, intervention, added labor, backlog state and restoration time.
 
 ## Risks / gaps
 - No verified Thursday performance exists yet.
+- Exact plant-authorized safety/quality/equipment stop criteria and restart authority have not been supplied here.
 - Alarm concurrency is only a proxy for demand; it does not show operator work interference.
 - A single shift can confound staffing with press availability, mix, downtime and abnormal-event demand.
 - A quiet shift may under-expose collision combinations; NOT OBSERVED is not PASS.
 - Hidden support can falsely validate staffing if donor-role displacement is not followed.
 - Leader assistance may be legitimate lean reserve capacity, but repeated normal-work substitution would weaken the 2-op case.
 - Shift/hour averages can hide brief overload and recovery debt.
-- Break/meal states, qualifications and abnormal-response ownership remain critical validation conditions.
 
 ## Data still needed
 1. Actual Thursday Op1, Op2, floor leader, observer, rescue/shadow and relief assignments.
-2. Floor leader's normal responsibilities and which of them must remain protected while assisting Curing.
-3. Exact break/meal schedule and relief source/qualifications/home-role responsibilities.
-4. Verified qualification matrix and one-person vs two-person task list.
-5. Frozen Op1/Op2 zone/route map and primary/flex ownership.
-6. Periodic/protected task list with real due-time/frequency requirements.
-7. Existing plant abnormality detection/call, escalation and rescue/containment rules.
-8. Thursday hourly plan/actual, running-press exposure, mix and downtime.
-9. Timestamped occupied-work, walking/retrieval, response, queue/backlog, route-restoration and standard-work deviation data.
-10. Event-level collision records showing incumbent work, incoming demand, deferred work, support and recovery.
-11. Leader/flex call count, response time, assist people-minutes, reason, simultaneous calls, backlog effect and displaced leader work.
-12. Incremental support records including helper role, support people-minutes, donor work displaced, replacement chain and donor-role restoration time.
-13. Historical comparable-shift staffing, cured tires/plan, running press-hours, major downtime, alarm/event counts, mix, support condition and man-hours/TPMH.
+2. Existing plant safety/quality/equipment hard-stop criteria, containment authority and restart authority.
+3. Floor leader's normal responsibilities and which must remain protected while assisting Curing.
+4. Exact break/meal schedule and relief source/qualifications/home-role responsibilities.
+5. Verified qualification matrix and one-person vs two-person task list.
+6. Frozen Op1/Op2 zone/route map and primary/flex ownership.
+7. Periodic/protected task list with real due-time/frequency requirements.
+8. Existing plant abnormality detection/call, escalation and rescue/containment rules.
+9. Thursday hourly plan/actual, running-press exposure, mix and downtime.
+10. Timestamped occupied-work, walking/retrieval, response, queue/backlog, route-restoration, HOLD and standard-work deviation data.
+11. Leader/flex/support people-minutes, reason, backlog effect and donor-role displacement/restoration.
+12. Historical comparable-shift staffing, cured tires/plan, running press-hours, major downtime, alarm/event counts, mix, support condition and man-hours/TPMH.
