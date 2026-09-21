@@ -8,22 +8,24 @@
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Short-Window Workload Saturation Test
-Shift-average TPMH and even hourly averages can hide brief overloads that create queues, delayed protected work, or hidden third-person support. Thursday will therefore evaluate **15-minute workload windows** in addition to the hourly board.
+## Latest improvement — Workload Variability / Surge-Capacity Profile
+The 15-minute grid should measure not only average loading and isolated saturation, but **mura (unevenness)** across the shift. After Thursday, calculate the distribution of combined observed Op1+Op2 occupied operator-minutes by 15-minute window and report median, P90, P95 and maximum, together with queue/backlog and support. Stratify the same profile by **normal running / break-relief / abnormal-event / downtime-recovery** state.
+
+Do not use an arbitrary percentile or utilization value as a staffing pass/fail limit. The purpose is diagnostic: distinguish a continuously high workload from a generally manageable workload with short surges. If high-demand windows are concentrated in identifiable abnormal states, test flex/leader response, cross-training, route reduction or relief design before concluding that a permanent third curing operator is required. If loading and backlog remain broadly elevated across normal-running windows, the permanent capacity hypothesis becomes stronger.
 
 For each 15-minute window retain:
-`window | Op1 occupied min | Op2 occupied min | walk/retrieval min | abnormal-response min | protected/periodic work min | break/relief state | queue/backlog start/peak/end | incremental support people-min | running presses | abnormal events | production context`
+`window | state | Op1 occupied min | Op2 occupied min | walk/retrieval min | abnormal-response min | protected/periodic work min | break/relief state | queue/backlog start/peak/end | incremental support people-min | running presses | abnormal events | production context`
 
 Use **observed occupied minutes**, not alarm duration, as the labor numerator. Available 2-op capacity is 30 operator-minutes per 15-minute window only when both operators are actually present; reduce the denominator for planned break/relief states and classify relief separately rather than hiding it inside capacity.
 
 ### Interpretation rule
-- High short-window loading with rising queue/backlog supports a **capacity-collision** hypothesis.
+- Broadly high loading + rising backlog during normal running supports a **persistent capacity** hypothesis.
+- Short high-loading tails tied to abnormal events support a **surge-response/flex-capacity** hypothesis.
 - Moderate loading with high walking/retrieval supports a **motion/routing** countermeasure before adding labor.
 - Low measured loading with delayed response points first to detection, ownership, skill, information, or measurement gaps—not headcount.
-- Saturation only during breaks points to **relief design**.
-- Saturation only during rare abnormal clusters is a **surge/containment design** question, not proof that normal staffing is inadequate.
+- Saturation concentrated around breaks points to **relief design**.
 
-Do **not** create an arbitrary utilization pass/fail threshold before observing the pilot. Use the windows diagnostically and anchor acceptability to existing Safety, Quality, process, due-time and escalation requirements.
+Do **not** create an arbitrary utilization pass/fail threshold before observing the pilot. Anchor acceptability to existing Safety, Quality, process, due-time and escalation requirements.
 
 ## Break-Relief Capacity Envelope
 Breaks/meals are treated as a planned operating state. Capture break start/end, operator off floor, relief person/qualification, running presses, abnormal events, transferred work, backlog start/peak/handback, incremental support people-minutes and time to restore normal route. Classify **INDEPENDENT / RECOVERED / ASSISTED / CONTAINED / NOT-EXPOSED**.
@@ -64,19 +66,20 @@ Separate fixed/periodic work, event-driven work, motion/retrieval and support/re
 2. Freeze break/meal coverage and protected-work ownership; verify relief qualifications and handoff/handback.
 3. Scenario-walk break + abnormality, simultaneous demand, flex assist and two-person tasks.
 4. Run Thursday with continuous exception logging, exposure-state tracking, reaction timestamps, break-window records and hourly plan-vs-actual control.
-5. Add **15-minute workload saturation windows** so short capacity collisions are not averaged away.
-6. Reconstruct occupancy, queues, backlog aging, relief debt, support and route restoration.
-7. Normalize against running presses, event demand, mix and downtime; compare early/middle/late shift.
-8. Diagnose degraded windows as capacity collision, detection/ownership, skill, motion/routing, relief, recovery, equipment/process loss or support dependency.
-9. Pareto observed causes and change only the demonstrated constraint.
-10. Repeat representative/missing exposure before recommending permanent staffing change.
+5. Capture 15-minute workload windows and tag each by operating state.
+6. Build the **workload variability/surge profile** (median/P90/P95/max occupied operator-minutes plus backlog/support) overall and by state.
+7. Reconstruct occupancy, queues, backlog aging, relief debt, support and route restoration.
+8. Normalize against running presses, event demand, mix and downtime; compare early/middle/late shift.
+9. Diagnose whether the limiting condition is persistent capacity, surge response, detection/ownership, skill, motion/routing, relief, recovery, equipment/process loss or support dependency.
+10. Pareto observed causes and change only the demonstrated constraint; repeat representative/missing exposure before recommending permanent staffing change.
 
 ## Immediate next action
-**Prepare a 15-minute pilot observation grid before Thursday.** Pre-fill 48 rows for the 12-hour shift. During each window total actual Op1/Op2 occupied minutes and separately mark walking, abnormal response, protected work, break/relief, queue/backlog and incremental support. Preserve timestamps behind the totals so disputed windows can be reconstructed.
+**Add an operating-state field to the 48-row Thursday observation grid before the pilot.** Tag each 15-minute window NORMAL / BREAK-RELIEF / ABNORMAL-EVENT / DOWNTIME-RECOVERY (multiple tags allowed where necessary). Preserve timestamps. This allows post-pilot workload percentiles and backlog behavior to be separated by condition rather than treating all 48 windows as equivalent.
 
 ## Risks / gaps
 - No verified Thursday performance exists yet.
 - Shift/hour averages can hide brief overload and recovery debt.
+- Averages alone can also hide mura: the same average workload can represent steady demand or severe short-duration surges.
 - Alarm duration cannot substitute for hands-on operator work time.
 - Observer sampling can miss short work bursts; timestamps and exception logging are needed to reconstruct them.
 - A 2-op design may appear feasible during full attendance but fail during normal break/meal states.
