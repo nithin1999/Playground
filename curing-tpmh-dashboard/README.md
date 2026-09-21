@@ -8,25 +8,29 @@
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Standard-Work Conformance / Deviation Log
-The pilot can only test the proposed 2-operator design if the intended design is actually followed. Add a lightweight conformance check that distinguishes a staffing-capacity failure from a standard-work execution/design failure.
+## Latest improvement — Work-Interference / Collision Matrix
+Same-minute alarm starts alone cannot establish whether two operators collide in real work. During the pilot, record each instance where a new demand arrives while one or both operators are already committed. Code the incumbent work and incoming demand as: **alarm/troubleshoot | GIP/scan/check | manual load-unload | bladder/two-person task | protected/periodic work | break-relief | walking/retrieval | downtime recovery | other**.
 
-For each 15-minute window record:
-`window | planned zone/route followed? | primary/flex ownership followed? | break/relief method followed? | abnormal-response ladder followed? | deviation observed | reason | operator workaround | effect on queue/backlog/support | leader action`
+For each collision record:
+`time | Op1 current work | Op2 current work | incoming demand | primary owner | flex used? | outside support? | work deferred | oldest backlog/delay | recovery time | outcome`
 
-Use three classifications only: **STANDARD FOLLOWED / JUSTIFIED DEVIATION / STANDARD NOT PRACTICAL**. Do not treat deviations as operator noncompliance by default. A workaround may reveal that the proposed route, ownership, information flow, qualification, or relief design is impractical under real conditions.
+Build a post-pilot matrix of **current-work family × incoming-demand family** and rank cells by frequency, backlog/delay created, incremental support people-minutes, and failure to restore normal route. This converts vague “busy at the same time” observations into specific combinations that cause interference.
 
 ### Interpretation
-- Good performance + standard followed = stronger evidence for the proposed operating method.
-- Good performance + repeated workarounds/hidden help = staffing result is not cleanly validated; study why the standard was bypassed.
-- Backlog + standard followed = stronger capacity/surge evidence.
-- Backlog + standard not practical = redesign route/ownership/motion/relief before attributing the loss to headcount.
-- Safety/quality/process requirements always override experimental conformance.
+- Frequent collisions with no backlog/support = design absorbs that combination; do not treat frequency alone as failure.
+- Repeated collision + growing backlog while both operators are occupied = stronger evidence of a true capacity/surge constraint.
+- Collision resolved mainly by long travel or handoffs = routing/ownership/motion countermeasure first.
+- Collision repeatedly involving an unqualified flex operator = cross-training/qualification gap.
+- Collision concentrated in break windows = relief design gap.
+- Rare severe collision requiring plant-authorized rescue = define an abnormal surge/containment rule rather than automatically carrying a third operator continuously.
 
-At end of shift, Pareto deviations by cause: **route/motion | unclear ownership | qualification | relief | abnormal-response | material/tool/info availability | equipment condition | other**. Convert recurring justified workarounds into candidate kaizen rather than forcing adherence to a weak standard.
+Do not invent response-time limits. Safety, quality, protected-work due times and existing plant rules remain authoritative.
+
+## Standard-Work Conformance / Deviation Log
+For each 15-minute window record standard followed?, deviation, reason, workaround and consequence. Classify **STANDARD FOLLOWED / JUSTIFIED DEVIATION / STANDARD NOT PRACTICAL**. Pareto recurring justified deviations rather than treating them as operator noncompliance.
 
 ## Matched-Condition Pilot Comparator
-Build a reference set of prior A-shift/comparable curing shifts using running press-hours, cured volume/plan, mix, major downtime, alarm/event counts, shift length and known staffing/support. Compare Thursday with several closest-condition shifts, not one hand-picked shift. Direct Thursday observations remain primary evidence; matched shifts are context; the three-month average is broad context only.
+Build a reference set of prior comparable curing shifts using running press-hours, cured volume/plan, mix, major downtime, alarm/event counts, shift length and known staffing/support. Direct Thursday observations remain primary evidence; matched shifts are context.
 
 ## 15-Minute Workload / Surge Profile
 Use 48 x 15-minute windows tagged NORMAL / BREAK-RELIEF / ABNORMAL-EVENT / DOWNTIME-RECOVERY. Retain Op1/Op2 occupied minutes, walking/retrieval, protected work, backlog start/peak/end, incremental support, running presses and abnormal events. Median/P90/P95/max are diagnostics, not staffing thresholds.
@@ -48,26 +52,26 @@ Use existing plant-authorized rules; do not invent response-time thresholds.
 
 ## Best current strategy
 1. Complete readiness gates and freeze people, zones, routes, qualifications, relief and plant-authorized reaction rules.
-2. Freeze break/meal coverage, protected-work ownership and the matched historical comparison method before seeing Thursday's result.
+2. Freeze break/meal coverage, protected-work ownership and matched historical comparison method before seeing Thursday's result.
 3. Scenario-walk break + abnormality, simultaneous demand, flex assist and two-person tasks.
 4. Run Thursday with exception logging, exposure tracking, reaction timestamps, break records, hourly plan-vs-actual and 15-minute workload windows.
-5. **Add standard-work conformance/deviation status to each 15-minute window so execution/design failure is not confused with manpower failure.**
+5. Record standard-work deviations and **work-interference collisions** whenever a new demand arrives while operators are committed.
 6. Reconstruct occupancy, queues, backlog aging, relief debt, support and route restoration.
-7. Normalize against running press-hours, event demand, mix and downtime; compare with several closest-condition historical shifts.
-8. Diagnose persistent capacity vs surge response vs standard-work practicality vs skill vs motion/routing vs relief vs equipment/process loss vs support dependency.
-9. Pareto both degraded windows and standard-work deviations; change only the demonstrated constraint.
-10. Repeat representative/missing exposure before recommending permanent staffing change.
+7. Build the current-work × incoming-demand collision matrix; rank combinations by backlog/delay and incremental support, not frequency alone.
+8. Normalize against running press-hours, event demand, mix and downtime; compare closest-condition historical shifts.
+9. Diagnose persistent capacity vs surge collision vs standard-work practicality vs skill vs motion/routing vs relief vs equipment/process loss vs support dependency.
+10. Change only the demonstrated constraint and repeat representative/missing exposure before recommending permanent staffing change.
 
 ## Immediate next action
-Add five columns to the Thursday 15-minute sheet: `standard followed? | deviation | reason | workaround | consequence`. During the pre-pilot walkthrough, make sure Op1/Op2 understand the intended route/ownership and that the observer knows deviations are evidence to capture, not behavior to correct unless normal safety/quality/leadership rules require intervention.
+Add a small event-level collision log to Thursday's observer sheet. The observer only creates a collision row when a new demand arrives while Op1 or Op2 is already committed. Preserve timestamps and what work was deferred so the matrix can be reconstructed after the shift.
 
 ## Risks / gaps
 - No verified Thursday performance exists yet.
+- Alarm concurrency is only a proxy for demand; it does not show operator work interference.
 - A single shift can confound staffing with press availability, mix, downtime and abnormal-event demand.
-- A pilot can falsely validate a staffing design if operators succeed only by improvising outside the proposed standard or receiving hidden support.
-- Conversely, forcing an impractical standard can make a workable 2-operator concept appear to fail.
-- Shift/hour averages can hide brief overload, recovery debt and mura.
-- Alarm duration cannot substitute for hands-on operator work time.
+- A quiet shift may under-expose collision combinations; NOT OBSERVED is not PASS.
+- Hidden support or workarounds can falsely validate staffing.
+- Shift/hour averages can hide brief overload and recovery debt.
 - Break/meal states, qualifications and abnormal-response ownership remain critical validation conditions.
 
 ## Data still needed
@@ -78,5 +82,6 @@ Add five columns to the Thursday 15-minute sheet: `standard followed? | deviatio
 5. Periodic/protected task list with real due-time/frequency requirements.
 6. Existing plant abnormality detection/call, escalation and rescue/containment rules.
 7. Thursday hourly plan/actual, running-press exposure, mix and downtime.
-8. Timestamped occupied-work, walking/retrieval, response, queue/backlog, support, route-restoration **and standard-work deviation/workaround data**.
-9. Historical comparable-shift staffing, cured tires/plan, running press-hours, major downtime, alarm/event counts, mix, support condition and man-hours/TPMH.
+8. Timestamped occupied-work, walking/retrieval, response, queue/backlog, support, route-restoration and standard-work deviation data.
+9. **Event-level collision records showing incumbent work, incoming demand, deferred work, support and recovery.**
+10. Historical comparable-shift staffing, cured tires/plan, running press-hours, major downtime, alarm/event counts, mix, support condition and man-hours/TPMH.
