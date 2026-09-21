@@ -8,64 +8,39 @@
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Pilot Exposure Coverage Matrix
-A successful shift average is not enough to validate a two-operator design. Thursday must show **which operating conditions were actually experienced** so untested conditions are not silently treated as passed.
+## Latest improvement — Hour-by-Hour Demand-to-Capacity Board
+Thursday's pilot should not be judged from shift TPMH alone. Add one hourly row that ties production demand, operator work content, abnormalities, backlog and support together:
 
-Build an exposure matrix before the pilot with rows for the operating states that matter to the staffing design. At minimum preserve: normal running, break/meal coverage, simultaneous abnormal demand, two-person-task demand, major gantry/press downtime, protected-work interruption/recovery, incremental outside support, and late-shift operation. Add plant-specific states only when they are real requirements.
+`Hour | Plan | Actual | Running presses | Abnormal events | Op1 direct work min | Op2 direct work min | Walk/retrieval min | Queue episodes | Oldest backlog | Relief/support min | Independent 2-op min | Major cause`
 
-For each state record: `state | occurred? | start/end | exposure min | running presses | event count | Op1/Op2 status | queue/backlog | support people-min | outcome | evidence quality`.
+Use the board as a **problem-identification control**, not as a scheduling device. Classify each hour only from observed conditions:
+- **GREEN:** demand handled independently and required protected work remains current.
+- **YELLOW:** temporary backlog, flexing, or incremental support was required but the process recovered.
+- **RED:** containment/rescue, unresolved required backlog, or an applicable plant safety/quality/process limit was reached.
 
-Classify each state after the pilot as **OBSERVED-INDEPENDENT / OBSERVED-ASSISTED / CONTAINED / NOT-EXPOSED**. NOT-EXPOSED is not a failure, but it is also not evidence of feasibility. Do not deliberately create unsafe abnormalities merely to fill the matrix; use naturally occurring conditions and approved scenario rehearsals where appropriate.
+Do not invent numerical green/yellow/red limits. Existing plant requirements determine overdue or containment conditions.
 
-### Decision use
-- A clean shift with little abnormal demand can support the normal-running standard but cannot validate abnormal-response capacity.
-- A break period covered only through incremental help cannot be credited as independent break-relief capability.
-- A rare severe condition that does not occur Thursday remains an explicit validation gap for later representative exposure or approved simulation.
-- Permanent staffing recommendation should rely on repeated representative exposure, not one favorable aggregate TPMH result.
+### Diagnostic use
+- Output loss while operators retain observable capacity → investigate equipment/process loss before blaming manpower.
+- Both operators committed while queue/backlog rises → stronger evidence of a true capacity collision.
+- Walking/retrieval rises before overload → target route/layout/material-location waste.
+- Repeated yellow/red around breaks → redesign relief/handoff before concluding base headcount is inadequate.
+- Deterioration tracks abnormal-event intensity → size and standardize abnormal-response capacity rather than using average utilization.
+
+## Pilot Exposure Coverage Matrix
+Track critical operating states and classify them **OBSERVED-INDEPENDENT / OBSERVED-ASSISTED / CONTAINED / NOT-EXPOSED**. Preserve normal running, break/meal coverage, simultaneous abnormal demand, two-person-task demand, major gantry/press downtime, protected-work interruption/recovery, incremental outside support, and late-shift operation. NOT-EXPOSED is not a pass or failure; it remains a validation gap.
 
 ## Pre-Pilot Readiness Gate
-Use a **GO / GO-WITH-CONTAINMENT / NOT-READY** gate before Thursday exposure. This prevents the pilot from beginning with undefined work ownership, qualification, relief, reaction rules or measurement and then trying to interpret those design gaps as staffing evidence. Existing plant safety, quality and process requirements remain authoritative.
-
-### Gate A — Standard work ready
-- Named Op1 and Op2.
-- Frozen zones/routes and primary/flex ownership.
-- Protected/periodic work identified with actual required frequencies/due times.
-- Known two-person tasks identified.
-
-### Gate B — Qualified capacity ready
-- Op1/Op2 qualifications verified for assigned work.
-- Relief capability verified for the work it is expected to cover.
-- Any single-point skill is visible and has an approved response path.
-
-### Gate C — Abnormal response ready
-- Existing safety/quality escalation rules are available.
-- Normal → flex → leader assessment → containment/rescue → recovery/restart path is understood.
-- Simultaneous demand and abnormality-during-break scenarios have been walked through.
-
-### Gate D — Relief ready
-- Break/meal ownership is explicit.
-- Relief source and its home-role responsibilities are known.
-- Hand-off and hand-back are defined so hidden relief debt can be measured.
-
-### Gate E — Measurement ready
-- Observer and rescue/shadow are different roles where practical; observer no-coaching rule is understood.
-- Exception/intervention log is ready.
-- Hourly plan-vs-actual/backlog control is ready.
-- Exact timestamps can be captured for response, queue, task completion, recovery and outside help.
+Use **GO / GO-WITH-CONTAINMENT / NOT-READY** before exposure. Freeze: (A) standard work and ownership, (B) qualified capacity, (C) abnormal-response rules, (D) relief/handoff, and (E) measurement. Existing plant safety, quality and process requirements remain authoritative.
 
 ## Pilot Intervention Firewall
-Separate observation, normal leadership, and rescue. Observer records facts/timestamps and does not direct routing, prioritization, task sequence or workload balancing. Floor leader retains normal plant leadership, safety, quality and escalation authority. Rescue/shadow intervenes only under existing plant rules or the agreed containment boundary. Any observer prompt or physical help that changes behavior is **OBSERVER-INFLUENCED** and cannot be credited as clean independent 2-op exposure.
-
-### Intervention log
-Use: `time | person | role | trigger | action/help | classification | people-min | operator/task affected | independent exposure resumed`.
-
-Classifications: **BASELINE-NORMAL / INCREMENTAL-2OP / OBSERVER-INFLUENCED / CONTAINMENT-RESCUE / AMBIGUOUS**.
+Observer records facts/timestamps and does not coach. Floor leader retains normal plant authority. Rescue/shadow intervenes only under existing rules or the agreed containment boundary. Classify interventions **BASELINE-NORMAL / INCREMENTAL-2OP / OBSERVER-INFLUENCED / CONTAINMENT-RESCUE / AMBIGUOUS** and retain people-minutes.
 
 ## Protected-Work Backlog Aging
-For every periodic/protected task retain its real plant due time. Track `task | zone | due | pending since | owner | reason displaced | start | complete | helper`. Hourly review pending count, oldest age, overdue work, break/abnormality backlog and independent vs assisted clearance. Do not invent backlog limits.
+For periodic/protected work retain the real due time. Track `task | zone | due | pending since | owner | reason displaced | start | complete | helper`. Review pending count, oldest age, overdue work, break/abnormality backlog and independent vs assisted clearance.
 
 ## Interruption-Recovery Standard
-Reaction sequence: **INTERRUPT → MAKE SAFE/RESPOND → CHECK WHAT IS DUE → RESUME HIGHEST-PRIORITY DUE WORK → CLEAR BACKLOG → RETURN TO NORMAL ROUTE.** Existing plant safety, quality and escalation rules override the sequence.
+**INTERRUPT → MAKE SAFE/RESPOND → CHECK WHAT IS DUE → RESUME HIGHEST-PRIORITY DUE WORK → CLEAR BACKLOG → RETURN TO NORMAL ROUTE.** Plant safety, quality and escalation rules override this sequence.
 
 ## Qualified Capacity Matrix
 Map critical/event-driven tasks against Op1, Op2 and relief: **I = independently qualified, A = assist only, N = not qualified/authorized, ? = not verified**. Flag single-point skills, relief gaps and two-person tasks.
@@ -74,16 +49,10 @@ Map critical/event-driven tasks against Op1, Op2 and relief: **I = independently
 Separate fixed/periodic work, event-driven work, motion/retrieval and support/relief. Retain running press-hours, production volume and relevant event counts so a quiet or difficult Thursday is not generalized into permanent staffing.
 
 ## Operator Occupancy / Queue Analysis
-Capture meaningful intervals as `start | end | operator | zone | task/category | primary/flex | walking/retrieval | helper | displaced work`. Overlay queues, breaks, flex assists and incremental help.
+Capture meaningful intervals as `start | end | operator | zone | task/category | primary/flex | walking/retrieval | helper | displaced work`. Overlay queues, breaks, flex assists and incremental help. Fixed 15-minute observations are diagnostic samples only and must not be extrapolated to full-shift utilization.
 
 ## Break-Relief Capacity Protection
 Classify each break **COVERED / DEGRADED / UNRELIEVED-CONTAINED** and track displaced Curing work plus relief-home-role work through recovery.
-
-## Pilot observation
-- **Continuous exception log:** abnormalities, queues, flex assists, third-person intervention, observer influence, exposure-state changes, break/relief transitions, delayed work, containment, major downtime and recovery.
-- **Fixed 15-minute structured observation each hour:** diagnostic sample only; do not extrapolate to full-shift utilization.
-- **Hourly visual control:** plan vs actual, pending protected work, oldest backlog age, overdue work, support people-minutes, break state and major abnormalities.
-- **Exposure coverage matrix:** explicitly show which critical operating states were observed independently, assisted, contained or not exposed.
 
 ## Support neutrality / pilot integrity
 Pilot exposure states remain **INDEPENDENT 2-OP / ASSISTED 2-OP / CONTAINED-NOT TESTABLE**. Observer-influenced periods are not clean independent exposure.
@@ -91,27 +60,26 @@ Pilot exposure states remain **INDEPENDENT 2-OP / ASSISTED 2-OP / CONTAINED-NOT 
 `Independent Exposure % = Independent 2-op minutes / observable pilot minutes × 100`
 
 ## Best current strategy
-1. Complete the five-gate readiness review before Thursday; do not start with analytically critical prerequisites undefined.
-2. Freeze Op1/Op2/leader/relief/shadow/observer roles, zones, routes, qualifications, break coverage and reaction rules.
-3. Build the Pilot Exposure Coverage Matrix so the team knows which operating states require evidence and which remain untested.
-4. Establish the intervention firewall: observer records; leader leads normally; rescue intervenes only through plant authority/defined containment.
-5. Mark periodic/protected work and real due-time requirements.
-6. Scenario-walk simultaneous demand, abnormality during break, flex assist, relief handback and two-person tasks.
-7. Thursday: continuous exception log + fixed observation windows + hourly production/backlog control + exposure-state tracking.
-8. Preserve timestamps to reconstruct occupancy, queues, route interruptions, backlog aging, relief, support and observer/rescue interventions.
-9. Diagnose physical-capacity vs skill/ownership/routing failures and normalize against running presses, events, mix and downtime.
-10. Compare early/middle/late robustness; review TPMH, Effective Labor, Independent Exposure, support people-minutes, relief debt, queues and protected-work recovery.
-11. Mark every critical state OBSERVED-INDEPENDENT / OBSERVED-ASSISTED / CONTAINED / NOT-EXPOSED; do not convert NOT-EXPOSED into a pass.
-12. Pareto observed causes; cross-train, reduce motion or rebalance only where evidence supports it; repeat representative conditions before permanent staffing change.
+1. Complete readiness Gates A–E and freeze people, zones, routes, qualifications, relief and reaction rules.
+2. Pre-list critical operating states in the Exposure Coverage Matrix and establish the observer/leader/rescue firewall.
+3. List protected work with actual due-time requirements and scenario-walk simultaneous demand, break abnormality, flex assist and two-person tasks.
+4. Run Thursday with continuous exception logging, fixed observation windows, exposure-state tracking and the **hour-by-hour demand-to-capacity board**.
+5. Reconstruct occupancy, queues, backlog aging, relief, support and interventions from timestamps.
+6. Normalize against running presses, events, mix and downtime; compare early/middle/late robustness.
+7. For every yellow/red hour, identify what changed immediately beforehand and distinguish equipment/process loss, physical-capacity collision, skill constraint, routing/motion waste, relief failure or support dependency.
+8. Review TPMH, Effective Labor, Independent Exposure, support people-minutes, relief debt, queues and protected-work recovery together.
+9. Mark unexposed conditions explicitly; Pareto observed causes and change only the demonstrated constraint.
+10. Repeat representative conditions before recommending permanent staffing change.
 
 ## Immediate next action
-**Create the one-page Pilot Exposure Coverage Matrix during the readiness review.** Pre-list normal running, breaks, overlapping abnormalities, two-person tasks, major downtime, interruption recovery and late-shift exposure. During Thursday, mark only what actually occurs and preserve its timestamps. This prevents a quiet shift from producing an overconfident staffing conclusion.
+**Prepare the hourly demand-to-capacity board before Thursday.** Pre-fill hour/time and production plan where known. During the pilot capture actual production, running presses, abnormal-event count, Op1/Op2 direct work, walking/retrieval, queues, oldest backlog, support/relief minutes, independent exposure and the dominant cause. After the shift, analyze state changes before comparing total-shift TPMH.
 
 ## Risks / gaps
 - No verified Thursday performance exists yet.
-- A favorable average TPMH can hide that critical operating states were never tested.
+- A favorable average TPMH can hide short capacity collisions or untested operating states.
+- A production miss can be incorrectly blamed on manpower when equipment/process losses are the true constraint.
 - Starting before roles, qualifications, relief or reaction rules are frozen could confound staffing capability with poor pilot preparation.
-- Observer coaching or ad-hoc leader help could artificially improve the 2-op result.
+- Observer coaching or ad-hoc help could artificially improve the 2-op result.
 - Alarm response can look successful while protected work accumulates.
 - Shift averages can hide temporary overload and late-shift deterioration.
 - Physical availability is not usable capacity when qualifications differ.
@@ -128,4 +96,5 @@ Pilot exposure states remain **INDEPENDENT 2-OP / ASSISTED 2-OP / CONTAINED-NOT 
 7. Thursday hourly production plan, actual production, running-press exposure, mix and downtime.
 8. Timestamped task intervals, interruptions, route-resume and backlog-clear times.
 9. Queue episodes, flex assists and all outside interventions with classification and people-minutes.
-10. Exposure minutes and outcome for each critical operating state; explicitly retain NOT-EXPOSED states for future validation.
+10. Exposure minutes/outcomes by critical operating state.
+11. Hourly Op1/Op2 direct-work and walk/retrieval minutes sufficient to interpret demand-to-capacity state without extrapolating sampled utilization.
