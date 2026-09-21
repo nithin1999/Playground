@@ -8,20 +8,25 @@
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Break-Relief Capacity Envelope
-Breaks/meals are now treated as a **planned operating state**, not incidental lost time. A two-operator design is not robust if it only works when both operators are continuously present and normal breaks require hidden third-person capacity or allow protected work to accumulate.
+## Latest improvement — Short-Window Workload Saturation Test
+Shift-average TPMH and even hourly averages can hide brief overloads that create queues, delayed protected work, or hidden third-person support. Thursday will therefore evaluate **15-minute workload windows** in addition to the hourly board.
 
-For each break/meal window capture:
-`break start/end | operator off floor | relief person | relief qualification | presses running | abnormal events | work transferred | queue/backlog at start | peak queue/backlog | incremental support people-minutes | backlog at handback | time to restore normal route`
+For each 15-minute window retain:
+`window | Op1 occupied min | Op2 occupied min | walk/retrieval min | abnormal-response min | protected/periodic work min | break/relief state | queue/backlog start/peak/end | incremental support people-min | running presses | abnormal events | production context`
 
-Classify each break window:
-- **INDEPENDENT:** remaining/relief qualified capacity maintains required work with no incremental 2-op support.
-- **RECOVERED:** temporary backlog occurs but is cleared under the defined relief design without violating plant requirements.
-- **ASSISTED:** incremental capacity outside the defined relief design is needed.
-- **CONTAINED:** normal plant rescue/containment is invoked.
-- **NOT-EXPOSED:** no meaningful break-state exposure occurred.
+Use **observed occupied minutes**, not alarm duration, as the labor numerator. Available 2-op capacity is 30 operator-minutes per 15-minute window only when both operators are actually present; reduce the denominator for planned break/relief states and classify relief separately rather than hiding it inside capacity.
 
-Do not create a numerical backlog or response threshold. Existing Safety, Quality and process requirements determine overdue work and escalation. Preserve raw timestamps/counts where no formal limit exists.
+### Interpretation rule
+- High short-window loading with rising queue/backlog supports a **capacity-collision** hypothesis.
+- Moderate loading with high walking/retrieval supports a **motion/routing** countermeasure before adding labor.
+- Low measured loading with delayed response points first to detection, ownership, skill, information, or measurement gaps—not headcount.
+- Saturation only during breaks points to **relief design**.
+- Saturation only during rare abnormal clusters is a **surge/containment design** question, not proof that normal staffing is inadequate.
+
+Do **not** create an arbitrary utilization pass/fail threshold before observing the pilot. Use the windows diagnostically and anchor acceptability to existing Safety, Quality, process, due-time and escalation requirements.
+
+## Break-Relief Capacity Envelope
+Breaks/meals are treated as a planned operating state. Capture break start/end, operator off floor, relief person/qualification, running presses, abnormal events, transferred work, backlog start/peak/handback, incremental support people-minutes and time to restore normal route. Classify **INDEPENDENT / RECOVERED / ASSISTED / CONTAINED / NOT-EXPOSED**.
 
 ### Relief-debt rule
 Any work displaced by a break remains visible until completed. Record who inherited it and whether it was still pending when the operator returned. Repeated backlog carryover after handback is evidence that the relief design, task ownership, skill coverage, or route balance needs correction even if total-shift TPMH looks acceptable.
@@ -56,38 +61,37 @@ Separate fixed/periodic work, event-driven work, motion/retrieval and support/re
 
 ## Best current strategy
 1. Complete readiness Gates A–E and freeze people, zones, routes, qualifications, relief and plant-authorized reaction rules.
-2. Freeze the **break/meal relief design**: who leaves, who covers, which work transfers, relief qualifications, handoff and handback.
-3. Put the abnormal-response ladder on the pilot sheet: primary owner, flex owner, leader path, rescue/containment path and recovery responsibility.
-4. Pre-list critical operating states and protected-work due times; establish observer/leader/rescue firewall.
-5. Scenario-walk a break plus abnormality, simultaneous demand, flex assist and two-person tasks without inventing escalation thresholds.
-6. Run Thursday with continuous exception logging, fixed observation windows, break-window records, exposure-state tracking, reaction timestamps and the hourly demand-to-capacity board.
-7. Reconstruct occupancy, queues, backlog aging, **relief debt**, support, interventions and abnormal-response paths.
-8. Normalize against running presses, events, mix and downtime; compare early/middle/late robustness.
-9. Diagnose degraded periods as detection, ownership, capacity collision, skill constraint, routing/motion, relief, recovery, equipment/process loss or support dependency.
-10. Pareto observed causes, change only the demonstrated constraint, and repeat representative conditions before recommending permanent staffing change.
+2. Freeze break/meal coverage and protected-work ownership; verify relief qualifications and handoff/handback.
+3. Scenario-walk break + abnormality, simultaneous demand, flex assist and two-person tasks.
+4. Run Thursday with continuous exception logging, exposure-state tracking, reaction timestamps, break-window records and hourly plan-vs-actual control.
+5. Add **15-minute workload saturation windows** so short capacity collisions are not averaged away.
+6. Reconstruct occupancy, queues, backlog aging, relief debt, support and route restoration.
+7. Normalize against running presses, event demand, mix and downtime; compare early/middle/late shift.
+8. Diagnose degraded windows as capacity collision, detection/ownership, skill, motion/routing, relief, recovery, equipment/process loss or support dependency.
+9. Pareto observed causes and change only the demonstrated constraint.
+10. Repeat representative/missing exposure before recommending permanent staffing change.
 
 ## Immediate next action
-**Freeze the Thursday break/meal relief table before the pilot.** For each break identify operator off floor, planned relief/remaining owner, tasks transferred, relief qualifications, handoff method, handback method and escalation path. During the pilot, measure the complete break window through restoration of normal route—not just the nominal break duration.
+**Prepare a 15-minute pilot observation grid before Thursday.** Pre-fill 48 rows for the 12-hour shift. During each window total actual Op1/Op2 occupied minutes and separately mark walking, abnormal response, protected work, break/relief, queue/backlog and incremental support. Preserve timestamps behind the totals so disputed windows can be reconstructed.
 
 ## Risks / gaps
 - No verified Thursday performance exists yet.
+- Shift/hour averages can hide brief overload and recovery debt.
+- Alarm duration cannot substitute for hands-on operator work time.
+- Observer sampling can miss short work bursts; timestamps and exception logging are needed to reconstruct them.
 - A 2-op design may appear feasible during full attendance but fail during normal break/meal states.
-- Unqualified relief can create apparent headcount coverage without usable capacity.
-- Hidden third-person assistance during breaks can falsely validate the staffing model.
-- Break-created backlog may be cleared later and disappear inside shift-average TPMH.
+- Unqualified relief or hidden third-person assistance can falsely validate the staffing model.
 - Undefined abnormal-response ownership can make hesitation look like insufficient manpower.
-- Observer coaching or unclassified help can artificially improve the result.
-- Alarm-start concurrency is a demand proxy, not hands-on workload.
 - Thursday is one controlled exposure, not final proof.
 
 ## Data still needed
 1. Actual Thursday Op1, Op2, floor leader, observer, rescue/shadow and relief assignments.
 2. Exact break/meal schedule and whether breaks are staggered or overlapping.
-3. Relief source, relief qualifications and relief person's normal home-role responsibilities.
+3. Relief source, qualifications and normal home-role responsibilities.
 4. Verified qualification matrix and one-person vs two-person task list.
 5. Frozen Op1/Op2 zone/route map and primary/flex ownership.
 6. Periodic/protected task list with actual due-time/frequency requirements.
 7. Existing plant abnormality detection/call, escalation and rescue/containment rules.
 8. Thursday hourly production plan, actual production, running-press exposure, mix and downtime.
-9. Timestamped break handoff/handback, abnormality response, queue/backlog, support and route-restoration data.
-10. Exposure minutes/outcomes by critical operating state and hourly Op1/Op2 direct-work/walk evidence.
+9. Timestamped operator occupied-work, walking/retrieval, break handoff/handback, abnormality response, queue/backlog, support and route-restoration data.
+10. Exposure minutes/outcomes by critical operating state and 15-minute workload window.
