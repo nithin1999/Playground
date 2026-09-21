@@ -8,14 +8,15 @@ Pilot scheduled for Thursday, September 24, 2026. Project remains in pilot-prepa
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Base Load vs Surge Load Separation
-Do not use one overall utilization percentage to size the two-operator system. Curing is machine-intensive and event-driven: automatic machine time can create apparent idle time that is actually the reserve needed for alarms, protected work, walking and recovery.
+## Latest improvement — Qualification-Gated Relief Coverage
+Do not treat a named relief person as usable capacity until the person is verified for the work they may inherit. Build a small coverage matrix from actual plant qualifications: rows = Op1/Op2 critical task families or zones; columns = Op1, Op2, planned relief, floor leader/flex. Mark only VERIFIED / NOT VERIFIED / UNKNOWN from training records or authorized supervision; do not infer competence from job title.
 
-Build a Standardized Work Combination view for Op1 and Op2 from observed pilot data, separating: (1) repeatable manual work, (2) walking/retrieval, (3) automatic machine time, (4) protected/periodic work, and (5) abnormal/event work. First establish each operator's BASE LOAD from repeatable manual + walk + time-normalized protected work. Then layer observed SURGE LOAD from alarms, simultaneous demand, breaks and recovery debt. Keep machine automatic time visible but do not count it as operator labor.
+Before each planned break, identify the work that can arise while the operator is away and verify that the remaining operator + relief combination can cover it. If a critical task has no verified alternate, that break period is a known coverage gap and must follow the plant's existing relief/escalation rule rather than being treated as successful 2-operator exposure. During the pilot, log any task that waited specifically because the available person was not qualified. This separates true labor-capacity shortage from a cross-training/coverage constraint.
 
-Use the result as a capacity envelope rather than a single average-utilization target. A two-operator design is stronger when normal work fits with observable reserve and the measured surge demand can be recovered without recurring staffing substitution. A low average utilization by itself is not proof that an operator can be removed; conversely, short high-load periods are not failure if the system independently recovers without overdue protected work or unacceptable backlog.
+This is the staffing-design bridge between the skills matrix and break relief: a 2-operator model must be feasible not only when both primary operators are present, but also through planned relief periods without relying on unverified capability or hidden substitution.
 
 ## Existing analysis retained
+- Base vs surge load: build observed Op1/Op2 work-combination views separating manual, walk/retrieval, machine-auto, protected/periodic and abnormal/event work. Do not size staffing from average utilization alone.
 - Protected-work due-time visual control: task | owner | due/interval | NEXT/DUE/OVERDUE | completed | displaced by | recovered.
 - Time-of-shift robustness: analyze EARLY / MID / LATE / BREAK-RELIEF using the existing timestamps.
 - Recovery debt: preserve queue start, peak pending, oldest age, clear time and route-restored time; calculate pending-work x minutes as a diagnostic.
@@ -26,21 +27,22 @@ Use the result as a capacity envelope rather than a single average-utilization t
 
 ## Best current strategy
 1. Freeze people, zones, routes, qualifications, relief and plant-authorized reaction rules.
-2. Convert verified periodic/protected work into a visible owner + due-time queue.
-3. Predefine HOLD/containment and leader/flex reserve responsibilities.
-4. Freeze the matched historical comparison method before seeing Thursday's result.
-5. Scenario-walk breaks, simultaneous demand, flex assist, two-person tasks, protected-work interruption/recovery and one HOLD/restart case.
-6. Run Thursday with timestamped exceptions, 15-minute workload windows, hourly plan-vs-actual, queue start/clear and explicit break-relief observations.
-7. Build Op1/Op2 Standardized Work Combination views from observed data: manual, walk/retrieval, machine-auto, protected work and abnormal/event work.
-8. Separate BASE LOAD from SURGE LOAD; do not use average idle/utilization alone to justify staffing.
-9. After abnormal response, check due protected work, recover backlog, then restore the normal route.
-10. Reconstruct recovery debt, route restoration, support displacement and standard-work deviations.
-11. Stratify evidence EARLY / MID / LATE / BREAK-RELIEF and normalize for running press-hours, event demand, mix and downtime.
-12. Diagnose capacity vs surge vs recovery vs motion/routing vs skill vs relief vs equipment/process loss vs staffing substitution.
-13. Change only the demonstrated constraint and repeat representative/missing exposure before permanent staffing change.
+2. Build the qualification-gated coverage matrix for Op1, Op2, relief and leader/flex; resolve UNKNOWNs before relying on that person for pilot coverage.
+3. Convert verified periodic/protected work into a visible owner + due-time queue.
+4. Predefine HOLD/containment and leader/flex reserve responsibilities.
+5. Freeze the matched historical comparison method before seeing Thursday's result.
+6. Scenario-walk normal operation, each planned break, simultaneous demand, flex assist, two-person tasks, protected-work interruption/recovery and one HOLD/restart case using only verified capabilities.
+7. Run Thursday with timestamped exceptions, 15-minute workload windows, hourly plan-vs-actual, queue start/clear, qualification-related waits and explicit break-relief observations.
+8. Build Op1/Op2 Standardized Work Combination views from observed data: manual, walk/retrieval, machine-auto, protected work and abnormal/event work.
+9. Separate BASE LOAD from SURGE LOAD; do not use average idle/utilization alone to justify staffing.
+10. After abnormal response, check due protected work, recover backlog, then restore the normal route.
+11. Reconstruct recovery debt, route restoration, support displacement, qualification-related waits and standard-work deviations.
+12. Stratify evidence EARLY / MID / LATE / BREAK-RELIEF and normalize for running press-hours, event demand, mix and downtime.
+13. Diagnose capacity vs surge vs recovery vs motion/routing vs qualification vs relief vs equipment/process loss vs staffing substitution.
+14. Change only the demonstrated constraint and repeat representative/missing exposure before permanent staffing change.
 
 ## Immediate next action
-Prepare a blank Op1/Op2 work-combination sheet before Thursday with five categories: manual, walk/retrieval, machine-auto, protected/periodic and abnormal/event. Populate it only from observed pilot timestamps. After the shift, calculate normal base load separately from abnormal surge exposure and identify where walking or sequence changes could create reserve capacity.
+Before Thursday, create the verified coverage matrix for Op1, Op2, planned relief and floor leader/flex against the critical task families/zones they may need to cover. Mark unknown qualifications explicitly and resolve them from plant training/qualification records or authorized supervision. Then scenario-walk every planned break against the matrix. Do not count a named but unverified relief person as available capacity.
 
 ## Risks / gaps
 - No verified Thursday 2-operator performance exists yet.
@@ -51,18 +53,19 @@ Prepare a blank Op1/Op2 work-combination sheet before Thursday with five categor
 - A quiet shift may under-expose collision combinations; NOT OBSERVED is not PASS.
 - Hidden support can falsely validate staffing if donor-role displacement is not followed.
 - Protected/periodic work can be silently deferred during alarms unless due work is visible.
+- A named relief/flex person can create false coverage if required task/zone qualifications are unknown or incomplete.
 - The prior idle-time observation must not be interpreted as removable labor until repeatable base work, walking, machine-auto time and abnormal reserve are separated.
 
 ## Data still needed
 1. Actual Thursday Op1, Op2, floor leader, observer, rescue/shadow and relief assignments.
 2. Existing plant safety/quality/equipment hard-stop criteria, containment authority and restart authority.
 3. Floor leader's normal/protected responsibilities while assisting Curing.
-4. Exact break/meal schedule and relief source/qualifications/home-role responsibilities.
-5. Verified qualification matrix and one-person vs two-person task list.
+4. Exact break/meal schedule and relief source/home-role responsibilities.
+5. Verified qualification matrix for Op1, Op2, relief and leader/flex by critical task/zone, plus one-person vs two-person task list.
 6. Frozen Op1/Op2 zone/route map and primary/flex ownership.
 7. Periodic/protected task list with real due-time/frequency requirements and ownership.
 8. Existing abnormality detection/call, escalation and rescue/containment rules.
 9. Thursday hourly plan/actual, running-press exposure, mix and downtime across the full shift.
-10. Timestamped manual work, walking/retrieval, machine-auto exposure, queue, response, HOLD, protected-work due/completion, deviations and route-restoration data.
+10. Timestamped manual work, walking/retrieval, machine-auto exposure, queue, response, HOLD, protected-work due/completion, qualification-related waits, deviations and route-restoration data.
 11. Leader/flex/support people-minutes, reason, backlog effect and donor-role displacement/restoration.
 12. Historical comparable-shift staffing, cured tires/plan, running press-hours, major downtime, alarm/event counts, mix, support condition and man-hours/TPMH.
