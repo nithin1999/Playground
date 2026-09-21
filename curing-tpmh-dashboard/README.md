@@ -8,15 +8,42 @@
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Pilot Intervention Firewall
-Thursday now needs an explicit separation between **observation, normal leadership, and rescue**. Otherwise the pilot can accidentally test a three-person coached system while being labeled two-operator operation.
+## Latest improvement — Pre-Pilot Readiness Gate
+The project now uses a **GO / GO-WITH-CONTAINMENT / NOT-READY** gate before Thursday exposure. This prevents the pilot from beginning with undefined work ownership, qualification, relief, reaction rules or measurement and then trying to interpret those design gaps as staffing evidence.
 
-Freeze three roles before the run:
-- **Observer:** records facts and timestamps; does not direct routing, prioritization, task sequence or workload balancing.
-- **Floor leader:** retains normal plant leadership, safety, quality and escalation authority. Normal leadership that would also exist in the baseline must be recorded as baseline-normal support where applicable.
-- **Rescue/shadow:** intervenes only under existing safety/quality rules or the agreed containment/rescue boundary. Every intervention is timestamped and classified.
+The gate is a **process-readiness check, not a performance pass/fail threshold**. Do not invent numeric limits. Existing plant safety, quality and process requirements remain authoritative.
 
-Any observer prompt, coaching, reminder, route suggestion, task prioritization or physical help that changes operator behavior must be logged as **OBSERVER-INFLUENCED**. Those minutes cannot be treated as clean independent 2-op exposure. Safety and quality always override experimental purity.
+### Gate A — Standard work ready
+- Named Op1 and Op2.
+- Frozen zones/routes and primary/flex ownership.
+- Protected/periodic work identified with actual required frequencies/due times.
+- Known two-person tasks identified.
+
+### Gate B — Qualified capacity ready
+- Op1/Op2 qualifications verified for assigned work.
+- Relief capability verified for the work it is expected to cover.
+- Any single-point skill is visible and has an approved response path.
+
+### Gate C — Abnormal response ready
+- Existing safety/quality escalation rules are available.
+- Normal → flex → leader assessment → containment/rescue → recovery/restart path is understood.
+- Simultaneous demand and abnormality-during-break scenarios have been walked through.
+
+### Gate D — Relief ready
+- Break/meal ownership is explicit.
+- Relief source and its home-role responsibilities are known.
+- Hand-off and hand-back are defined so hidden relief debt can be measured.
+
+### Gate E — Measurement ready
+- Observer and rescue/shadow are different roles where practical; observer no-coaching rule is understood.
+- Exception/intervention log is ready.
+- Hourly plan-vs-actual/backlog control is ready.
+- Exact timestamps can be captured for response, queue, task completion, recovery and outside help.
+
+**Decision logic:** GO only when all five gates are sufficiently defined to run the intended method safely and interpretably. GO-WITH-CONTAINMENT is appropriate when a known, explicitly controlled limitation remains but the planned exposure is still interpretable under plant authority. NOT-READY means a missing prerequisite would make the test unsafe, uncontrolled or analytically ambiguous; resolve it rather than treating the resulting disruption as evidence against two operators.
+
+## Pilot Intervention Firewall
+Separate observation, normal leadership, and rescue. Observer records facts/timestamps and does not direct routing, prioritization, task sequence or workload balancing. Floor leader retains normal plant leadership, safety, quality and escalation authority. Rescue/shadow intervenes only under existing plant rules or the agreed containment boundary. Any observer prompt or physical help that changes behavior is **OBSERVER-INFLUENCED** and cannot be credited as clean independent 2-op exposure.
 
 ### Intervention log
 Use: `time | person | role | trigger | action/help | classification | people-min | operator/task affected | independent exposure resumed`.
@@ -52,22 +79,24 @@ Pilot exposure states remain **INDEPENDENT 2-OP / ASSISTED 2-OP / CONTAINED-NOT 
 `Independent Exposure % = Independent 2-op minutes / observable pilot minutes × 100`
 
 ## Best current strategy
-1. Freeze Op1/Op2/leader/relief/shadow/observer roles, zones, routes, qualifications, break coverage and reaction rules.
-2. Establish the intervention firewall: observer records; leader leads normally; rescue intervenes only through plant authority/defined containment.
-3. Mark periodic/protected work and real due-time requirements.
-4. Scenario-walk simultaneous demand, abnormality during break, flex assist, relief handback and two-person tasks.
-5. Rehearse interruption recovery, backlog visibility and rescue handoff without observer coaching.
-6. Thursday: continuous exception log + fixed observation windows + hourly production/backlog control.
-7. Preserve timestamps to reconstruct occupancy, queues, route interruptions, backlog aging, relief, support and observer/rescue interventions.
-8. Diagnose physical-capacity vs skill/ownership/routing failures and normalize against running presses, events, mix and downtime.
-9. Compare early/middle/late robustness; review TPMH, Effective Labor, Independent Exposure, support people-minutes, relief debt, queues and protected-work recovery.
-10. Pareto observed causes; cross-train, reduce motion or rebalance only where evidence supports it; repeat representative conditions before permanent staffing change.
+1. Complete the five-gate readiness review before Thursday; do not start with analytically critical prerequisites undefined.
+2. Freeze Op1/Op2/leader/relief/shadow/observer roles, zones, routes, qualifications, break coverage and reaction rules.
+3. Establish the intervention firewall: observer records; leader leads normally; rescue intervenes only through plant authority/defined containment.
+4. Mark periodic/protected work and real due-time requirements.
+5. Scenario-walk simultaneous demand, abnormality during break, flex assist, relief handback and two-person tasks.
+6. Rehearse interruption recovery, backlog visibility and rescue handoff without observer coaching.
+7. Thursday: continuous exception log + fixed observation windows + hourly production/backlog control.
+8. Preserve timestamps to reconstruct occupancy, queues, route interruptions, backlog aging, relief, support and observer/rescue interventions.
+9. Diagnose physical-capacity vs skill/ownership/routing failures and normalize against running presses, events, mix and downtime.
+10. Compare early/middle/late robustness; review TPMH, Effective Labor, Independent Exposure, support people-minutes, relief debt, queues and protected-work recovery.
+11. Pareto observed causes; cross-train, reduce motion or rebalance only where evidence supports it; repeat representative conditions before permanent staffing change.
 
 ## Immediate next action
-**Assign the Thursday observer and rescue/shadow as different roles and brief the observer on a no-coaching rule.** Rehearse one abnormality where the observer notices a missed/delayed task but records it instead of directing the operator; verify the leader/rescue path still protects safety and quality.
+**Run a 15-minute readiness review using Gates A–E and assign an owner to every unresolved prerequisite.** The highest-value outcome is not another metric; it is entering Thursday with one defined operating method and one defined measurement method. Any unresolved item that makes the exposure unsafe or uninterpretable should be closed before the affected pilot exposure.
 
 ## Risks / gaps
 - No verified Thursday performance exists yet.
+- Starting before roles, qualifications, relief or reaction rules are frozen could confound staffing capability with poor pilot preparation.
 - Observer coaching or ad-hoc leader help could artificially improve the 2-op result.
 - Alarm response can look successful while protected work accumulates.
 - Shift averages can hide temporary overload and late-shift deterioration.
@@ -78,7 +107,7 @@ Pilot exposure states remain **INDEPENDENT 2-OP / ASSISTED 2-OP / CONTAINED-NOT 
 ## Data still needed
 1. Actual Thursday Op1, Op2, floor leader, observer, rescue/shadow and relief assignments.
 2. Verified qualification matrix and one-person vs two-person task list.
-3. Frozen Op1/Op2 zone/route map.
+3. Frozen Op1/Op2 zone/route map and primary/flex ownership.
 4. Periodic/protected task list with actual due-time/frequency requirements.
 5. Existing plant safety/quality priority, escalation, containment and stop rules.
 6. Exact break/meal plan, relief source and relief source home-role responsibilities.
