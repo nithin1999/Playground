@@ -13,14 +13,19 @@ Pilot scheduled for Thursday, September 24, 2026. Project remains in pilot-prepa
 - Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%.
 - Alarm duration is not operator hands-on labor; actual response labor is still required.
 
-## Latest improvement — Workload Confidence + Base/Surge Decomposition
-The 55.8% two-operator utilization result is a useful capacity screen, but it should not be treated as proof because a large share of modeled labor is event-driven/support work. Before interpreting the pilot, tag every modeled task as BASE/SCHEDULED, PERIODIC, EVENT-DRIVEN/SURGE, or CONDITIONAL/CONTINGENCY and tag its evidence quality as measured, system-derived, or estimated.
+## Latest improvement — Interval Capacity Stress Test
+The 55.8% shift-average utilization can hide local overload. Use the existing 15-minute pilot windows to calculate a time-local capacity test instead of adding another observer form.
 
-The first validation priority is Maintenance Support because its 336 min represents 45.7% of the entire modeled workload. Verify what is included, whether events overlap with alarm/changeover/bladder categories, whether all 336 minutes are operator hands-on time, and how that work is distributed through a shift. Do not delete or discount it without evidence.
+For each 15-minute window, calculate **Available Operator-Minutes** from the people actually available to Curing. Two fully available operators provide 30 operator-minutes in a 15-minute window; if one is on break or unavailable, capacity must reflect that actual availability. Keep leader/flex/outside-support minutes separate rather than silently increasing the two-operator denominator.
 
-Use Thursday timestamps to compare observed category minutes/events with the model and to measure clustering. A shift can have ample nominal labor-hours yet still fail locally when event-driven work arrives while both operators are committed.
+Calculate **Due/Committed Work Minutes** as labor that had to occur in that window: active abnormal-response hands-on work, protected/periodic work actually due, required manual work, and recovery work that could not be deferred without consequence. Flexible work that can legitimately move to another window should not be forced into the numerator.
+
+Then calculate **Interval Load Index = Due/Committed Work Minutes / Available 2-Operator Minutes** and pair it with queue growth, oldest waiting work, Recovery Debt, response latency, and outside-support minutes. A window above 100% means the due/committed labor demand exceeded the available two-operator labor capacity for that interval; the consequence must appear as deferral, queue/debt, support, or missed/late work. Do not invent a lower acceptance threshold before observing the plant process.
+
+This directly tests whether the 9.73 nominal labor-hour reserve is usable reserve or merely capacity that exists at the wrong times. Analyze the maximum and upper-tail interval load, not only the shift average, and separate NORMAL, BREAK-RELIEF and SURGE/SATURATION windows.
 
 ## Existing analysis retained
+- Workload Confidence + BASE/PERIODIC/SURGE/CONTINGENCY decomposition; validate the 336-min Maintenance Support element first.
 - NORMAL / BREAK-RELIEF / SURGE-SATURATION operator-balance views.
 - Response-Time Service-Level Curve: event/call → awareness → response start → arrival → containment → clear → route restored.
 - Break-Relief Coverage Debt and donor-role displacement.
@@ -42,32 +47,36 @@ Use Thursday timestamps to compare observed category minutes/events with the mod
 5. Scenario-walk normal work, breaks, competing demands, simultaneous abnormalities, two-person tasks and interruption/recovery.
 6. Run Thursday with timestamped work elements, abnormal-response milestones, 15-minute workload/exposure windows, queues, saturation and support.
 7. Reconcile observed task-category minutes/events to the workload model; separate BASE/PERIODIC from SURGE/CONTINGENCY rather than relying on the 55.8% shift-average utilization.
-8. Build NORMAL / BREAK-RELIEF / SURGE-SATURATION operator-balance views and response-time distributions.
-9. Reconstruct Recovery Debt, Break-Relief Coverage Debt, hidden support, qualification waits and route restoration.
-10. Normalize for running press-hours, event demand, mix and downtime; compare matched historical conditions.
-11. Diagnose workload-model error vs imbalance vs capacity vs surge vs motion/routing vs dispatch vs qualification vs relief vs equipment vs staffing substitution.
-12. Correct the demonstrated constraint/model assumption and repeat representative exposure before permanent staffing change.
+8. For each 15-minute window, calculate actual available 2-operator minutes, due/committed work minutes and Interval Load Index; keep borrowed support outside the denominator.
+9. Build NORMAL / BREAK-RELIEF / SURGE-SATURATION operator-balance views and response-time distributions; identify windows where local capacity, not shift-average capacity, is the constraint.
+10. Reconstruct Recovery Debt, Break-Relief Coverage Debt, hidden support, qualification waits and route restoration.
+11. Normalize for running press-hours, event demand, mix and downtime; compare matched historical conditions.
+12. Diagnose workload-model error vs interval overload vs imbalance vs surge vs motion/routing vs dispatch vs qualification vs relief vs equipment vs staffing substitution.
+13. Correct the demonstrated constraint/model assumption and repeat representative exposure before permanent staffing change.
 
 ## Immediate next action
-Before Thursday, annotate the existing workload table with two columns: Demand Type (BASE / PERIODIC / SURGE / CONTINGENCY) and Evidence (MEASURED / SYSTEM / ESTIMATE). Audit the 336-min Maintenance Support line first. During the pilot, use the existing timestamp log to capture actual category minutes/events so the 736-min model can be reconciled after the shift.
+Before Thursday, keep the existing observation form but confirm it can reconstruct actual operator availability and due/committed work in each 15-minute window. Audit the 336-min Maintenance Support line first. After the pilot, calculate Interval Load Index beside saturation, queue growth, Recovery Debt and support minutes. This is the direct stress test of whether the nominal 9.73-hour reserve is available when demand actually occurs.
 
 ## Risks / gaps
 - No verified Thursday 2-operator performance exists yet.
 - The deterministic 55.8% utilization can hide short-duration overload and clustering.
 - Maintenance Support alone is 45.7% of modeled labor; its definition, hands-on content, overlap and time distribution need validation.
+- A 15-minute load calculation is only valid if due/committed work is distinguished from legitimately deferrable work and actual operator availability is timestamped.
+- Borrowed leader/flex labor must remain explicit; including it as ordinary two-operator capacity would falsely validate the model.
 - Latest TPMH 18.52 is not evidence that the 2-operator design works; staffing/conditions for that shift must not be assumed.
 - Exact plant-authorized containment/restart and response-time requirements have not been supplied here.
 - Break relief and hidden support can falsely validate staffing by moving labor/backlog elsewhere.
 - No saturation on a low-demand Thursday is under-exposure, not proof.
 
 ## Data still needed
-1. Actual Thursday Op1, Op2, leader, observer, rescue/shadow and relief assignments.
+1. Actual Thursday Op1, Op2, leader, observer, rescue/shadow and relief assignments with availability timestamps.
 2. Source-level detail behind the 336-min Maintenance Support workload: event definition, event count, hands-on time, overlap rules and time-of-shift distribution.
 3. Demand-type/evidence tags for all workload-model rows and actual Thursday category minutes/events.
-4. Existing plant safety/quality/equipment containment, restart, abnormal-response priority and response-time requirements.
-5. Verified qualification matrix and one-person vs two-person task list.
-6. Frozen Op1/Op2 zone/route map, PRIMARY/FLEX ownership and handoff rules.
-7. Exact break schedule, relief source, relief qualifications and donor-role responsibilities.
-8. Protected/periodic task list with real due requirements.
-9. Thursday timestamped work elements, response milestones, running-press exposure, queues, saturation, support, mix, output and downtime.
-10. Historical matched shifts with staffing, press-hours, event counts, mix, support, cured tires, man-hours, TPMH and workload/response timestamps where available.
+4. Which work elements are truly due/committed within a 15-minute interval versus legitimately deferrable, based on existing plant requirements.
+5. Existing plant safety/quality/equipment containment, restart, abnormal-response priority and response-time requirements.
+6. Verified qualification matrix and one-person vs two-person task list.
+7. Frozen Op1/Op2 zone/route map, PRIMARY/FLEX ownership and handoff rules.
+8. Exact break schedule, relief source, relief qualifications and donor-role responsibilities.
+9. Protected/periodic task list with real due requirements.
+10. Thursday timestamped work elements, response milestones, running-press exposure, queues, saturation, support, mix, output and downtime.
+11. Historical matched shifts with staffing, press-hours, event counts, mix, support, cured tires, man-hours, TPMH and workload/response timestamps where available.
