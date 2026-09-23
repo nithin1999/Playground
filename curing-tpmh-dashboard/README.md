@@ -9,49 +9,45 @@ Pilot scheduled for Thursday, September 24, 2026. Project remains in pilot-prepa
 - Maintenance Support = **336 min (45.7%)** of modeled labor. Alarm Response + Maintenance Support + Bladder Support + Changeover Support = **548 min (74.5%)**. Timing/clustering and qualification constraints therefore matter as much as the shift total.
 - Comparable August alarm set: **8,732 events from 55 presses**. Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%. Alarm duration is not operator hands-on labor.
 
-## Latest improvement — Pilot Reaction Control Plan
-Thursday should not only collect data; it should run with a **predefined visual reaction loop** so abnormalities are handled consistently without leaders silently becoming a third operator.
+## Latest improvement — Exposure Adequacy Gate
+A low-demand pilot can look successful without actually testing the conditions that determine whether two operators are sustainable. Thursday therefore needs an **Exposure Adequacy Gate** before any staffing conclusion is made.
 
-Use four leading signals already supported by the pilot design: **(1) protected/due work state, (2) oldest Pending Work age, (3) both-qualified-operators committed / uncovered demand, and (4) outside-support or containment intervention**. For each signal, preassign: **who sees it, who owns the response, what existing plant rule triggers escalation/containment, what work is protected, and what must be logged before normal operation resumes**.
+Classify each critical operating state as **OBSERVED / WALKED-THROUGH / NOT TESTED**. At minimum track: normal running; planned break/relief; one abnormal event; concurrent demand; qualification conflict; legitimate two-person work; Maintenance Support demand; and late-shift operation. Do not manufacture unsafe or production-disruptive events just to fill the matrix. Scenario walk-throughs can validate ownership and reaction logic, but they are not equivalent to measured production exposure.
 
-Do **not** invent numeric thresholds for the pilot. Existing safety, quality, equipment-protection, production and authorization requirements govern reaction. Where a response requirement is unknown, mark it **NOT VERIFIED**. Leader response should restore/control the abnormality and preserve traceability; it should not silently perform routine operator work and make the 2-operator model appear stronger than it is.
+### Decision rule
+- A good shift with low abnormal demand can support **normal-state feasibility**, but cannot validate unobserved surge/qualification/two-person states.
+- A naturally observed state with timestamps, operator load, Pending Work/recovery, support and response evidence can contribute measured evidence.
+- A scenario walk-through verifies the **method/reaction design only**; label it WALKED-THROUGH, not pilot success.
+- Any critical state not encountered or safely walked remains **NOT TESTED** and stays as an explicit residual risk.
+- Final recommendation should state both **performance** and **coverage**: what worked and what operating states were actually tested.
 
-### Visual control
-Use one compact pilot board with four states: **NORMAL / WATCH / CONTAIN / RESTORED**. Every transition gets a timestamp, reason, owner and intervention/support tag. This converts the current measurement plan into an executable control plan and makes the difference between normal two-operator operation and rescue visible.
-
-### Why this changes the analysis
-- Strong TPMH with repeated CONTAIN events is not clean evidence of sustainable 2-operator operation.
-- Rising Pending Work with no response exposes a control-plan failure even before shift-end output deteriorates.
-- If leaders repeatedly need to decide ownership, dispatch or priorities, standardized work/visual management is not yet self-executing.
-- If containment is triggered by both operators being legitimately committed, the event becomes high-value evidence for a capacity/concurrency constraint.
-- If a free qualified operator exists but work still waits, investigate dispatch/visual control before adding manpower.
-- RESTORED should mean the abnormal condition and any associated recovery debt are visibly closed, not merely that the immediate alarm stopped.
+This prevents a quiet shift from creating false confidence and turns the pilot into a coverage-based experiment rather than a single TPMH observation.
 
 ## Existing analysis retained
-Qualification redundancy/cross-training; time-on-shift sustainability; single-owner abnormal response; paired-load concurrency; break-window feasibility and Recovery Debt; NORMAL/BREAK/SURGE standardized-work combination; multidimensional evidence matrix; readiness gate; observer/intervention protocol; GREEN/YELLOW/RED containment using existing plant requirements; surge recovery; route/motion loss; interruption/restart loss; interval capacity stress; workload confidence decomposition; response-time service curve; PRIMARY/FLEX dispatch; demand-state exposure; Pending-Work Aging / Service-Clock Control.
+Pilot Reaction Control Plan; Qualification redundancy/cross-training; time-on-shift sustainability; single-owner abnormal response; paired-load concurrency; break-window feasibility and Recovery Debt; NORMAL/BREAK/SURGE standardized-work combination; multidimensional evidence matrix; readiness gate; observer/intervention protocol; surge recovery; route/motion loss; interruption/restart loss; interval capacity stress; workload confidence decomposition; response-time service curve; PRIMARY/FLEX dispatch; demand-state exposure; Pending-Work Aging / Service-Clock Control.
 
 ## Best current strategy
 1. Run readiness gate; freeze people, zones/routes, relief, qualifications and plant-authorized reaction rules.
 2. Validate/confidence-tag the 736-minute model, especially 336 minutes Maintenance Support.
 3. Freeze PRIMARY/FLEX, single-owner abnormal response, handoff, break relief and observer/support rules.
-4. Build NORMAL / BREAK-RELIEF / SURGE standardized-work combination, paired-load and break-window views.
-5. Set up Pending-Work Aging plus the **NORMAL / WATCH / CONTAIN / RESTORED reaction board** with named ownership and existing plant escalation criteria.
-6. Scenario-walk normal work, a break, concurrent demand, qualification conflict, one-/two-person abnormality, containment and restoration.
-7. Run Thursday with timestamped work, response milestones, Pending Work age/state, paired load, qualification waits, support/intervention, motion, interruption and reaction-board transitions.
-8. Reconstruct qualified capacity, uncovered demand, recovery debt, oldest-pending age, support dependence, break/surge recovery and state-specific work sequence.
-9. Normalize for press-hours, event demand, mix, downtime, breaks and time-on-shift; complete the evidence matrix.
-10. Correct only the demonstrated constraint and repeat representative exposure before permanent staffing change.
+4. Predefine the **Exposure Adequacy Matrix** and distinguish measured production exposure from scenario walk-through.
+5. Build NORMAL / BREAK-RELIEF / SURGE standardized-work combination, paired-load and break-window views.
+6. Set up Pending-Work Aging plus NORMAL / WATCH / CONTAIN / RESTORED reaction control.
+7. Scenario-walk only safe, authorized states that may not occur naturally; do not count these as measured performance.
+8. Run Thursday with timestamped work, response milestones, Pending Work age/state, paired load, qualification waits, support/intervention, motion, interruption and operating-state tags.
+9. Reconstruct qualified capacity, uncovered demand, recovery debt, support dependence and state-specific work sequence; normalize for press-hours, event demand, mix, downtime, breaks and time-on-shift.
+10. Complete both the evidence matrix and exposure-coverage matrix. Correct only demonstrated constraints and repeat representative exposure before permanent staffing change.
 
 ## Immediate next action
-Before Thursday, put the four reaction signals on one visible sheet and fill in **signal owner / response owner / existing escalation rule / protected work / required log / restoration check**. Scenario-walk one case from NORMAL → WATCH/CONTAIN → RESTORED. Unknown rules stay NOT VERIFIED.
+Before Thursday, add one small **Exposure Adequacy Matrix** to the pilot packet. Rows: NORMAL, BREAK/RELIEF, SINGLE ABNORMAL, CONCURRENT DEMAND, QUALIFICATION CONFLICT, TWO-PERSON WORK, MAINTENANCE SUPPORT, LATE SHIFT. Columns: OBSERVED / WALKED-THROUGH / NOT TESTED, timestamp/evidence reference, outcome, support used, residual risk. Pre-mark everything NOT TESTED until evidence exists.
 
 ## Risks / gaps
 - No verified Thursday 2-operator performance exists yet; readiness itself is not verified.
+- A quiet shift can create false confidence if critical operating states are not exposed.
+- Walk-through evidence validates method logic but not production capacity or sustainable workload.
 - 55.8% average utilization can hide local concurrency, qualification, break, motion, interruption and late-shift constraints.
-- Leaders or support personnel can unintentionally mask a weak operating model if their interventions are not classified.
-- A reaction board without verified plant escalation/restoration authority cannot substitute for existing safety/quality rules.
+- Leaders or support personnel can unintentionally mask a weak operating model if interventions are not classified.
 - Maintenance Support is 45.7% of modeled labor and still needs hands-on/timing/qualification validation.
-- Low-demand exposure can leave important demand states NOT TESTED.
 
 ## Data still needed
 1. Actual Thursday Op1/Op2 assignments and verified qualification/authorization by task family.
@@ -62,5 +58,5 @@ Before Thursday, put the four reaction signals on one visible sheet and fill in 
 6. Observer/support roster and definition of normal-model versus pilot-only support.
 7. Frozen Op1/Op2 zone map and normal walking/response routes.
 8. Source-level detail behind the 336-min Maintenance Support workload.
-9. Thursday timestamped workload, reaction-board transitions, Pending Work age/state, qualification waits/handoffs, response milestones, running-press exposure, support/intervention, mix, output and downtime.
+9. Thursday timestamped workload, operating-state exposure, reaction transitions, Pending Work age/state, qualification waits/handoffs, response milestones, running-press exposure, support/intervention, mix, output and downtime.
 10. Historical matched shifts with staffing, press-hours, event counts, mix, support, cured tires, man-hours and TPMH where available.
