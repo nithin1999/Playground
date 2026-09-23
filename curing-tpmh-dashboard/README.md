@@ -9,79 +9,58 @@ Pilot scheduled for Thursday, September 24, 2026. Project remains in pilot-prepa
 - Maintenance Support = **336 min (45.7%)** of modeled labor. Alarm Response + Maintenance Support + Bladder Support + Changeover Support = **548 min (74.5%)**. Timing/clustering and qualification constraints therefore matter as much as the shift total.
 - Comparable August alarm set: **8,732 events from 55 presses**. Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%. Alarm duration is not operator hands-on labor.
 
-## Latest improvement — Pending-Work Aging / Service-Clock Control
-A simple Pending Work count can hide a dangerous condition: the queue can stay numerically small while one protected or qualification-restricted task waits too long. Thursday should therefore measure **age and due-state of pending work**, not only queue size.
+## Latest improvement — Pilot Reaction Control Plan
+Thursday should not only collect data; it should run with a **predefined visual reaction loop** so abnormalities are handled consistently without leaders silently becoming a third operator.
 
-For each task/event that cannot be started immediately, capture: **arrival/request time, required-by time if one exists, task family, owner, qualification requirement, protected/non-protected status, start time, close time, and reason for wait**. Display the oldest pending item and its state alongside total Pending WIP.
+Use four leading signals already supported by the pilot design: **(1) protected/due work state, (2) oldest Pending Work age, (3) both-qualified-operators committed / uncovered demand, and (4) outside-support or containment intervention**. For each signal, preassign: **who sees it, who owns the response, what existing plant rule triggers escalation/containment, what work is protected, and what must be logged before normal operation resumes**.
 
-Do not invent a universal acceptable waiting-time threshold. Use existing plant safety, quality, equipment-protection, production, and work-standard requirements. If no verified due/response requirement exists, mark it **NOT VERIFIED** rather than creating one for the pilot.
+Do **not** invent numeric thresholds for the pilot. Existing safety, quality, equipment-protection, production and authorization requirements govern reaction. Where a response requirement is unknown, mark it **NOT VERIFIED**. Leader response should restore/control the abnormality and preserve traceability; it should not silently perform routine operator work and make the 2-operator model appear stronger than it is.
+
+### Visual control
+Use one compact pilot board with four states: **NORMAL / WATCH / CONTAIN / RESTORED**. Every transition gets a timestamp, reason, owner and intervention/support tag. This converts the current measurement plan into an executable control plan and makes the difference between normal two-operator operation and rescue visible.
 
 ### Why this changes the analysis
-- Queue count alone does not reveal whether important work is aging toward or beyond an actual requirement.
-- A stable queue with increasing oldest-item age indicates the system may not be recovering even if TPMH remains strong.
-- If aging occurs while one operator has available but unqualified capacity, the likely constraint is skill coverage/dispatch rather than raw labor.
-- If aging occurs while both qualified operators are legitimately committed, it is stronger evidence of a local capacity/concurrency constraint.
-- If old work clears only after outside help, the pilot is support-dependent and that intervention must remain visible.
-- If the queue grows during a break but returns to its pre-break age/profile afterward without violating requirements, that is different from hidden Recovery Debt that persists.
-
-### Thursday use
-Use a small visual queue with columns **NEW / OWNED / IN WORK / COMPLETE** and timestamp each transition. Highlight protected work and show the **oldest pending age**. Preserve reason codes such as BOTH COMMITTED, QUALIFICATION, BREAK/RELIEF, TRAVEL, WAITING ON SUPPORT, TWO-PERSON REQUIREMENT, or OTHER VERIFIED CAUSE. This is an observation/control aid, not permission to override plant priorities.
+- Strong TPMH with repeated CONTAIN events is not clean evidence of sustainable 2-operator operation.
+- Rising Pending Work with no response exposes a control-plan failure even before shift-end output deteriorates.
+- If leaders repeatedly need to decide ownership, dispatch or priorities, standardized work/visual management is not yet self-executing.
+- If containment is triggered by both operators being legitimately committed, the event becomes high-value evidence for a capacity/concurrency constraint.
+- If a free qualified operator exists but work still waits, investigate dispatch/visual control before adding manpower.
+- RESTORED should mean the abnormal condition and any associated recovery debt are visibly closed, not merely that the immediate alarm stopped.
 
 ## Existing analysis retained
-- Qualification Redundancy / Cross-Training Coverage Test.
-- Time-on-Shift Sustainability Test (0–4 h / 4–8 h / 8–12 h).
-- Single-Owner Abnormal Response Test and explicit handoff tracking.
-- Paired-load concurrency analysis for Op1/Op2.
-- Break-Window Feasibility Map and post-break Recovery Debt.
-- State-Specific Standardized Work Combination Test for NORMAL / BREAK-RELIEF / SURGE.
-- Multidimensional Pilot Evidence Matrix; TPMH alone cannot pass the model.
-- GO / CONDITIONAL GO / NO-GO Pre-Pilot Readiness Gate.
-- Observer / Leader Intervention Protocol.
-- GREEN / YELLOW / RED Pilot Stop / Containment Rules using existing plant requirements only.
-- Surge Recovery / Queue-Drain Test.
-- Route-Deviation / Motion-Loss Test.
-- Interruption / Restart-Loss Test.
-- Interval Capacity Stress Test using actual availability and due/committed work.
-- Workload Confidence + BASE/PERIODIC/SURGE/CONTINGENCY decomposition; validate 336-min Maintenance Support first.
-- Response-Time Service-Level Curve.
-- Event-Driven Dispatch Priority Ladder; PRIMARY/FLEX ownership + handoff trigger.
-- Demand-State Exposure Coverage; unobserved important states are NOT TESTED.
+Qualification redundancy/cross-training; time-on-shift sustainability; single-owner abnormal response; paired-load concurrency; break-window feasibility and Recovery Debt; NORMAL/BREAK/SURGE standardized-work combination; multidimensional evidence matrix; readiness gate; observer/intervention protocol; GREEN/YELLOW/RED containment using existing plant requirements; surge recovery; route/motion loss; interruption/restart loss; interval capacity stress; workload confidence decomposition; response-time service curve; PRIMARY/FLEX dispatch; demand-state exposure; Pending-Work Aging / Service-Clock Control.
 
 ## Best current strategy
-1. Run the readiness gate; freeze people, zones, routes, relief and plant-authorized reaction rules.
-2. Freeze the operator × task-family qualification matrix and identify single-owner critical task families.
-3. Validate/confidence-tag the 736-min model, especially 336 min Maintenance Support, including manual/walk/machine/wait composition and qualification requirements.
-4. Freeze GREEN/YELLOW/RED containment, observer/support rules, PRIMARY/FLEX ownership, single-owner abnormal response, handback and dispatch priority.
-5. Build intended NORMAL / BREAK-RELIEF / SURGE standardized-work combination views.
-6. Build break-window and paired-load views showing due work, qualification constraints, event demand, relief capacity and simultaneous commitment.
-7. Add the **Pending-Work Aging / Service-Clock board** so backlog is measured by count, age, due-state and reason for wait.
-8. Scenario-walk normal work, breaks, one- and two-responder abnormalities, qualification conflicts, interruption/recovery, cross-zone response and restoration.
-9. Run Thursday with timestamped work, response milestones, 15-minute exposure windows, Pending Work transitions/age, saturation, qualification waits/handoffs, support/intervention, interruption, route-deviation and ownership tags.
-10. Reconstruct state-specific work sequences and calculate Interval Load, qualified capacity, oldest-pending age, due-state, qualification-driven wait, Interruption Tax, motion loss, surge recovery, Break Coverage Load, duplicate response and support dependence.
-11. Stratify by 0–4 h / 4–8 h / 8–12 h and normalize for press-hours, event demand, mix, downtime and breaks; complete the Pilot Evidence Matrix.
-12. Diagnose the demonstrated constraint and correct only that constraint; repeat representative exposure before permanent staffing change.
+1. Run readiness gate; freeze people, zones/routes, relief, qualifications and plant-authorized reaction rules.
+2. Validate/confidence-tag the 736-minute model, especially 336 minutes Maintenance Support.
+3. Freeze PRIMARY/FLEX, single-owner abnormal response, handoff, break relief and observer/support rules.
+4. Build NORMAL / BREAK-RELIEF / SURGE standardized-work combination, paired-load and break-window views.
+5. Set up Pending-Work Aging plus the **NORMAL / WATCH / CONTAIN / RESTORED reaction board** with named ownership and existing plant escalation criteria.
+6. Scenario-walk normal work, a break, concurrent demand, qualification conflict, one-/two-person abnormality, containment and restoration.
+7. Run Thursday with timestamped work, response milestones, Pending Work age/state, paired load, qualification waits, support/intervention, motion, interruption and reaction-board transitions.
+8. Reconstruct qualified capacity, uncovered demand, recovery debt, oldest-pending age, support dependence, break/surge recovery and state-specific work sequence.
+9. Normalize for press-hours, event demand, mix, downtime, breaks and time-on-shift; complete the evidence matrix.
+10. Correct only the demonstrated constraint and repeat representative exposure before permanent staffing change.
 
 ## Immediate next action
-Before Thursday, add **arrival time / required-by time / owner / qualification / protected status / start / close / wait reason** to the existing Pending Work log. Verify actual plant due/response requirements where they exist. Scenario-walk one case in which a second task arrives while the first operator is committed and confirm how the queue is prioritized without inventing a new rule.
+Before Thursday, put the four reaction signals on one visible sheet and fill in **signal owner / response owner / existing escalation rule / protected work / required log / restoration check**. Scenario-walk one case from NORMAL → WATCH/CONTAIN → RESTORED. Unknown rules stay NOT VERIFIED.
 
 ## Risks / gaps
 - No verified Thursday 2-operator performance exists yet; readiness itself is not verified.
 - 55.8% average utilization can hide local concurrency, qualification, break, motion, interruption and late-shift constraints.
-- Queue count without age can hide delayed protected work or incomplete recovery.
-- A critical task family with only one qualified owner creates a single-point-of-skill failure.
-- Relief can create hidden labor transfer and may not hold the same qualifications as Op1/Op2.
-- Maintenance Support is 45.7% of modeled labor and still needs definition, hands-on/timing and qualification validation.
+- Leaders or support personnel can unintentionally mask a weak operating model if their interventions are not classified.
+- A reaction board without verified plant escalation/restoration authority cannot substitute for existing safety/quality rules.
+- Maintenance Support is 45.7% of modeled labor and still needs hands-on/timing/qualification validation.
 - Low-demand exposure can leave important demand states NOT TESTED.
 
 ## Data still needed
 1. Actual Thursday Op1/Op2 assignments and verified qualification/authorization by task family.
 2. Relief/FLEX identities, qualifications and donor-role responsibilities.
-3. Existing task-specific due/response requirements for safety, quality, equipment protection and protected work; where none is verified, retain NOT VERIFIED.
-4. Which tasks require one person, two people, or specific authorization; approved cross-training path where applicable.
+3. Existing task-specific due/response requirements and plant stop/escalation/restoration authority.
+4. Which tasks require one person, two people, or specific authorization.
 5. Exact pilot shift start/end, break schedule and relief plan.
-6. Existing plant stop/escalation/containment criteria and stop/restart authority.
-7. Observer/support roster and definition of normal-model versus pilot-only support.
-8. Frozen Op1/Op2 zone map and normal walking/response routes.
-9. Source-level detail behind the 336-min Maintenance Support workload, including hands-on versus machine/wait time and qualification requirement.
-10. Thursday timestamped workload, Pending Work transitions/age, qualification waits/handoffs, response milestones, running-press exposure, queues, support/intervention, mix, output and downtime.
-11. Historical matched shifts with staffing, press-hours, event counts, mix, support, cured tires, man-hours and TPMH where available.
+6. Observer/support roster and definition of normal-model versus pilot-only support.
+7. Frozen Op1/Op2 zone map and normal walking/response routes.
+8. Source-level detail behind the 336-min Maintenance Support workload.
+9. Thursday timestamped workload, reaction-board transitions, Pending Work age/state, qualification waits/handoffs, response milestones, running-press exposure, support/intervention, mix, output and downtime.
+10. Historical matched shifts with staffing, press-hours, event counts, mix, support, cured tires, man-hours and TPMH where available.
