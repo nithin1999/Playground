@@ -9,12 +9,18 @@ Pilot scheduled for Thursday, September 24, 2026. Project remains in pilot-prepa
 - Maintenance Support = **336 min (45.7%)** of modeled labor and remains a major uncertainty.
 - Comparable August alarm set: **8,732 events from 55 presses**. Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%. Alarm duration is not operator hands-on labor.
 
-## Latest improvement — Interval Qualified-Load Saturation Map
-Shift-average utilization can hide short periods where the two-operator design is locally overloaded. For the pilot, reconstruct demand in short intervals (default analysis view: 15 minutes, using raw timestamps underneath) and compare **qualified hands-on demand minutes** with **qualified operator minutes actually available** in the same interval. Keep machine automatic time separate from operator labor, and preserve task qualification/authorization requirements.
+## Latest improvement — Surge Recovery / Queue-Drain Curve
+Interval load identifies when demand exceeds locally available qualified labor, but a short overload is not automatically evidence that two operators are infeasible. The critical follow-up is whether the team can **recover after the surge without unsafe shortcuts, unresolved protected work, hidden outside labor, or persistent backlog**.
 
-For each interval calculate a diagnostic **Qualified Load Ratio = qualified hands-on demand minutes / qualified operator minutes available**. A ratio above 1.00 is arithmetic evidence that observed qualified demand exceeded the locally available qualified labor in that interval; it is not a new plant response threshold. Also tag intervals where total minutes appear feasible but the required skill is unavailable, where both operators are concurrently committed, where break coverage removes capacity, and where external support absorbs demand. Use these intervals to build the NORMAL / BREAK / SURGE standardized-work combination view and to identify the actual bottleneck: workload, qualification, motion, concurrency, relief, or support dependence.
+For each observed surge, break-induced overload, or concurrent abnormal event, timestamp: **surge start | peak pending-work count | oldest pending-work age | surge end | recovery start | recovery complete | external support minutes | protected work unresolved at recovery**. Plot Pending Work (count and oldest age) through time. Preserve raw timestamps.
 
-Do not infer hands-on demand from alarm duration. Use observed operator timestamps/work elements; mark missing work content as NOT VERIFIED. Preserve raw timestamps so interval size can be changed after the pilot without recollecting data.
+Interpretation:
+- **Self-clearing:** backlog rises temporarily and returns to the pre-event state using the frozen two-operator/approved normal-support model.
+- **Support-cleared:** recovery occurs only after external/pilot-only labor is added; do not credit this as standalone two-operator recovery.
+- **Persistent recovery debt:** backlog/age remains elevated or protected work remains unresolved; investigate the demonstrated constraint before retest.
+- **Not exposed:** no representative surge occurred; do not claim surge capability was validated.
+
+Do not invent an allowable recovery-time threshold. Compare recovery behavior with existing task due/response rules and the pre-event state. This converts the pilot from a static staffing test into a resilience test: can the two-operator design absorb a realistic disturbance and return to standard?
 
 ## Best current strategy
 1. Run readiness gate and freeze pilot configuration before start.
@@ -24,18 +30,20 @@ Do not infer hands-on demand from alarm duration. Use observed operator timestam
 5. Build NORMAL / BREAK-RELIEF / SURGE standardized-work combination and paired-load views.
 6. Use a break-release handshake at every observed break and tag transfer outcome plus recovery debt.
 7. Track Effective Manning: core operator hours + every external support/relief episode + donor-role impact.
-8. **Reconstruct interval Qualified Load Ratio and tag skill/concurrency/break/support constraints instead of relying on 55.8% shift-average utilization.**
-9. Use Pending-Work Aging and NORMAL/WATCH/CONTAIN/RESTORED reaction control.
-10. Run timestamped pilot with operating-state and deviation tags.
-11. Separate IN-STANDARD from DEVIATED/CONTAINED exposure; reconstruct qualified capacity, recovery debt, support dependence and state-specific work sequence.
-12. Normalize exposure, compare adequate matched shifts, apply frozen decision rules, fix demonstrated constraints and retest representative exposure before permanent staffing change.
+8. Reconstruct interval Qualified Load Ratio and tag skill/concurrency/break/support constraints instead of relying on 55.8% shift-average utilization.
+9. **For every overload/surge, measure the Pending-Work recovery curve and classify self-clearing vs support-cleared vs persistent recovery debt.**
+10. Use Pending-Work Aging and NORMAL/WATCH/CONTAIN/RESTORED reaction control.
+11. Run timestamped pilot with operating-state and deviation tags.
+12. Separate IN-STANDARD from DEVIATED/CONTAINED exposure; reconstruct qualified capacity, recovery debt, support dependence and state-specific work sequence.
+13. Normalize exposure, compare adequate matched shifts, apply frozen decision rules, fix demonstrated constraints and retest representative exposure before permanent staffing change.
 
 ## Immediate next action
-Before Thursday, make sure the observation log can reconstruct these fields from raw timestamps: **task/event | start | end | operator | task family | qualification required | break/available state | external support | operating state**. After the shift, calculate 15-minute qualified demand and available qualified operator-minutes, then flag intervals above 1.00 and intervals with skill/concurrency/support constraints. Do not create an arbitrary utilization target from this diagnostic.
+Before Thursday, ensure the observation log can link every overload/concurrent event to its recovery: **event start | Pending Work count/oldest age | event end | recovery complete | support used | protected work status**. Use the same existing raw event log rather than a separate form. After the pilot, plot Pending Work count/age around each surge and determine whether the frozen staffing model actually returned to its pre-event condition.
 
 ## Risks / gaps
 - No verified Thursday 2-operator performance exists yet; readiness is not verified.
 - The 55.8% shift-average utilization can conceal short-duration qualified-load saturation and simultaneous demand.
+- A short overload may be acceptable only if recovery is controlled; persistent recovery debt can be hidden by shift-end averages.
 - External relief/help can make a nominal two-operator trial look feasible while consuming labor elsewhere.
 - Pulling mold/bladder or other personnel for relief can transfer backlog rather than eliminate workload.
 - A quiet shift can create false confidence if abnormal states are not exposed.
@@ -51,6 +59,7 @@ Before Thursday, make sure the observation log can reconstruct these fields from
 7. Frozen Op1/Op2 zone map and normal walking/response routes.
 8. Source-level detail behind the 336-min Maintenance Support workload.
 9. Thursday raw timestamps for work, breaks, external interventions, Pending Work, qualification waits, response milestones, running presses, mix, output and downtime.
-10. External support/relief minutes by role plus donor-role backlog/recovery where people are borrowed.
-11. Historical candidate shifts with comparable staffing, exposure, support, output, man-hours and TPMH.
-12. Interval-level hands-on work content and qualification tags needed to reconstruct qualified demand versus available qualified operator-minutes.
+10. Pending-Work count and oldest-age history around overload/surge events, including recovery-complete timestamps.
+11. External support/relief minutes by role plus donor-role backlog/recovery where people are borrowed.
+12. Historical candidate shifts with comparable staffing, exposure, support, output, man-hours and TPMH.
+13. Interval-level hands-on work content and qualification tags needed to reconstruct qualified demand versus available qualified operator-minutes.
