@@ -9,12 +9,14 @@ Pilot scheduled for Thursday, September 24, 2026. Project remains in pilot-prepa
 - Maintenance Support = **336 min (45.7%)** of modeled labor and remains a major uncertainty.
 - Comparable August alarm set: **8,732 events from 55 presses**. Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%. Alarm duration is not operator hands-on labor.
 
-## Latest improvement — Pending-Work WIP Cap / Escalation Trigger
-The pilot already tracks Pending Work aging and abnormal-work ownership. The next improvement is to prevent a quiet accumulation of open work from being hidden by good shift-average TPMH. Use a **visual finite Pending-Work queue** for transferable abnormal/non-routine work. Keep FIFO/oldest-due sequence unless existing safety, quality, equipment-protection, authorization, or task-specific due rules require a different priority.
+## Latest improvement — Motion-Burden / Response-Route Map
+The pilot now explicitly separates **dispatch delay, travel time, and hands-on response time**. In a machine-intensive area, operators are often routed by abnormal signals rather than a fixed repetitive cycle. A two-operator model can therefore fail because of route geometry and unnecessary motion even when total hands-on workload is below available labor.
 
-Do **not invent a numeric WIP cap before observing the process**. During Thursday's pilot, record the maximum simultaneous open items, oldest pending age, qualification required, and whether each item self-cleared, needed normal-model support, needed pilot-only support, or remained unresolved. After the pilot, set any permanent queue-cap/escalation threshold only from verified plant response requirements and observed sustainable recovery behavior.
+During Thursday's pilot, preserve raw timestamps for **event raised | owner assigned/accepted | operator departs | arrives at machine | hands-on start | cleared** and record origin zone and destination zone. Use the actual paths afterward to build a spaghetti/response-route map for Op1 and Op2. Do not ask operators to walk an artificial route merely for measurement.
 
-If the visible queue reaches the available physical/visual slots or work is approaching an existing required response/due limit, the reaction is **CONTAIN**: stop accepting discretionary work, protect safety/quality/equipment obligations, make the constraint visible, and use the existing escalation path. The objective is not to make two operators look successful; it is to expose when the system cannot absorb variability without accumulating hidden work.
+Classify observed response loss as **dispatch/ownership delay | travel/motion | qualification wait | concurrent qualified work | hands-on task time | external-support dependence**. This prevents travel created by poor zoning or point-of-use design from being mistaken for evidence that a third full-shift operator is required.
+
+For improvement, rank repeated high-frequency/high-time paths first. Candidate countermeasures should follow the evidence: adjust Op1/Op2 zone boundaries, relocate approved point-of-use tools/forms/materials where permitted, change the PRIMARY/FLEX handoff point, or cross-train to avoid unnecessary cross-zone response. Safety, authorization, access, and equipment constraints override travel reduction. No route change is considered validated until observed safely in representative work.
 
 ## Best current strategy
 1. Run readiness gate and freeze pilot configuration before start.
@@ -23,23 +25,25 @@ If the visible queue reaches the available physical/visual slots or work is appr
 4. Freeze qualifications, zones/routes, PRIMARY/FLEX, abnormal-response ownership, break relief and normal-model support boundaries.
 5. Build NORMAL / BREAK-RELIEF / SURGE standardized-work combination and paired-load views.
 6. Use visual abnormal-work dispatch and explicit PRIMARY/FLEX ownership transfer.
-7. **Use a finite visual Pending-Work queue with FIFO/oldest-due sequencing and a visible CONTAIN reaction when the queue or existing due limits are threatened.**
+7. Use a finite visual Pending-Work queue with FIFO/oldest-due sequencing and a visible CONTAIN reaction when existing due limits are threatened.
 8. Use a break-release handshake at every observed break and tag transfer outcome plus recovery debt.
 9. Track Effective Manning: core operator hours + every external support/relief episode + donor-role impact.
 10. Reconstruct interval Qualified Load Ratio and tag skill/concurrency/break/support constraints instead of relying on 55.8% shift-average utilization.
 11. For every overload/surge, measure the Pending-Work recovery curve and classify self-clearing vs support-cleared vs persistent recovery debt.
-12. Run timestamped pilot with operating-state and deviation tags.
-13. Separate IN-STANDARD from DEVIATED/CONTAINED exposure; reconstruct qualified capacity, recovery debt, support dependence and state-specific work sequence.
-14. Normalize exposure, compare adequate matched shifts, apply frozen decision rules, fix demonstrated constraints and retest representative exposure before permanent staffing change.
+12. **Separate dispatch delay, travel time and hands-on response; build an actual-path spaghetti/response-route map and rank recurring motion burden.**
+13. Run timestamped pilot with operating-state and deviation tags.
+14. Separate IN-STANDARD from DEVIATED/CONTAINED exposure; reconstruct qualified capacity, recovery debt, support dependence and state-specific work sequence.
+15. Normalize exposure, compare adequate matched shifts, apply frozen decision rules, fix demonstrated constraints and retest representative exposure before permanent staffing change.
 
 ## Immediate next action
-Before Thursday, convert the Open Abnormal Work area into a **visible finite queue** with numbered slots and these fields: **raised | zone | task | qualification | due/response requirement if one exists | PRIMARY | FLEX | accepted | working | cleared**. Preserve FIFO/oldest-due sequence unless existing priority rules override it. During the pilot record peak open items and oldest age; do not invent an acceptable queue-size threshold beforehand.
+Before Thursday, ensure the observation sheet can reconstruct **event raised | accepted/owner | depart | arrive | hands-on start | cleared | origin zone | destination zone**. Use the actual pilot paths afterward to produce one Op1/Op2 spaghetti/response-route map and a Pareto of travel minutes by route/reason. Do not create an arbitrary travel target before observing the process.
 
 ## Risks / gaps
 - No verified Thursday 2-operator performance exists yet; readiness is not verified.
 - The 55.8% shift-average utilization can conceal short-duration qualified-load saturation and simultaneous demand.
-- Open work can accumulate invisibly while TPMH still looks favorable; without a visible finite queue the trial may end with hidden recovery debt.
-- Undefined dispatch can create duplicate response, unnecessary cross-zone walking and aged Pending Work that falsely resembles insufficient manpower.
+- Travel/motion burden can consume response capacity even when hands-on workload appears feasible; without timestamp separation it can be misdiagnosed as insufficient staffing.
+- Open work can accumulate invisibly while TPMH still looks favorable.
+- Undefined dispatch can create duplicate response, unnecessary cross-zone walking and aged Pending Work.
 - External relief/help can make a nominal two-operator trial look feasible while consuming labor elsewhere.
 - Pulling mold/bladder or other personnel for relief can transfer backlog rather than eliminate workload.
 - A quiet shift can create false confidence if abnormal states are not exposed.
@@ -50,7 +54,7 @@ Before Thursday, convert the Open Abnormal Work area into a **visible finite que
 2. Exact break schedule and approved relief source; whether relief is dedicated/shared and what donor work must continue.
 3. Relief/FLEX identities, qualifications and donor-role responsibilities.
 4. Which tasks require one person, two people, or specific authorization.
-5. Existing task-specific priority, due/response and stop/escalation/restoration rules needed to finalize dispatch and queue reactions.
+5. Existing task-specific priority, due/response and stop/escalation/restoration rules.
 6. Observer/support roster and explicit normal-model versus pilot-only support boundary.
 7. Frozen Op1/Op2 zone map and normal walking/response routes.
 8. Source-level detail behind the 336-min Maintenance Support workload.
@@ -60,3 +64,4 @@ Before Thursday, convert the Open Abnormal Work area into a **visible finite que
 12. Historical candidate shifts with comparable staffing, exposure, support, output, man-hours and TPMH.
 13. Interval-level hands-on work content and qualification tags needed to reconstruct qualified demand versus available qualified operator-minutes.
 14. Concurrency episodes with initial owner, any ownership transfer, duplicate response, travel delay and final clearance time.
+15. Event-level origin/destination, depart/arrival timestamps, repeated routes, and location of frequently retrieved tools/forms/materials needed to quantify motion burden.
