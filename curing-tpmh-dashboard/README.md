@@ -9,20 +9,12 @@ Pilot scheduled for Thursday, September 24, 2026. Project remains in pilot-prepa
 - Maintenance Support = **336 min (45.7%)** of modeled labor and remains a major uncertainty.
 - Comparable August alarm set: **8,732 events from 55 presses**. Same-minute starts: 0 alarms 81.5%, 1 alarm 15.2%, 2 alarms 2.86%, >2 alarms 0.50%. Alarm duration is not operator hands-on labor.
 
-## Latest improvement — Abnormal-Work Dispatch / Ownership Standard
-The two-operator model now needs an explicit rule for **who responds to what when multiple demands appear**. Without a dispatch standard, two qualified operators can duplicate response to one event, cross paths unnecessarily, or allow older/protected work to age while chasing the newest alarm. This is a coordination loss, not necessarily a manpower shortage.
+## Latest improvement — Pending-Work WIP Cap / Escalation Trigger
+The pilot already tracks Pending Work aging and abnormal-work ownership. The next improvement is to prevent a quiet accumulation of open work from being hidden by good shift-average TPMH. Use a **visual finite Pending-Work queue** for transferable abnormal/non-routine work. Keep FIFO/oldest-due sequence unless existing safety, quality, equipment-protection, authorization, or task-specific due rules require a different priority.
 
-Use a simple visual abnormal-work queue during the pilot. Each open item should show: **time raised | machine/zone | task/event | safety/quality/equipment priority per existing plant rules | qualification required | PRIMARY owner | FLEX/backup | status | time accepted | time work started | time cleared**. Preserve existing plant escalation rules; do not invent numerical response thresholds.
+Do **not invent a numeric WIP cap before observing the process**. During Thursday's pilot, record the maximum simultaneous open items, oldest pending age, qualification required, and whether each item self-cleared, needed normal-model support, needed pilot-only support, or remained unresolved. After the pilot, set any permanent queue-cap/escalation threshold only from verified plant response requirements and observed sustainable recovery behavior.
 
-Dispatch logic:
-1. Existing safety, quality, equipment-protection and authorized stop/escalation rules always override productivity.
-2. If only one operator is qualified/authorized, assign that operator and protect the other operator's base work.
-3. Otherwise use frozen PRIMARY ownership first to avoid duplicate response and random walking.
-4. FLEX crosses zones only when PRIMARY is already committed, unavailable/on break, or the defined reaction condition is reached.
-5. When multiple eligible items compete, use existing due/response requirements and oldest pending work to make the next job visible rather than selecting ad hoc.
-6. Every ownership transfer is explicit: ACCEPTED / WORKING / CLEARED. If external help is used, retain effective-manning and donor-backlog accounting.
-
-Post-pilot, classify each concurrency episode as **clean dispatch | qualification-constrained | duplicate/unclear ownership | travel-induced delay | external-support dependent | true qualified-capacity saturation**. This distinguishes a bad dispatch design from a genuine need for more labor.
+If the visible queue reaches the available physical/visual slots or work is approaching an existing required response/due limit, the reaction is **CONTAIN**: stop accepting discretionary work, protect safety/quality/equipment obligations, make the constraint visible, and use the existing escalation path. The objective is not to make two operators look successful; it is to expose when the system cannot absorb variability without accumulating hidden work.
 
 ## Best current strategy
 1. Run readiness gate and freeze pilot configuration before start.
@@ -30,24 +22,24 @@ Post-pilot, classify each concurrency episode as **clean dispatch | qualificatio
 3. Validate/confidence-tag the 736-minute workload, especially 336 minutes Maintenance Support.
 4. Freeze qualifications, zones/routes, PRIMARY/FLEX, abnormal-response ownership, break relief and normal-model support boundaries.
 5. Build NORMAL / BREAK-RELIEF / SURGE standardized-work combination and paired-load views.
-6. **Use the visual abnormal-work dispatch queue and explicit PRIMARY/FLEX ownership transfer to prevent duplicate response and random walking.**
-7. Use a break-release handshake at every observed break and tag transfer outcome plus recovery debt.
-8. Track Effective Manning: core operator hours + every external support/relief episode + donor-role impact.
-9. Reconstruct interval Qualified Load Ratio and tag skill/concurrency/break/support constraints instead of relying on 55.8% shift-average utilization.
-10. For every overload/surge, measure the Pending-Work recovery curve and classify self-clearing vs support-cleared vs persistent recovery debt.
-11. Use Pending-Work Aging and NORMAL/WATCH/CONTAIN/RESTORED reaction control.
+6. Use visual abnormal-work dispatch and explicit PRIMARY/FLEX ownership transfer.
+7. **Use a finite visual Pending-Work queue with FIFO/oldest-due sequencing and a visible CONTAIN reaction when the queue or existing due limits are threatened.**
+8. Use a break-release handshake at every observed break and tag transfer outcome plus recovery debt.
+9. Track Effective Manning: core operator hours + every external support/relief episode + donor-role impact.
+10. Reconstruct interval Qualified Load Ratio and tag skill/concurrency/break/support constraints instead of relying on 55.8% shift-average utilization.
+11. For every overload/surge, measure the Pending-Work recovery curve and classify self-clearing vs support-cleared vs persistent recovery debt.
 12. Run timestamped pilot with operating-state and deviation tags.
 13. Separate IN-STANDARD from DEVIATED/CONTAINED exposure; reconstruct qualified capacity, recovery debt, support dependence and state-specific work sequence.
 14. Normalize exposure, compare adequate matched shifts, apply frozen decision rules, fix demonstrated constraints and retest representative exposure before permanent staffing change.
 
 ## Immediate next action
-Before Thursday, add a small **Open Abnormal Work** area to the existing pilot visual/log rather than creating another form: **raised | zone | task | required qualification | PRIMARY | FLEX | accepted | working | cleared**. Scenario-walk one simultaneous-demand case and one qualification-conflict case so Op1/Op2 know who owns the first response and when FLEX crosses zones. Record deviations during the real pilot instead of changing the rule mid-shift.
+Before Thursday, convert the Open Abnormal Work area into a **visible finite queue** with numbered slots and these fields: **raised | zone | task | qualification | due/response requirement if one exists | PRIMARY | FLEX | accepted | working | cleared**. Preserve FIFO/oldest-due sequence unless existing priority rules override it. During the pilot record peak open items and oldest age; do not invent an acceptable queue-size threshold beforehand.
 
 ## Risks / gaps
 - No verified Thursday 2-operator performance exists yet; readiness is not verified.
 - The 55.8% shift-average utilization can conceal short-duration qualified-load saturation and simultaneous demand.
+- Open work can accumulate invisibly while TPMH still looks favorable; without a visible finite queue the trial may end with hidden recovery debt.
 - Undefined dispatch can create duplicate response, unnecessary cross-zone walking and aged Pending Work that falsely resembles insufficient manpower.
-- A short overload may be acceptable only if recovery is controlled; persistent recovery debt can be hidden by shift-end averages.
 - External relief/help can make a nominal two-operator trial look feasible while consuming labor elsewhere.
 - Pulling mold/bladder or other personnel for relief can transfer backlog rather than eliminate workload.
 - A quiet shift can create false confidence if abnormal states are not exposed.
@@ -58,12 +50,12 @@ Before Thursday, add a small **Open Abnormal Work** area to the existing pilot v
 2. Exact break schedule and approved relief source; whether relief is dedicated/shared and what donor work must continue.
 3. Relief/FLEX identities, qualifications and donor-role responsibilities.
 4. Which tasks require one person, two people, or specific authorization.
-5. Existing task-specific priority, due/response and stop/escalation/restoration rules needed to finalize dispatch order.
+5. Existing task-specific priority, due/response and stop/escalation/restoration rules needed to finalize dispatch and queue reactions.
 6. Observer/support roster and explicit normal-model versus pilot-only support boundary.
 7. Frozen Op1/Op2 zone map and normal walking/response routes.
 8. Source-level detail behind the 336-min Maintenance Support workload.
 9. Thursday raw timestamps for work, breaks, external interventions, Pending Work, qualification waits, response milestones, running presses, mix, output and downtime.
-10. Pending-Work count and oldest-age history around overload/surge events, including recovery-complete timestamps.
+10. Peak simultaneous Pending Work, oldest-age history and recovery-complete timestamps around overload/surge events.
 11. External support/relief minutes by role plus donor-role backlog/recovery where people are borrowed.
 12. Historical candidate shifts with comparable staffing, exposure, support, output, man-hours and TPMH.
 13. Interval-level hands-on work content and qualification tags needed to reconstruct qualified demand versus available qualified operator-minutes.
